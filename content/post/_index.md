@@ -1,5 +1,5 @@
 ---
 title: Materials
-view: list
+view: card
 count: 11
 ---
