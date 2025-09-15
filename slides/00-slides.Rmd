@@ -53,13 +53,13 @@ knitr::include_graphics("images/psy-logo.png")
 ]
 # Introduction and Orientation
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 ---
 class: split-four
 
-# Hello `r emo::ji("wave")`
+# Hello `r emoji::emoji("wave")`
 
-###  Welcome to the 7th annual UO R Bootcamp!
+###  Welcome to the 8th annual UO R Bootcamp!
 
 
 
@@ -87,11 +87,11 @@ knitr::include_graphics("images/dom.png")
 .column[.content[.center[<br><br><br><br><br><br>
 
 ```{r echo = FALSE, out.width="100%"}
-knitr::include_graphics("images/den.png")
+knitr::include_graphics("images/sop.png")
 ```
 
 
-### <u>Denicia</u>
+### <u>Sophia</u>
 
 ]]]
 
@@ -100,19 +100,19 @@ knitr::include_graphics("images/den.png")
 .column[.content[.center[<br><br><br><br><br><br>
 
 ```{r echo = FALSE, out.width="100%"}
-knitr::include_graphics("images/ben.png")
+knitr::include_graphics("images/neha.png")
 ```
 
 
-### <u>Ben</u>
+### <u>Neha</u>
 
 
 ]]]
 ---
-# Schedule `r emo::ji("calendar")`
+# Schedule `r emoji::emoji("calendar")`
 
 
-#### **Day 1: Wednesday, 9/25, 9 AM - 12 PM PDT**
+#### **Day 1: Wednesday, 9/24, 9 AM - 12 PM PDT**
 .smaller-font[
 + Basics of R, RStudio, & R Markdown
 + Data Types & Structures
@@ -120,7 +120,7 @@ knitr::include_graphics("images/ben.png")
 
 --
 
-#### **Day 2: Thursday, 9/26, 9 AM - 12 PM PDT**
+#### **Day 2: Thursday, 9/25, 9 AM - 12 PM PDT**
 .smaller-font[
 + Piping
 + Introduction to the Tidyverse
@@ -129,7 +129,7 @@ knitr::include_graphics("images/ben.png")
 
 --
 
-#### **Day 3: Friday, 9/27, 9 AM - 1 PM PDT**
+#### **Day 3: Friday, 9/26, 9 AM - 1 PM PDT**
 .smaller-font[+ Data Tidying with `{tidyr}`
 + Data Visualization with `{ggplot2}`
 + R Tips & Tricks]
@@ -142,7 +142,7 @@ class: split-three
 <br><br><br><br><br>
 # [`r fontawesome::fa("slack", height = "120px")`](https://uopsychology.slack.com/)
 
-### Slack <br> (#rbootcamp-2024)
+### Slack <br> (#rbootcamp-2025)
 ]]]
 
 .column[.content[.center[
@@ -154,7 +154,7 @@ class: split-three
 
 .column[.content[.center[
 <br><br><br><br><br>
-# [`r fontawesome::fa("github", height = "120px")`](https://github.com/ian-shryock/summeRbootcamp2024)
+# [`r fontawesome::fa("github", height = "120px")`](https://github.com/ian-shryock/summeRbootcamp2025)
 
 ### GitHub
 ]]]
@@ -334,7 +334,7 @@ class: inverse, center, middle
 
 ---
 
-## R is fun `r emo::ji("partying_face")`
+## R is fun `r emoji::emoji("partying_face")`
 
 ---
 class: yourturn, center, middle

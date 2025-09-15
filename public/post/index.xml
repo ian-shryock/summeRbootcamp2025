@@ -5,7 +5,7 @@
     <link>https://example.com/post/</link>
       <atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Materials</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://example.com/media/icon_hu_74834f8386d071.png</url>
       <title>Materials</title>
@@ -15,7 +15,7 @@
     <item>
       <title>00 - Welcome</title>
       <link>https://example.com/post/00-welcome/</link>
-      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://example.com/post/00-welcome/</guid>
       <description>&lt;script src=&#34;https://example.com/post/00-welcome/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;Welcome, everyone! We’re glad you’re here.&lt;/p&gt;
