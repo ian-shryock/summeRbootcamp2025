@@ -1,6 +1,6 @@
 ---
 title: People
-date: 2024-09-21
+date: 2025-09-21
 type: docs
 
 sections:
@@ -12,22 +12,22 @@ sections:
 
 ![image info](./ian.jpg)
 
-Ian is a fifth-year doctoral student in the clinical and personality areas. His research focuses on understanding transdiagnostic emotional processes as they unfold in daily life. He is also interested in improving the measurement of psychological attributes in research and clinical practice. Accordingly, he uses a combination of mixed-effects models, distributional regression, and item response theory in his work.
+Ian is a sixth-year doctoral student in the clinical and personality areas. His research focuses on understanding transdiagnostic emotional processes as they unfold in daily life. He is also interested in improving the measurement of psychological attributes in research and clinical practice. Accordingly, he uses a combination of mixed-effects models, distributional regression, and item response theory in his work.
 
 ## Dominik Grätz
 
 ![image info](./dom.jpg)
-Dominik is a fifth-year PhD student in Ulrich Mayr's lab at the University of Oregon. He is interested in cognitive control, specifically in how the cognitive system selects information from different sources. He uses R primarily to clean, analyze, and visualize data, but also to create Shiny applications or to edit images.
 
-## Denicia Espinosa Aragon 
+Dominik is a sixth-year PhD student in Ulrich Mayr's lab at the University of Oregon. He is interested in cognitive control, specifically in how the cognitive system selects information from different sources. He uses R primarily to clean, analyze, and visualize data, but also to create Shiny applications or to edit images.
 
-![image info](./den.jpg)
+## Sophia Angleton 
 
-Denicia is a fourth-year doctoral student in Psychology at the University of Oregon. Her research focuses on future self perception, neuroeconomics, underrepresented population perspectives. More specifically, she is interested in how to improve how individuals connect with their future self to make for better current actions.
+![image info](./sop.jpg)
 
-## Ben Chaloupka
+Sophia is a second-year PhD student working with Ulrich Mayr in the Cognitive Dynamics Lab. Her research interests include cognitive control- specifically cognitive stability/flexibility mechanisms, decision-making, working memory and pre-crastination. She uses R to clean, analyze and visualize data and is currently taking the Educational Data Science Specialization course series offered here at the University of Oregon. Outside of research, she enjoys spending time with her two cats, biking, swimming, climbing and searching (in vain) for half-decent food in Eugene.
 
-![image info](./ben.jpg)
+## Neha Nagarkar
 
-Ben is entering the final year of his PhD program at UO. He is a member of Dasa Zeithamova's Brain and Memory Lab studying the cognitive neuroscience of memory. Outside of the lab, Ben spends most of his time rock climbing, mountaineering, and playing disc golf. He loves R and RStudio/Posit, and uses them for data cleaning, analysis, and visualization for his dissertation research, as well as for fun, such as analyzing his climbing data (yes, he logs all of his outdoor climbs). 
+![image info](./neha.jpg)
 
+Neha is a second year PhD student in Dr. Ulrich Mayr’s lab at the University of Psychology. She is in the Department of Psychology, with an interest in cognitive control and decision-making. Specifically, she is looking at the mechanisms and task representations that aid in flexible decision-making upon encountering stimuli in complex and novel contexts. She uses RStudio to clean, visualize, and analyze experimental data, and especially likes tidyverse. 

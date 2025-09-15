@@ -11,7 +11,7 @@ profiles:
 - icon: "custom/slack"
   link: https://uopsychology.slack.com/
 - icon: brands/github
-  link: https://github.com/ian-shryock/summeRbootcamp2024
+  link: https://github.com/ian-shryock/summeRbootcamp2025
 superuser: true
 ---
 

@@ -30,7 +30,7 @@ sections:
   id: logistics
   content:
     subtitle: ""
-    text: "*How to prep*: Please check out the <a href='https://uorbootcamp2025.netlify.app/prework/'>Prework</a> page\n\n*Where to meet*: Straub 008 (that's in the basement, down the stairs just past the psychology office)\n\n*Where to chat*: <a href='https://uopsychology.slack.com'>UO Psychology Slack</a> -- (use channel `#rbootcamp-2024`) \n\n*Where to access source code*: <a href='https://github.com/ian-shryock/summeRbootcamp2024'>GitHub</a>"
+    text: "*How to prep*: Please check out the <a href='https://uorbootcamp2025.netlify.app/prework/'>Prework</a> page\n\n*Where to meet*: Straub 008 (that's in the basement, down the stairs just past the psychology office)\n\n*Where to chat*: <a href='https://uopsychology.slack.com'>UO Psychology Slack</a> -- (use channel `#rbootcamp-2025`) \n\n*Where to access this site's source code*: <a href='https://github.com/ian-shryock/summeRbootcamp2025'>GitHub</a>"
     title: "Logistics"
 - block: collection
   id: materials
