@@ -2,79 +2,75 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:3016/post/00-welcome/</loc>
+    <loc>https://example.com/post/00-welcome/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/01-r-basics/</loc>
+    <loc>https://example.com/post/01-r-basics/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/02-data-types/</loc>
+    <loc>https://example.com/post/02-data-types/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/03-functions/</loc>
+    <loc>https://example.com/post/03-functions/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/04-pipes/</loc>
+    <loc>https://example.com/post/04-pipes/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/05-intro-tidyverse/</loc>
+    <loc>https://example.com/post/05-intro-tidyverse/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/06-importing-workflows/</loc>
+    <loc>https://example.com/post/06-importing-workflows/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/07-dplyr/</loc>
+    <loc>https://example.com/post/07-dplyr/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/08-tidyr/</loc>
+    <loc>https://example.com/post/08-tidyr/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/09-ggplot2/</loc>
+    <loc>https://example.com/post/09-ggplot2/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/10-tips/</loc>
+    <loc>https://example.com/post/10-tips/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/</loc>
+    <loc>https://example.com/post/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/post/</loc>
+    <loc>https://example.com/people/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/people/</loc>
+    <loc>https://example.com/prework/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/prework/</loc>
+    <loc>https://example.com/tags/resources/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/tags/resources/</loc>
+    <loc>https://example.com/resources/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/resources/</loc>
+    <loc>https://example.com/tags/</loc>
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:3016/tags/</loc>
-    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:3016/publication_types/</loc>
+    <loc>https://example.com/publication_types/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
