@@ -46,8 +46,24 @@
     <lastmod>2024-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>https://example.com/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://example.com/prework/</loc>
-    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://example.com/resources/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://example.com/tags/resources/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://example.com/post/</loc>
@@ -55,9 +71,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://example.com/publication_types/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://example.com/tags/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

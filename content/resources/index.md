@@ -1,5 +1,5 @@
 ---
-date: "2025-09-21"
+date: "2025-09-14"
 image:
   caption: 
 math: false
