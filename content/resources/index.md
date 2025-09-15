@@ -1,5 +1,5 @@
 ---
-date: "2024-09-21"
+date: "2025-09-21"
 image:
   caption: 
 math: false
@@ -56,7 +56,7 @@ Below is a curated list of resources we've found to be particularly useful and a
 
 1. 5-course [Educational Data Science Specialization](https://education.uoregon.edu/data-science-specialization-educational-leadership) offered by UO College of Education. See course websites [here](https://github.com/uo-datasci-specialization) and [info sheet](EDS.jpg) below. Cannot recommend highly enough! 
 
-2. UO Psych Data Analysis Sequence (PSY611, PSY612, PSY613), led by [Sara Weston](https://psychology.uoregon.edu/profile/sweston2/), [Lauren Forrest](https://laurenforrest.com/), and [Elliot Berkman](https://psychology.uoregon.edu/profile/berkman/). See course websites [here](https://github.com/uopsych)---you will learn a TON.
+2. UO Psych Data Analysis Sequence (PSY611, PSY612, PSY613), led by [Sara Weston](https://psychology.uoregon.edu/profile/sweston2/), [Lauren Forrest](https://laurenforrest.com/), and Simran Johal. See course websites [here](https://github.com/uopsych)---you will learn a TON.
 
 3. [UO Libraries Data Services Department](https://library.uoregon.edu/data-services) offers free [one-on-one support for R and statistics](https://library.uoregon.edu/research-data-management/consultations), as well as free [R workshops](https://uoregon.libcal.com/calendar/dataservices/?cid=11979&t=d&d=0000-00-00&cal=11979,5245,11173,15812,6522,3731&inc=0). Every Friday at noon, they also host `Coffee + Data && Code` in the DREAM Lab, providing an opportunity to learn from your peers and share your latest coding challenges and victories. 
 

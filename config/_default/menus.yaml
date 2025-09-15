@@ -26,6 +26,6 @@ main:
     url: /resources
     weight: 16
   - name: "Course GitHub"
-    url: "https://github.com/ian-shryock/summeRbootcamp2024"
+    url: "https://github.com/ian-shryock/summeRbootcamp2025"
     weight: 17
 
