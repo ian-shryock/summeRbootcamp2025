@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Resources | UO R Bootcamp 2024</title>
-    <link>http://localhost:3016/tags/resources/</link>
-      <atom:link href="http://localhost:3016/tags/resources/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://example.com/tags/resources/</link>
+      <atom:link href="https://example.com/tags/resources/index.xml" rel="self" type="application/rss+xml" />
     <description>Resources</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:3016/media/icon_hu16222407252349562370.png</url>
+      <url>https://example.com/media/icon_hu16222407252349562370.png</url>
       <title>Resources</title>
-      <link>http://localhost:3016/tags/resources/</link>
+      <link>https://example.com/tags/resources/</link>
     </image>
     
     <item>
       <title>Resources</title>
-      <link>http://localhost:3016/resources/</link>
+      <link>https://example.com/resources/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/resources/</guid>
+      <guid>https://example.com/resources/</guid>
       <description>&lt;p&gt;Below is a curated list of resources we&amp;rsquo;ve found to be particularly useful and accessible. If you come across other great resources that you think you should be on this list, please 
 !&lt;/p&gt;
 &lt;hr&gt;
@@ -147,7 +147,7 @@
                /resources/EDS_hu7889143400800732601.webp 400w,
                /resources/EDS_hu8953455436178857598.webp 760w,
                /resources/EDS_hu17114238473907279290.webp 1200w&#34;
-               src=&#34;http://localhost:3016/resources/EDS_hu7889143400800732601.webp&#34;
+               src=&#34;https://example.com/resources/EDS_hu7889143400800732601.webp&#34;
                width=&#34;590&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

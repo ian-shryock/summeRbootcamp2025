@@ -1,5 +1,5 @@
 ---
-date: "2024-09-21"
+date: "2025-09-21"
 design:
   spacing: 6rem
 sections:
@@ -22,7 +22,7 @@ sections:
   id: schedule
   content:
     subtitle: ""
-    text:  " Wednesday, 9/25  9 AM - 12 PM PDT \n\nThursday, 9/26 9 AM - 12 PM PDT \n\nFriday, 9/27 9 AM - 1 PM PDT"
+    text:  " Wednesday, 9/24  9 AM - 12 PM PDT \n\nThursday, 9/25 9 AM - 12 PM PDT \n\nFriday, 9/26 9 AM - 1 PM PDT"
     title: "Schedule"
   design:
     columns: "3"
@@ -30,7 +30,7 @@ sections:
   id: logistics
   content:
     subtitle: ""
-    text: "*How to prep*: Please check out the <a href='https://uorbootcamp2024.netlify.app/prework/'>Prework</a> page\n\n*Where to meet*: Straub 008 (that's in the basement, down the stairs just past the psychology office)\n\n*Where to chat*: <a href='https://uopsychology.slack.com'>UO Psychology Slack</a> -- (use channel `#rbootcamp-2024`) \n\n*Where to access source code*: <a href='https://github.com/ian-shryock/summeRbootcamp2024'>GitHub</a>"
+    text: "*How to prep*: Please check out the <a href='https://uorbootcamp2025.netlify.app/prework/'>Prework</a> page\n\n*Where to meet*: Straub 008 (that's in the basement, down the stairs just past the psychology office)\n\n*Where to chat*: <a href='https://uopsychology.slack.com'>UO Psychology Slack</a> -- (use channel `#rbootcamp-2024`) \n\n*Where to access source code*: <a href='https://github.com/ian-shryock/summeRbootcamp2024'>GitHub</a>"
     title: "Logistics"
 - block: collection
   id: materials

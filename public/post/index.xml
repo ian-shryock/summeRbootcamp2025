@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Materials | UO R Bootcamp 2024</title>
-    <link>http://localhost:3016/post/</link>
-      <atom:link href="http://localhost:3016/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://example.com/post/</link>
+      <atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Materials</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:3016/media/icon_hu16222407252349562370.png</url>
+      <url>https://example.com/media/icon_hu16222407252349562370.png</url>
       <title>Materials</title>
-      <link>http://localhost:3016/post/</link>
+      <link>https://example.com/post/</link>
     </image>
     
     <item>
       <title>00 - Welcome</title>
-      <link>http://localhost:3016/post/00-welcome/</link>
+      <link>https://example.com/post/00-welcome/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/00-welcome/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/00-welcome/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/00-welcome/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/00-welcome/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;Welcome, everyone! We’re glad you’re here.&lt;/p&gt;
 &lt;hr&gt;
 </description>
@@ -25,10 +25,10 @@
     
     <item>
       <title>01 - Basics of R, RStudio, &amp; R Markdown</title>
-      <link>http://localhost:3016/post/01-r-basics/</link>
+      <link>https://example.com/post/01-r-basics/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/01-r-basics/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/01-r-basics/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/01-r-basics/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/01-r-basics/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;Learning R can feel intimidating, and getting started is often the hardest part. Learning a few basics can go a long way and empower you to take the next step. And, even if you’ve been using R for a while, you can almost always learn something new and useful when going back over the fundamentals.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -54,10 +54,10 @@
     
     <item>
       <title>02 - Data Types &amp; Structures</title>
-      <link>http://localhost:3016/post/02-data-types/</link>
+      <link>https://example.com/post/02-data-types/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/02-data-types/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/02-data-types/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/02-data-types/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/02-data-types/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;Data comes in many different shapes and sizes, which means we need a way to represent different kinds of data in R in order to distinguish them. Today, we’re going to cover the different fundamental types of data in R and give you a feel for different ways that data can be structured and indexed.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -78,10 +78,10 @@
     
     <item>
       <title>03 - Functions, Packages, &amp; Debugging</title>
-      <link>http://localhost:3016/post/03-functions/</link>
+      <link>https://example.com/post/03-functions/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/03-functions/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/03-functions/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/03-functions/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/03-functions/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;Functions are the “verbs” of R—they allow you to actually do interesting things with your data. We will cover the basics of how to use functions in R, how to get access to different functions by downloading packages, some general principles for what to do when you run into problems.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -106,10 +106,10 @@
     
     <item>
       <title>04 - Piping</title>
-      <link>http://localhost:3016/post/04-pipes/</link>
+      <link>https://example.com/post/04-pipes/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/04-pipes/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/04-pipes/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/04-pipes/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/04-pipes/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;Before we get started importing, wrangling, tidying, and visualizing data, we should talk about a powerful tool for chaining functions together: pipes.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -130,10 +130,10 @@
     
     <item>
       <title>05 - Introduction to the Tidyverse</title>
-      <link>http://localhost:3016/post/05-intro-tidyverse/</link>
+      <link>https://example.com/post/05-intro-tidyverse/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/05-intro-tidyverse/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/05-intro-tidyverse/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/05-intro-tidyverse/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/05-intro-tidyverse/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;So far we have been using functions in base R. Now we’re going to take a first look at the tidyverse—a widely used framework for doing the full spectrum of data analysis, from importing to cleaning, visualizing, and modelling data.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -158,10 +158,10 @@
     
     <item>
       <title>06 - Importing Data &amp; Project-Oriented Workflows</title>
-      <link>http://localhost:3016/post/06-importing-workflows/</link>
+      <link>https://example.com/post/06-importing-workflows/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/06-importing-workflows/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/06-importing-workflows/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/06-importing-workflows/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/06-importing-workflows/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;The first step of any data analysis workflow is to get data into R. This isn’t always as straightforward as you might think, but, fortunately, there are some core functions that make this easy and efficient. Since we are starting at the beginning, we will also discuss the idea of a project-oriented workflow, which is a way to keep an organized and consistent process whenever you work with data in R that will also make your work reproducible and shareable. And the decisions you make right at the start of a data analysis project—even before importing your data—will have a lot of down-stream consequences.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -186,10 +186,10 @@
     
     <item>
       <title>07 - Data Wrangling with {dplyr}</title>
-      <link>http://localhost:3016/post/07-dplyr/</link>
+      <link>https://example.com/post/07-dplyr/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/07-dplyr/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/07-dplyr/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/07-dplyr/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/07-dplyr/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;When you are given data to analyze, it will almost always be in a format that makes it hard to create visualizations, perform modelling, and generate tables. In other words, most of the time, it will need to be wrangled into the correct format. The dplyr package has a very powerful set of functions for doing just this. Today we will be covering the core dplyr “verbs” that allow you to transform your data with optimal specificity and efficiency.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -215,10 +215,10 @@
     
     <item>
       <title>08 - Data Tidying with {tidyr}</title>
-      <link>http://localhost:3016/post/08-tidyr/</link>
+      <link>https://example.com/post/08-tidyr/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/08-tidyr/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/08-tidyr/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/08-tidyr/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/08-tidyr/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;The concept of tidy data is, as the name suggests, of primary importance in the tidyverse. This lesson will introduce you to the criteria of tidy data, why it’s important, and how to reshape your raw data into a tidy format using &lt;code&gt;pivot_wider()&lt;/code&gt; and &lt;code&gt;pivot_longer()&lt;/code&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -240,10 +240,10 @@ Sydney&lt;/p&gt;
     
     <item>
       <title>09 - Data Visualization with {ggplot2}</title>
-      <link>http://localhost:3016/post/09-ggplot2/</link>
+      <link>https://example.com/post/09-ggplot2/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/09-ggplot2/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/09-ggplot2/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/09-ggplot2/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/09-ggplot2/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;Data visualization is at the very core of science. In order to understand and glean insights from our data, we need different ways of representing it visually. R has an incredible capacity for creating all sorts of plots, charts, and tables, and today we will only scratch the surface. We will discuss the fundamentals of the powerful ggplot2 package and the “grammar of graphics” that underlies it.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
@@ -276,10 +276,10 @@ Sydney&lt;/p&gt;
     
     <item>
       <title>10 - R Tips &amp; Tricks</title>
-      <link>http://localhost:3016/post/10-tips/</link>
+      <link>https://example.com/post/10-tips/</link>
       <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:3016/post/10-tips/</guid>
-      <description>&lt;script src=&#34;http://localhost:3016/post/10-tips/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+      <guid>https://example.com/post/10-tips/</guid>
+      <description>&lt;script src=&#34;https://example.com/post/10-tips/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;For this final topic, we will cover some tips and tricks that will help you become an R power user. This includes customizing how R Studio looks, introducing obscure (but helpful) functions, and some shameless self-promotion on the part of Cameron.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
