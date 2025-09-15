@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Types &amp; Structures</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, center, middle
+
+.top-left[
+&lt;img src="images/uo-logo2.png" width="100%" /&gt;
+]
+
+.top-right[
+&lt;img src="images/psy-logo.png" width="100%" /&gt;
+]
+
+
+# Data Types &amp; Structures
+
+UO R Bootcamp 2024
+
+
+---
+# Types of data
+
+R has different types of data, and an object’s type affects how it interacts with functions and other objects. 
+
+--
+
+So far, we’ve just been working with numeric data, but there are several other types to be aware of...
+
+
+---
+
+# Types of data
+
+
+Type | Definition | Example
+-----|------------|--------
+Integer | whole numbers from -Inf to +Inf | `1L`, `-2L`
+Double | decimal numbers | `-7.0`, `0.2`
+Character | quoted strings of letters, numbers, and allowed symbols | `"1"`, `"one"`, `"o-n-e"`, `"o.n.e"`
+Logical | logical constants of true or false | `TRUE`, `FALSE`, `T`, `F`
+Factor | ordered, labelled variable | variable for year in college labelled `"Freshman"`, `"Sophomore"`, etc.
+
+---
+# Types of data 
+
+You can use `typeof()` to find out the type of a value or object.
+
+--
+
+
+``` r
+typeof(TRUE)
+```
+
+--
+
+
+```
+## [1] "logical"
+```
+
+--
+
+
+``` r
+typeof(1L)
+```
+
+--
+
+
+```
+## [1] "integer"
+```
+
+--
+
+
+``` r
+typeof("one")
+```
+
+--
+
+
+```
+## [1] "character"
+```
+
+--
+
+
+``` r
+typeof(1.5)
+```
+
+--
+
+
+```
+## [1] "double"
+```
+
+---
+# Types of data 
+
+You can use `typeof()` to find out the type of a value or object.
+
+
+``` r
+typeof(1)
+```
+
+--
+
+
+```
+## [1] "double"
+```
+
+--
+
+
+``` r
+typeof("10")
+```
+
+--
+
+
+```
+## [1] "character"
+```
+
+---
+# Types of data 
+
+There are a few special values that are also worth knowing about.
+
+Value | Definition
+-----|------------
+`NA`   | Missing value ("not available")
+`NaN ` | Not a Number (e.g. 0/0; log(-10))
+`Inf` | Positive infinity
+`-Inf` | Negative infinity
+`NULL` | An object that exists but is completely empty
+---
+class: inverse, center, middle
+# Data structures 
+
+---
+# Vectors 
+
+Often, we’re not working with individual values, but with a group of multiple related values---or a **vector** of values.
+
+--
+***
+
+We can create a vector of ordered numbers using the form &lt;br&gt; `starting_number` **:** `ending_number`. 
+
+--
+
+For example, we could make `x` a vector containing the numbers 1 through 5.
+
+
+``` r
+x &lt;- 1:5
+x
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+---
+
+# Vectors 
+
+
+Let's look at the Environment pane in RStudio.
+
+Since `x` is a vector, RStudio tells us what type of vector it is and its length in addition to its contents (which can be abbreviated if the object is larger).
+
+--
+
+&lt;img src="images/vector.png" width="100%" /&gt;
+---
+# Vectors
+
+We can create a vector of any numbers we want using `c()`, which is a **function**. You can think of `c()` as short for "combine" or "concatenate".
+
+--
+***
+
+You use `c()` by putting numbers separated by a comma within the parentheses.
+
+
+``` r
+# combine values into a vector and assign to an object named 'x'
+x &lt;- c(2, 8.5, 1, 9)
+
+# print x
+x
+```
+
+```
+## [1] 2.0 8.5 1.0 9.0
+```
+
+---
+
+# Vectors
+
+We can also create a vector of numbers using `seq()`. 
+
+`seq()` is a function that creates a sequence of numbers. 
+
+---
+# Vectors
+
+To learn how any R function works, you can access the help documentation by typing `?function_name`. 
+
+--
+***
+
+Let's take a look at how `seq()` works.
+
+
+``` r
+?seq
+```
+
+---
+# Vectors 
+
+What happens if we run `seq()` with no arguments?
+
+
+``` r
+seq()
+```
+
+```
+## [1] 1
+```
+
+--
+***
+
+The `seq()` function has **arguments** with default values. 
+
+The first two arguments are `from` and `to`, which specify the starting and end values of the sequence. By *default* `from = 1` and `to = 1`.
+
+This means that typing `seq()` is equivalent to typing `seq(from = 1, to = 1)`, which generates a sequence with just one value: `1`.
+
+
+---
+# Vectors
+
+To make a sequence from 1 to 5 with this function, we have to set the arguments accordingly: 
+
+
+``` r
+seq(from = 1, to = 5)
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+--
+***
+
+We can also set one or more of the other arguments...
+
+--
+
+The `by` argument allows us to change the increment of the sequence. For example, to get every *other* number between 1 and 5, we would set `by = 2`.
+
+
+``` r
+seq(from = 1, to = 5, by = 2)
+```
+
+```
+## [1] 1 3 5
+```
+
+---
+# Vectors
+
+Vectors are just 1-dimensional sequences **of a single type of data**.
+
+--
+
+Note that vectors can also include strings or character values.
+
+--
+
+
+``` r
+letters &lt;- c("a", "b", "c", "d")
+letters
+```
+
+```
+## [1] "a" "b" "c" "d"
+```
+
+--
+
+
+``` r
+logicals &lt;- c(TRUE, TRUE, FALSE, TRUE)
+logicals
+```
+
+```
+## [1]  TRUE  TRUE FALSE  TRUE
+```
+
+---
+# Vectors
+
+The general rule R uses is to set the vector to be the most "permissive" type necessary. 
+
+--
+
+For example, what happens if we combine the vectors `x` and `letters` together?
+
+--
+
+
+``` r
+x
+```
+
+```
+## [1] 2.0 8.5 1.0 9.0
+```
+
+``` r
+letters
+```
+
+```
+## [1] "a" "b" "c" "d"
+```
+
+``` r
+mixed_vec &lt;- c(x, letters)
+mixed_vec
+```
+
+```
+## [1] "2"   "8.5" "1"   "9"   "a"   "b"   "c"   "d"
+```
+
+
+
+---
+# Vectors
+
+Notice the quotes? R turned all of our numbers into strings, since strings are more "permissive" than numbers. 
+
+--
+
+This process is called **coercion**. R coerces a vector into whichever type will accommodate all of the values. 
+
+--
+
+We can coerce `mixed_vec` to be numeric using `as.numeric()`, but notice what happens to the character values 👀
+
+--
+
+
+``` r
+mixed_vec
+```
+
+```
+## [1] "2"   "8.5" "1"   "9"   "a"   "b"   "c"   "d"
+```
+
+``` r
+as.numeric(mixed_vec)
+```
+
+```
+## Warning: NAs introduced by coercion
+```
+
+```
+## [1] 2.0 8.5 1.0 9.0  NA  NA  NA  NA
+```
+
+---
+class: yourturn
+# Your turn 1
+
+<div class="countdown" id="timer_679b7672" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+1. Create an object called `x` that is assigned the number 8. 
+
+1. Create an object called `y` that is a sequence of numbers from 2 to 16, by 2. 
+
+1. Add `x` and `y`. What happens? 
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+x &lt;- 8
+```
+]
+
+.panel[.panel-name[Q2]
+
+``` r
+y &lt;- seq(from = 2, to = 16, by = 2)
+y
+```
+
+```
+## [1]  2  4  6  8 10 12 14 16
+```
+]
+
+.panel[.panel-name[Q3]
+
+``` r
+x + y
+```
+
+```
+## [1] 10 12 14 16 18 20 22 24
+```
+
+***
+
+This is an example of *vector recycling*.
+
+When applying an operation to two vectors that requires them to be the same length, R automatically recycles, or repeats, the shorter one, until it is long enough to match the longer one.
+]
+]
+---
+class: yourturn
+# Your turn 2
+
+<div class="countdown" id="timer_daf3138c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+</div>
+
+1. Create an object called `a` that is just the letter "a" and an object `x` that is assigned the number 8. Add `a` to `x`. What happens?
+
+1. Create a vector called `b` that is just the number 8 in quotes. Add `b` to `x` (from above). What happens?
+
+1. Find some way to add `b` to `x`. (*Hint*: Don't forget about coercion.)
+
+---
+class: solution 
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+a &lt;- "a"
+x &lt;- 8
+
+a + x 
+```
+
+```
+## Error in a + x: non-numeric argument to binary operator
+```
+]
+
+.panel[.panel-name[Q2]
+
+``` r
+b &lt;- "8"
+
+b + x
+```
+
+```
+## Error in b + x: non-numeric argument to binary operator
+```
+]
+
+.panel[.panel-name[Q3]
+
+``` r
+as.numeric(b) + x
+```
+
+```
+## [1] 16
+```
+]
+]
+
+---
+# Indexing vectors
+
+We can extract elements out of vectors by **Indexing**.
+
+--
+
+There are a number of methods for indexing that are good to be familiar with.
+
+---
+# Indexing by position
+
+Vectors can be indexed numerically, starting with 1 (not 0). We can extract specific elements from a vector by putting the index of their position inside square brackets `[]`. 
+
+---
+# Indexing by position
+
+
+.panelset[
+
+.panel[.panel-name[Original]
+Let's take a new vector `z` as an example:
+
+
+``` r
+z &lt;- 6:10
+z
+```
+
+```
+## [1]  6  7  8  9 10
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+Let's get just the first element of `z`:
+
+
+``` r
+z[1]
+```
+
+```
+## [1] 6
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+Get the first and third element by passing those indexes as a vector using `c()`.
+
+
+``` r
+z[c(1, 3)]
+```
+
+```
+## [1] 6 8
+```
+]
+]
+
+---
+# Negative indexing
+
+
+
+We could also say which elements *not* to give us using the minus sign (`-`). 
+
+--
+
+.panelset[
+
+.panel[.panel-name[Original]
+
+
+``` r
+z
+```
+
+```
+## [1]  6  7  8  9 10
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+Let's get rid of the first element:
+
+
+``` r
+z[-1]
+```
+
+```
+## [1]  7  8  9 10
+```
+]
+
+.panel[.panel-name[Example 2]
+
+Get rid of the first and third elements
+
+
+``` r
+z[-c(1, 3)]
+```
+
+```
+## [1]  7  9 10
+```
+]
+]
+
+---
+# Indexing by name
+
+Finally, if the elements in the vector have names, we can refer to them by name instead of by their numerical index. You can see the names of a vector using `names()`.
+
+
+``` r
+names(z)
+```
+
+```
+## NULL
+```
+
+--
+***
+
+It looks like the elements in `z` have no names. We can change that by assigning them names using a vector of character values.
+
+
+``` r
+names(z) &lt;- c("Antoni", "Tan", "Karamo", "Bobby", "Jonathan")
+z
+```
+
+```
+##   Antoni      Tan   Karamo    Bobby Jonathan 
+##        6        7        8        9       10
+```
+
+---
+# Indexing by name
+
+
+``` r
+z
+```
+
+```
+##   Antoni      Tan   Karamo    Bobby Jonathan 
+##        6        7        8        9       10
+```
+
+***
+
+Now we can use the names of the elements in `z` for subsetting, using quotes
+
+
+``` r
+z["Antoni"]
+```
+
+```
+## Antoni 
+##      6
+```
+
+---
+# Modifying vectors 
+
+You can use indexing to change elements within a vector. 
+
+For example, we could change the first element of `z` to missing, or `NA`.
+
+
+``` r
+z[1] &lt;- NA
+z
+```
+
+```
+##   Antoni      Tan   Karamo    Bobby Jonathan 
+##       NA        7        8        9       10
+```
+
+---
+class: yourturn
+# Your turn 3
+
+<div class="countdown" id="timer_9fa19480" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+</div>
+
+1. Create a vector called `named` that includes the numbers 1 to 5. Name the values "a", "b", "c", "d", and "e" (in order). 
+
+1. Print the first element using numerical indexing and the last element using name indexing.
+
+1. Change the  third element of `named` to the value 21 and then show your results.
+
+---
+class: solution
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+named &lt;- c(1, 2, 3, 4, 5)
+names(named) &lt;- c("a", "b", "c", "d", "e")
+named
+```
+
+```
+## a b c d e 
+## 1 2 3 4 5
+```
+
+
+``` r
+# this works too
+named &lt;- c(a = 1, b = 2, c = 3, d = 4, e = 5)
+named 
+```
+
+```
+## a b c d e 
+## 1 2 3 4 5
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+
+``` r
+named[1]
+```
+
+```
+## a 
+## 1
+```
+
+``` r
+named["e"]
+```
+
+```
+## e 
+## 5
+```
+
+]
+
+
+.panel[.panel-name[Q3]
+
+``` r
+named[3] &lt;- 21
+named
+```
+
+```
+##  a  b  c  d  e 
+##  1  2 21  4  5
+```
+
+]
+]
+
+---
+# Lists
+
+Vectors are great for storing a single type of data, but what if we have a variety of different kinds of data we want to store together?
+
+--
+***
+
+For example, let's say I have some information about Kendrick Lamar that I want to store together in a single object:
+
+- his name ("Kendrick Lamar") -- a **character**
+- his height in feet (5.5) -- a **double**
+- whether or not he has won a Grammy (TRUE) -- a **logical**
+
+---
+
+# Lists
+
+A vector won't work -- every element is coerced to a character (notice the quotes).
+
+
+``` r
+c("Kendrick Lamar", 5.5, TRUE)
+```
+
+```
+## [1] "Kendrick Lamar" "5.5"            "TRUE"
+```
+
+--
+
+Instead, we can put them in a **list**. Lists are very flexible -- they can contain different types of data and preserve those types.
+
+---
+# Creating Lists
+
+We can create a list with the `list()` function
+
+--
+
+
+``` r
+kendrick_lamar &lt;- list("Kendrick Lamar", 5.5, TRUE)
+
+kendrick_lamar
+```
+
+```
+## [[1]]
+## [1] "Kendrick Lamar"
+## 
+## [[2]]
+## [1] 5.5
+## 
+## [[3]]
+## [1] TRUE
+```
+
+---
+# Creating Lists 
+
+And, we can give each element of the list a name to make it easier to keep track of them.
+
+
+``` r
+kendrick_lamar &lt;- list(name         = "Kendrick Lamar",
+                       height       = 5.5,
+                       grammy       = TRUE)
+
+kendrick_lamar
+```
+
+```
+## $name
+## [1] "Kendrick Lamar"
+## 
+## $height
+## [1] 5.5
+## 
+## $grammy
+## [1] TRUE
+```
+
+--
+***
+
+Notice that `[[1]]`, `[[2]]`, and `[[3]]`, the element indices, have been replaced by the names `name`, `height` and `grammy` 👀
+
+---
+# Creating Lists
+
+You can also see the names of a list by running `names()` on it
+
+--
+
+
+``` r
+names(kendrick_lamar)
+```
+
+```
+## [1] "name"   "height" "grammy"
+```
+
+--
+***
+
+Lists are even more flexible than we've seen so far. In addition to being of heterogeneous type, each element of a list can be of different lengths. 
+
+---
+# Creating Lists
+
+Let's add another element to the list about Kendrick that contains his favourite types of ice cream (he can't choose just one!)
+
+Notice use of `c()` to create the element `ice_cream`
+
+---
+# Creating Lists
+
+
+
+``` r
+kendrick_lamar &lt;- list(name         = "Kendrick Lamar",
+                       height       = 5.5,
+                       grammy       = TRUE,
+                       ice_cream    = c("mint chip", "strawberry"))
+
+kendrick_lamar
+```
+
+```
+## $name
+## [1] "Kendrick Lamar"
+## 
+## $height
+## [1] 5.5
+## 
+## $grammy
+## [1] TRUE
+## 
+## $ice_cream
+## [1] "mint chip"  "strawberry"
+```
+
+---
+# Indexing lists
+
+.panelset[
+.panel[.panel-name[Example 1]
+
+For example, if we wanted the `height` element, we could get it out using its position as the second element of the list:
+
+
+``` r
+kendrick_lamar[2]
+```
+
+```
+## $height
+## [1] 5.5
+```
+]
+
+.panel[.panel-name[Example 2]
+
+Now let's say we want to know Kendrick's height in *inches*. Let's see if we can get that by multiplying the `height` element by 12.
+
+
+``` r
+kendrick_lamar[2] * 12
+```
+
+```
+## Error in kendrick_lamar[2] * 12: non-numeric argument to binary operator
+```
+
+***
+R is telling us that we supplied a non-numeric argument, i.e. `kendrick_lamar[2]`. 
+
+This happened because single bracket indexing on a list returns a list -- but what we need is the *contents* of the list (in this case, just the number `5.5`).
+]
+
+.panel[.panel-name[Example 3]
+
+If we want the actual object stored at the first position instead of a list containing that object, we have to use double-bracket indexing `list[[i]]`:
+
+
+``` r
+kendrick_lamar[[2]] 
+```
+
+```
+## [1] 5.5
+```
+
+***
+Notice it no longer has the `$height`. 
+
+In general, a `$label` is a hint that you're looking at a list (the container) and not just the object stored at that position (the contents). 
+
+]
+
+.panel[.panel-name[Example 4]
+Now let's see Kendrick's height in inches.
+
+
+``` r
+kendrick_lamar[[2]] * 12
+```
+
+```
+## [1] 66
+```
+]
+]
+
+---
+# Indexing lists
+
+.panelset[
+.panel[.panel-name[Example 1]
+
+The same applies to name indexing. With lists, you can get a list containing the indexed object with single brackets `[]`.
+
+
+``` r
+kendrick_lamar["height"]
+```
+
+```
+## $height
+## [1] 5.5
+```
+]
+
+.panel[.panel-name[Example 2]
+
+And double brackets `[[]]` can be used to get the *contents*---the object stored with that name.
+
+
+``` r
+kendrick_lamar[["height"]]
+```
+
+```
+## [1] 5.5
+```
+]
+
+.panel[.panel-name[Example 3]
+
+You can also use `list$name` to get the object stored with a particular name too. It is equivalent to double brackets, but you don't need quotes
+
+
+``` r
+kendrick_lamar$height
+```
+
+```
+## [1] 5.5
+```
+]
+]
+
+---
+# Modifying lists
+
+Just like vectors, we can change or add elements to our list using indexing. 
+
+---
+
+# Modifying lists
+
+Let's save the inches transformation of the `height` element as `height_in`.
+
+
+
+``` r
+kendrick_lamar$height_in &lt;- kendrick_lamar$height * 12
+kendrick_lamar
+```
+
+```
+## $name
+## [1] "Kendrick Lamar"
+## 
+## $height
+## [1] 5.5
+## 
+## $grammy
+## [1] TRUE
+## 
+## $ice_cream
+## [1] "mint chip"  "strawberry"
+## 
+## $height_in
+## [1] 66
+```
+
+
+---
+class: yourturn
+# Your turn 4
+
+<div class="countdown" id="timer_c22b8ac0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+1. Create a list like mine that is made up of `name`, `height`, and `ice_cream`, but corresponds to information about you. Make sure you enter two types of icecream data (because who could choose?!). 
+
+1. Index your list to print only your name.
+
+---
+class: solution
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+``` r
+sarah_dimakis &lt;- list(name         = "Sarah Dimakis",
+                    height       = 6.30,
+                    ice_cream    = c("cookie dough", "banana"))
+sarah_dimakis
+```
+
+```
+## $name
+## [1] "Sarah Dimakis"
+## 
+## $height
+## [1] 6.3
+## 
+## $ice_cream
+## [1] "cookie dough" "banana"
+```
+]
+
+.panel[.panel-name[Q2]
+
+
+``` r
+sarah_dimakis$name
+```
+
+```
+## [1] "Sarah Dimakis"
+```
+
+``` r
+sarah_dimakis[["name"]]
+```
+
+```
+## [1] "Sarah Dimakis"
+```
+
+]
+]
+
+---
+# Indexing lists
+
+As we saw with the object `ice_cream` stored in the list `kendrick_lamar`, objects within lists can have different dimensions and length. 
+
+--
+
+What if we wanted just one element of an object in a list, such as just the second element of `ice_cream`? 
+
+--
+
+We can use indexing on the `ice_cream` vector stored within the `kendrick_lamar` list by chaining indexes.
+
+---
+# Indexing lists
+
+.panelset[
+.panel[.panel-name[Example 1]
+
+We could do that with numerical indexing...
+
+
+``` r
+kendrick_lamar[[4]][2]
+```
+
+```
+## [1] "strawberry"
+```
+]
+
+.panel[.panel-name[Example 2]
+...or with name indexing
+
+
+``` r
+kendrick_lamar[["ice_cream"]][2]
+```
+
+```
+## [1] "strawberry"
+```
+]
+
+.panel[.panel-name[Example 3]
+
+...or with dollar sign (`$`) indexing:
+
+
+``` r
+kendrick_lamar$ice_cream[2]
+```
+
+```
+## [1] "strawberry"
+```
+]
+]
+
+---
+# Data frames
+
+A **data frame** is a common way of representing rectangular data---collections of values that are each associated with a variable (column) and an observation (row). In other words, it has 2 dimensions.
+
+--
+
+A data frame is technically a special kind of list---it can contain different kinds of data in different columns, but each column must contain the same type of data and be the same length. 
+
+---
+
+# Data frames
+
+We can create a data frame in a similar way to how we made a list.
+
+
+``` r
+dunder_mifflin &lt;- data.frame(id        = c(1, 2, 3),
+                             name      = c("Michael", "Jim", "Dwight"), 
+                             job_title = c("Regional Manager", "Salesperson", "Assistant to the Regional Manager"),
+                             age       = c(40, 27, 35))
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age
+## 1  1 Michael                  Regional Manager  40
+## 2  2     Jim                       Salesperson  27
+## 3  3  Dwight Assistant to the Regional Manager  35
+```
+
+---
+# Indexing data frames
+
+
+``` r
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age
+## 1  1 Michael                  Regional Manager  40
+## 2  2     Jim                       Salesperson  27
+## 3  3  Dwight Assistant to the Regional Manager  35
+```
+
+
+---
+
+# Indexing data frames
+
+Indexing data frames is similar to how we index vectors, except we have two dimensions, which we use like so: `[row, column]`
+
+--
+
+.panelset[
+
+.panel[.panel-name[Original]
+
+``` r
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age
+## 1  1 Michael                  Regional Manager  40
+## 2  2     Jim                       Salesperson  27
+## 3  3  Dwight Assistant to the Regional Manager  35
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+
+Let's get the first row and third column of `dunder_mifflin` using numerical indexing
+
+
+``` r
+dunder_mifflin[1, 3]
+```
+
+```
+## [1] "Regional Manager"
+```
+
+]
+.panel[
+
+
+.panel-name[Example 2]
+
+You can also get an entire row or column by leaving an index blank. Let's get all rows for column 2:
+
+
+``` r
+dunder_mifflin[, 2]
+```
+
+```
+## [1] "Michael" "Jim"     "Dwight"
+```
+
+]
+
+.panel[.panel-name[Example 3]
+
+We can also index by the name of a column or row.
+
+
+``` r
+dunder_mifflin[, "job_title"]
+```
+
+```
+## [1] "Regional Manager"                  "Salesperson"                      
+## [3] "Assistant to the Regional Manager"
+```
+]
+]
+
+---
+# Indexing data frames
+
+As with lists, we can use the `$` operator in the form `dataframe$column_name` (similar to `list$object`). 
+
+.panelset[
+
+.panel[.panel-name[Original]
+
+``` r
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age
+## 1  1 Michael                  Regional Manager  40
+## 2  2     Jim                       Salesperson  27
+## 3  3  Dwight Assistant to the Regional Manager  35
+```
+
+]
+.panel[.panel-name[Example 1]
+
+
+``` r
+dunder_mifflin$id
+```
+
+```
+## [1] 1 2 3
+```
+]
+
+.panel[.panel-name[Example 2]
+
+
+``` r
+dunder_mifflin$id[3] # get the third value in column 1
+```
+
+```
+## [1] 3
+```
+]
+]
+
+---
+# Modifying data frames 
+
+Just like lists and vectors, you can modify a data frame and add new elements or change existing elements by referencing indexes.
+
+--
+
+.panelset[
+
+.panel[.panel-name[Original]
+
+``` r
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age
+## 1  1 Michael                  Regional Manager  40
+## 2  2     Jim                       Salesperson  27
+## 3  3  Dwight Assistant to the Regional Manager  35
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+We could create a column `new_id`, which is `id` plus 1000:
+
+
+``` r
+dunder_mifflin$new_id &lt;- dunder_mifflin$id + 1000
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age new_id
+## 1  1 Michael                  Regional Manager  40   1001
+## 2  2     Jim                       Salesperson  27   1002
+## 3  3  Dwight Assistant to the Regional Manager  35   1003
+```
+]
+
+.panel[.panel-name[Example 2]
+Or we could replace an element using indexing. Let's add 9 to everyone's age:
+
+
+``` r
+dunder_mifflin$age &lt;-  dunder_mifflin$age + 9
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age new_id
+## 1  1 Michael                  Regional Manager  49   1001
+## 2  2     Jim                       Salesperson  36   1002
+## 3  3  Dwight Assistant to the Regional Manager  44   1003
+```
+
+]
+]
+
+---
+# Inspecting data frames
+
+
+``` r
+dunder_mifflin
+```
+
+```
+##   id    name                         job_title age new_id
+## 1  1 Michael                  Regional Manager  49   1001
+## 2  2     Jim                       Salesperson  36   1002
+## 3  3  Dwight Assistant to the Regional Manager  44   1003
+```
+
+***
+
+We can use the `str()` function to get the structure of the data. This tells us the type of each column.
+
+
+``` r
+str(dunder_mifflin)
+```
+
+```
+## 'data.frame':	3 obs. of  5 variables:
+##  $ id       : num  1 2 3
+##  $ name     : chr  "Michael" "Jim" "Dwight"
+##  $ job_title: chr  "Regional Manager" "Salesperson" "Assistant to the Regional Manager"
+##  $ age      : num  49 36 44
+##  $ new_id   : num  1001 1002 1003
+```
+
+---
+class: yourturn
+
+# Your turn 5
+
+<div class="countdown" id="timer_8559dfd3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+1. Make a data frame, called `df_2`, that has 3 columns as shown below. After you create it, check the structure with `str()`.
+
+
+```
+##   c1 c2 c3
+## 1  1  2  a
+## 2  2  4  b
+## 3  3  6  c
+```
+
+1. Add a fourth column, `c4`, which is the first and second columns multiplied together.
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+df_2 &lt;- data.frame(c1 = c(1, 2, 3),
+                   c2 = c(2, 4, 6),
+                   c3 = c("a", "b", "c"))
+
+str(df_2)
+```
+
+```
+## 'data.frame':	3 obs. of  3 variables:
+##  $ c1: num  1 2 3
+##  $ c2: num  2 4 6
+##  $ c3: chr  "a" "b" "c"
+```
+]
+
+.panel[.panel-name[Q2]
+
+
+``` r
+df_2$c4 &lt;- df_2$c1 * df_2$c2
+
+df_2
+```
+
+```
+##   c1 c2 c3 c4
+## 1  1  2  a  2
+## 2  2  4  b  8
+## 3  3  6  c 18
+```
+]
+]
+
+---
+# Recap
+
+We just learned about different types of data (numeric, character, logical, factor, etc.) and some different ways they can be structured---including vectors, lists and data frames. 
+
+--
+***
+
+Here's a quick table that summarizes data structures. 
+
+&lt;br&gt;
+
+| | Homogeneous data | Heterogeneous data |
+|------------|----------------| ------------------|
+| 1-Dimensional | Atomic Vector | List |
+| 2-Dimensional | Matrix `*` | Data frame |
+
+.smaller-font[\* *We didn't talk about matrices today, but if you take PSY611, you will learn more about them in the context of the General Linear Model*]
+
+---
+class: yourturn, center, middle
+# Q &amp; A
+
+<div class="countdown" id="timer_8fa32aef" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

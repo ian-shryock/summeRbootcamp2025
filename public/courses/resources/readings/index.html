@@ -1,0 +1,1310 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: September 21, 2024 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.2.0" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="
+Papers
+
+Brehmer M, Sedlmair M, Ingram S, Munzner T. Visualizing Dimensionally-reduced Data: Interviews with Analysts and a Characterization of Task Sequences. Proc. Beyond Time &amp; Errors: Novel Evaluation Methods For Information Visualization (BELIV) 2014. p. 1–8.
+Borland D, Taylor MR. Rainbow color map (still) considered harmful. IEEE computer graphics and applications. 2007 Mar;27(2):14–7.
+Christensen DL, Baio J, Van Naarden Braun K, Bilder D, Charles J, Constantino JN, et al. Prevalence and Characteristics of Autism Spectrum Disorder Among Children Aged 8 Years&ndash;Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2012. MMWR Surveillance summaries : Morbidity and mortality weekly report Surveillance summaries / CDC. 2016 Apr 1;65(3):1–23.
+Cleveland WS, McGill R. Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods. Journal of the American Statistical Association. 1984;79(387):531–54.
+Cleveland WS, Diaconis P, McGill R. Variables on Scatterplots Look More Highly Correlated When the Scales Are Increased. Science; 1982;216(4550):1138–41.
+Dörk M, Feng P, Collins C, Carpendale S. Critical InfoVis: exploring the politics of visualization. Proc. &lsquo;CHI 2013.
+Elliott, K. &ldquo;39 studies about human perception in 30 minutes&rdquo;; presented at OpenVis 2016.
+Heer J, Bostock M. Crowdsourcing graphical perception: using mechanical turk to assess visualization design. ACM CHI &lsquo;10; 2010. p. 203–12.
+Kosara R. An Empire Built On Sand: Reexamining What We Think We Know About Visualization. in the Proceedings of the Sixth Workshop on Beyond Time and Errors on Novel Evaluation Methods for Visualization (BELIV &lsquo;16) 2016. p. 162–8.
+Krzywinski M, Altman N. Points of significance: error bars. Nat Meth. Nature Research; 2013 Oct;10(10):921–2.
+Krzywinski M, Altman N. Visualizing samples with box plots. Nat Meth. 2014 Feb;11(2):119–20.
+Shneiderman B. Research agenda: Visual overviews for exploratory search. Information Seeking Support Systems. 2008;11:4.
+Sedlmair M, Meyer M, Munzner T. Design Study Methodology: Reflections from the Trenches and the Stacks. IEEE Transactions on Visualization and Computer Graphics. 2012 Dec;18(12):2431–40.
+Sedlmair M, Tatu A, Munzner T, Tory M. A Taxonomy of Visual Cluster Separation Factors. Computer Graphics Forum. 2012;31(3pt4):1335–44.
+Sedlmair M, Munzner T, Tory M. Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices. IEEE Transactions on Visualization and Computer Graphics. 2013 Dec;19(12):2634–43.
+Weissgerber TL, Milic NM, Winham SJ, Garovic VD. Beyond bar and line graphs: time for a new data presentation paradigm. PLoS Biol. Public Library of Science; 2015 Apr;13(4):e1002128.
+
+Blog posts, etc.
+
+The Why Axis&rsquo;s &ldquo;Mind the Gap: An Economic Chart Remake&rdquo;, by Jon Schwabish
+Notes on the Arabic FedEx logo.
+Jenny Cham&rsquo;s delightful &ldquo;sketchnotes&rdquo; from a 2014 seminar by the incomparable Tamara Munzner.
+Randy Olson&rsquo;s illustration of Small Multiples vs. Animated GIFs.
+Visual.ly&rsquo;s Color Emotion Guide
+I am very interested in William Playfair and the history of data visualization:
+
+Atlas Obscura, The Scottish Scoundrel Who Changed How We See Data
+Lauren Klein, Repairing William Playfair at the MLA
+Georgia Tech&rsquo;s Digital Humanities Lab, Repairing William Playfair
+
+
+Neil Richards, When is a visualisation a call to action?
+Carl Zimmer (yes, the Carl Zimmer) on genome graphs: As DNA reveals its secrets, scientists are assembling a new picture of humanity, with numerous examples of creative new ways to visualize genetic variation.
+Ben Jones, &ldquo;From Simple Tables to Multiple Vizzes&rdquo;: an illustration of ten different ways to visualize the same table. What different stories pop out from the different visualizations?
+Kristoffer Magnusson, How to tell when error bars correspond to a significant p-value
+Kyle Walker, Should you visualize data with a map or a chart? Thoughts from teaching introductory geography
+Lazaro Gamio (Washington Post), Election maps are telling you big lies about small things
+Cartonerd, The NYT election map
+vis4.net, Why we didn’t use a cartogram in the Brexit map
+Benjamin Hennig, Cartogram Special – Brexit
+Tom Pearson (Financial Times), Communicating with data — How the FT explained Brexit: &ldquo;From early sketch to final dashboard, FT data visualisation experts explain the process&rdquo;
+" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:4321/courses/resources/readings/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu7269165870461958625.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu10653575574006896197.png" />
+
+  <link rel="canonical" href="http://localhost:4321/courses/resources/readings/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@GetResearchDev" />
+    <meta property="twitter:creator" content="@GetResearchDev" />
+  
+  <meta property="og:site_name" content="UO R Bootcamp 2024" />
+  <meta property="og:url" content="http://localhost:4321/courses/resources/readings/" />
+  <meta property="og:title" content="Useful readings | UO R Bootcamp 2024" />
+  <meta property="og:description" content="
+Papers
+
+Brehmer M, Sedlmair M, Ingram S, Munzner T. Visualizing Dimensionally-reduced Data: Interviews with Analysts and a Characterization of Task Sequences. Proc. Beyond Time &amp; Errors: Novel Evaluation Methods For Information Visualization (BELIV) 2014. p. 1–8.
+Borland D, Taylor MR. Rainbow color map (still) considered harmful. IEEE computer graphics and applications. 2007 Mar;27(2):14–7.
+Christensen DL, Baio J, Van Naarden Braun K, Bilder D, Charles J, Constantino JN, et al. Prevalence and Characteristics of Autism Spectrum Disorder Among Children Aged 8 Years&ndash;Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2012. MMWR Surveillance summaries : Morbidity and mortality weekly report Surveillance summaries / CDC. 2016 Apr 1;65(3):1–23.
+Cleveland WS, McGill R. Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods. Journal of the American Statistical Association. 1984;79(387):531–54.
+Cleveland WS, Diaconis P, McGill R. Variables on Scatterplots Look More Highly Correlated When the Scales Are Increased. Science; 1982;216(4550):1138–41.
+Dörk M, Feng P, Collins C, Carpendale S. Critical InfoVis: exploring the politics of visualization. Proc. &lsquo;CHI 2013.
+Elliott, K. &ldquo;39 studies about human perception in 30 minutes&rdquo;; presented at OpenVis 2016.
+Heer J, Bostock M. Crowdsourcing graphical perception: using mechanical turk to assess visualization design. ACM CHI &lsquo;10; 2010. p. 203–12.
+Kosara R. An Empire Built On Sand: Reexamining What We Think We Know About Visualization. in the Proceedings of the Sixth Workshop on Beyond Time and Errors on Novel Evaluation Methods for Visualization (BELIV &lsquo;16) 2016. p. 162–8.
+Krzywinski M, Altman N. Points of significance: error bars. Nat Meth. Nature Research; 2013 Oct;10(10):921–2.
+Krzywinski M, Altman N. Visualizing samples with box plots. Nat Meth. 2014 Feb;11(2):119–20.
+Shneiderman B. Research agenda: Visual overviews for exploratory search. Information Seeking Support Systems. 2008;11:4.
+Sedlmair M, Meyer M, Munzner T. Design Study Methodology: Reflections from the Trenches and the Stacks. IEEE Transactions on Visualization and Computer Graphics. 2012 Dec;18(12):2431–40.
+Sedlmair M, Tatu A, Munzner T, Tory M. A Taxonomy of Visual Cluster Separation Factors. Computer Graphics Forum. 2012;31(3pt4):1335–44.
+Sedlmair M, Munzner T, Tory M. Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices. IEEE Transactions on Visualization and Computer Graphics. 2013 Dec;19(12):2634–43.
+Weissgerber TL, Milic NM, Winham SJ, Garovic VD. Beyond bar and line graphs: time for a new data presentation paradigm. PLoS Biol. Public Library of Science; 2015 Apr;13(4):e1002128.
+
+Blog posts, etc.
+
+The Why Axis&rsquo;s &ldquo;Mind the Gap: An Economic Chart Remake&rdquo;, by Jon Schwabish
+Notes on the Arabic FedEx logo.
+Jenny Cham&rsquo;s delightful &ldquo;sketchnotes&rdquo; from a 2014 seminar by the incomparable Tamara Munzner.
+Randy Olson&rsquo;s illustration of Small Multiples vs. Animated GIFs.
+Visual.ly&rsquo;s Color Emotion Guide
+I am very interested in William Playfair and the history of data visualization:
+
+Atlas Obscura, The Scottish Scoundrel Who Changed How We See Data
+Lauren Klein, Repairing William Playfair at the MLA
+Georgia Tech&rsquo;s Digital Humanities Lab, Repairing William Playfair
+
+
+Neil Richards, When is a visualisation a call to action?
+Carl Zimmer (yes, the Carl Zimmer) on genome graphs: As DNA reveals its secrets, scientists are assembling a new picture of humanity, with numerous examples of creative new ways to visualize genetic variation.
+Ben Jones, &ldquo;From Simple Tables to Multiple Vizzes&rdquo;: an illustration of ten different ways to visualize the same table. What different stories pop out from the different visualizations?
+Kristoffer Magnusson, How to tell when error bars correspond to a significant p-value
+Kyle Walker, Should you visualize data with a map or a chart? Thoughts from teaching introductory geography
+Lazaro Gamio (Washington Post), Election maps are telling you big lies about small things
+Cartonerd, The NYT election map
+vis4.net, Why we didn’t use a cartogram in the Brexit map
+Benjamin Hennig, Cartogram Special – Brexit
+Tom Pearson (Financial Times), Communicating with data — How the FT explained Brexit: &ldquo;From early sketch to final dashboard, FT data visualisation experts explain the process&rdquo;
+" /><meta property="og:image" content="http://localhost:4321/media/icon_hu16222407252349562370.png" />
+    <meta property="twitter:image" content="http://localhost:4321/media/icon_hu16222407252349562370.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2019-05-05T00:00:00&#43;01:00"
+      />
+    
+    <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  <title>Useful readings | UO R Bootcamp 2024</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let element = document.getElementById('search');
+    let trigger = document.getElementById('search_toggle');
+
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        element.classList.toggle('hidden');
+        element.querySelector("input").value = ""
+        element.querySelector("input").focus()
+
+        if (!element.classList.contains('hidden')) {
+          let clear_trigger = document.querySelector('.pagefind-ui__search-clear');
+
+          if (clear_trigger && !clear_trigger.hasAttribute('listenerOnClick')) {
+            clear_trigger.setAttribute('listenerOnClick', 'true');
+
+            clear_trigger.addEventListener('click', () => {
+              element.classList.toggle('hidden');
+            });
+          }
+        }
+
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.js"
+    integrity=""
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="UO R Bootcamp 2024">
+        UO R Bootcamp 2024
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/prework"
+        >Prework</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#schedule"
+        >Schedule</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#logistics"
+        >Logistics</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#materials"
+        >Materials</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#code_of_conduct"
+        >Code of Conduct</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#people"
+        >People</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/resources"
+        >Resources</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          target="_blank" rel="noopener"
+          
+          href="https://github.com/ian-shryock"
+        >Course GitHub</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+      <button
+        aria-label="search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        id="search_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+      </button>
+      
+
+      
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+
+<div id="search" class="hidden p-3"></div>
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      <div class="mx-auto flex max-w-screen-xl">
+  
+
+  
+  <div class="hb-sidebar-mobile-menu fixed inset-0 z-10 bg-white dark:bg-black/80 hidden"></div>
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:sticky">
+  
+  <div class="px-4 pt-4 lg:hidden">
+    
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/"
+    
+  >Recent &amp; Upcoming Talks
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/example/"
+    
+  >Example Talk
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Materials
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/00-welcome/"
+    
+  >00 - Welcome
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/01-r-basics/"
+    
+  >01 - Basics of R, RStudio, &amp; R Markdown
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/02-data-types/"
+    
+  >02 - Data Types &amp; Structures
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/03-functions/"
+    
+  >03 - Functions, Packages, &amp; Debugging
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/04-pipes/"
+    
+  >04 - Piping
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/05-intro-tidyverse/"
+    
+  >05 - Introduction to the Tidyverse
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/06-importing-workflows/"
+    
+  >06 - Importing Data &amp; Project-Oriented Workflows
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/07-dplyr/"
+    
+  >07 - Data Wrangling with {dplyr}
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/08-tidyr/"
+    
+  >08 - Data Tidying with {tidyr}
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/09-ggplot2/"
+    
+  >09 - Data Visualization with {ggplot2}
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/10-tips/"
+    
+  >10 - R Tips &amp; Tricks
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/prework/"
+    
+  >Prework
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/resources/"
+    
+  >Resources
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/"
+    
+  >Teaching
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/js/"
+    
+  >Learn JavaScript
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/courses/"
+    
+  >Courses
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/courses/resources/"
+    
+  >Data Visualization
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a>
+              <div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/courses/resources/books/"
+    
+  >Useful books
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/courses/resources/readings/"
+    
+  >Useful readings
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#papers"
+                class="hb-docs-link"
+              >Papers</a>
+            </li>
+          <li>
+              <a
+                href="#blog-posts-etc"
+                class="hb-docs-link"
+              >Blog posts, etc.</a>
+            </li>
+          </ul>
+  
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/courses/resources/websites/"
+    
+  >Useful websites
+    </a>
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/"
+    
+  >Publications
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/preprint/"
+    
+  >An example preprint / working paper
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/journal-article/"
+    
+  >An example journal article
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/conference-paper/"
+    
+  >An example conference paper
+    </a>
+              
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <ul class="flex flex-col gap-1 max-lg:hidden">
+        
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/courses/resources/"
+    
+  >Data Visualization
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/courses/resources/books/"
+    
+  >Useful books
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/courses/resources/readings/"
+    
+  >Useful readings
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/courses/resources/websites/"
+    
+  >Useful websites
+    </a>
+              
+            </li></ul>
+      </div></li>
+        
+      </ul>
+    </div>
+
+</aside>
+  
+
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#papers">Papers</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#blog-posts-etc">Blog posts, etc.</a>
+      </li></ul>
+
+  
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="flex w-full min-w-0 min-h-[calc(100vh-var(--navbar-height))] justify-center break-words pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="prose prose-slate lg:prose-xl dark:prose-invert w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+      <div class="mb-1">
+        <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400">
+      <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
+        <a href="http://localhost:4321/courses/">Courses</a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m8.25 4.5l7.5 7.5l-7.5 7.5"/></svg>
+      <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
+        <a href="http://localhost:4321/courses/resources/">Data Visualization</a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m8.25 4.5l7.5 7.5l-7.5 7.5"/></svg><div class="whitespace-nowrap font-medium text-gray-700 dark:text-gray-100">Useful readings</div>
+</div>
+
+      </div>
+
+      <div class="content text-base">
+        <h1>Useful readings</h1>
+        <br>
+<h2 id="papers">Papers</h2>
+<ol>
+<li>Brehmer M, Sedlmair M, Ingram S, Munzner T. <a href="http://dl.acm.org/citation.cfm?id=2669559" target="_blank" rel="noopener">Visualizing Dimensionally-reduced Data: Interviews with Analysts and a Characterization of Task Sequences.</a> Proc. Beyond Time &amp; Errors: Novel Evaluation Methods For Information Visualization (BELIV) 2014. p. 1–8.</li>
+<li>Borland D, Taylor MR. <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&amp;arnumber=4118486" target="_blank" rel="noopener">Rainbow color map (still) considered harmful.</a> IEEE computer graphics and applications. 2007 Mar;27(2):14–7.</li>
+<li>Christensen DL, Baio J, Van Naarden Braun K, Bilder D, Charles J, Constantino JN, et al. <a href="http://www.cdc.gov/mmwr/volumes/65/ss/ss6503a1.htm" target="_blank" rel="noopener">Prevalence and Characteristics of Autism Spectrum Disorder Among Children Aged 8 Years&ndash;Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2012.</a> MMWR Surveillance summaries : Morbidity and mortality weekly report Surveillance summaries / CDC. 2016 Apr 1;65(3):1–23.</li>
+<li>Cleveland WS, McGill R. <a href="http://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080" target="_blank" rel="noopener">Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods.</a> Journal of the American Statistical Association. 1984;79(387):531–54.</li>
+<li>Cleveland WS, Diaconis P, McGill R. <a href="http://science.sciencemag.org/content/216/4550/1138.full.pdf&#43;html" target="_blank" rel="noopener">Variables on Scatterplots Look More Highly Correlated When the Scales Are Increased.</a> Science; 1982;216(4550):1138–41.</li>
+<li>Dörk M, Feng P, Collins C, Carpendale S. <a href="http://portal.acm.org/citation.cfm?id=2468356.2468739&amp;coll=DL&amp;dl=GUIDE&amp;CFID=460495180&amp;CFTOKEN=15985043" target="_blank" rel="noopener">Critical InfoVis: exploring the politics of visualization.</a> Proc. &lsquo;CHI 2013.</li>
+<li>Elliott, K. <a href="https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73#.l9wps0emh" target="_blank" rel="noopener">&ldquo;39 studies about human perception in 30 minutes&rdquo;</a>; presented at OpenVis 2016.</li>
+<li>Heer J, Bostock M. <a href="http://dl.acm.org/citation.cfm?id=1753357" target="_blank" rel="noopener">Crowdsourcing graphical perception: using mechanical turk to assess visualization design.</a> ACM CHI &lsquo;10; 2010. p. 203–12.</li>
+<li>Kosara R. <a href="http://dl.acm.org/citation.cfm?doid=2993901.2993909" target="_blank" rel="noopener">An Empire Built On Sand: Reexamining What We Think We Know About Visualization.</a> in the Proceedings of the Sixth Workshop on Beyond Time and Errors on Novel Evaluation Methods for Visualization (BELIV &lsquo;16) 2016. p. 162–8.</li>
+<li>Krzywinski M, Altman N. <a href="http://www.nature.com/nmeth/journal/v10/n10/full/nmeth.2659.html" target="_blank" rel="noopener">Points of significance: error bars.</a> Nat Meth. Nature Research; 2013 Oct;10(10):921–2.</li>
+<li>Krzywinski M, Altman N. <a href="http://www.nature.com/nmeth/journal/v11/n2/full/nmeth.2813.html" target="_blank" rel="noopener">Visualizing samples with box plots.</a> Nat Meth. 2014 Feb;11(2):119–20.</li>
+<li>Shneiderman B. <a href="http://www.ils.unc.edu/ISSS/ISSS_final_report.pdf#page=96" target="_blank" rel="noopener">Research agenda: Visual overviews for exploratory search.</a> Information Seeking Support Systems. 2008;11:4.</li>
+<li>Sedlmair M, Meyer M, Munzner T. <a href="http://www.cs.ubc.ca/labs/imager/tr/2012/dsm/" target="_blank" rel="noopener">Design Study Methodology: Reflections from the Trenches and the Stacks.</a> IEEE Transactions on Visualization and Computer Graphics. 2012 Dec;18(12):2431–40.</li>
+<li>Sedlmair M, Tatu A, Munzner T, Tory M. <a href="http://onlinelibrary.wiley.com/wol1/doi/10.1111/j.1467-8659.2012.03125.x/full" target="_blank" rel="noopener">A Taxonomy of Visual Cluster Separation Factors.</a> Computer Graphics Forum. 2012;31(3pt4):1335–44.</li>
+<li>Sedlmair M, Munzner T, Tory M. <a href="http://www.cs.ubc.ca/labs/imager/tr/2013/ScatterplotEval/" target="_blank" rel="noopener">Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices.</a> IEEE Transactions on Visualization and Computer Graphics. 2013 Dec;19(12):2634–43.</li>
+<li>Weissgerber TL, Milic NM, Winham SJ, Garovic VD. <a href="http://dx.plos.org/10.1371/journal.pbio.1002128" target="_blank" rel="noopener">Beyond bar and line graphs: time for a new data presentation paradigm.</a> PLoS Biol. Public Library of Science; 2015 Apr;13(4):e1002128.</li>
+</ol>
+<h2 id="blog-posts-etc">Blog posts, etc.</h2>
+<ol>
+<li>The Why Axis&rsquo;s <a href="http://thewhyaxis.info/gap-remake/" target="_blank" rel="noopener">&ldquo;Mind the Gap: An Economic Chart Remake&rdquo;</a>, by Jon Schwabish</li>
+<li>Notes on the <a href="http://imjustcreative.com/the-arabic-fedex-logo/2012/02/01/amp/" target="_blank" rel="noopener">Arabic FedEx logo</a>.</li>
+<li>Jenny Cham&rsquo;s delightful &ldquo;sketchnotes&rdquo; from a <a href="http://jennycham.co.uk/2014/07/a-peek-into-the-world-of-data-visualisation-with-prof-munzner/" target="_blank" rel="noopener">2014 seminar</a> by the incomparable Tamara Munzner.</li>
+<li>Randy Olson&rsquo;s illustration of <a href="http://www.randalolson.com/2015/08/23/small-multiples-vs-animated-gifs-for-showing-changes-in-fertility-rates-over-time/" target="_blank" rel="noopener">Small Multiples vs. Animated GIFs</a>.</li>
+<li>Visual.ly&rsquo;s <a href="http://visual.ly/color-emotion-guide" target="_blank" rel="noopener">Color Emotion Guide</a></li>
+<li><a name="playfair"></a>I am very interested in William Playfair and the history of data visualization:
+<ul>
+<li>Atlas Obscura, <a href="http://www.atlasobscura.com/articles/the-scottish-scoundrel-who-changed-how-we-see-data" target="_blank" rel="noopener">The Scottish Scoundrel Who Changed How We See Data</a></li>
+<li>Lauren Klein, <a href="http://dhlab.lmc.gatech.edu/uncategorized/repairing-william-playfair-at-the-mla/" target="_blank" rel="noopener">Repairing William Playfair at the MLA</a></li>
+<li>Georgia Tech&rsquo;s Digital Humanities Lab, <a href="http://dhlab.lmc.gatech.edu/repairing-william-playfair/" target="_blank" rel="noopener">Repairing William Playfair</a></li>
+</ul>
+</li>
+<li>Neil Richards, <a href="https://questionsindataviz.wordpress.com/2016/10/09/when-is-a-visualisation-a-call-to-action/" target="_blank" rel="noopener">When is a visualisation a call to action?</a></li>
+<li>Carl Zimmer (yes, <em>the</em> Carl Zimmer) on genome graphs: <a href="https://www.statnews.com/2016/10/07/dna-genome-sequencing-new-maps/" target="_blank" rel="noopener">As DNA reveals its secrets, scientists are assembling a new picture of humanity</a>, with numerous examples of creative new ways to visualize genetic variation.</li>
+<li>Ben Jones, <a href="http://dataremixed.com/2016/10/simple-tables-multiple-vizzes/" target="_blank" rel="noopener">&ldquo;From Simple Tables to Multiple Vizzes&rdquo;</a>: an illustration of ten different ways to visualize the same table. What different stories pop out from the different visualizations?</li>
+<li>Kristoffer Magnusson, <a href="http://rpsychologist.com/how-to-tell-when-error-bars-correspond-to-a-significant-p-value" target="_blank" rel="noopener">How to tell when error bars correspond to a significant p-value</a></li>
+<li>Kyle Walker, <a href="http://walkerke.github.io/2015/04/map-or-chart/" target="_blank" rel="noopener">Should you visualize data with a map or a chart? Thoughts from teaching introductory geography</a></li>
+<li>Lazaro Gamio (Washington Post), <a href="https://www.washingtonpost.com/graphics/politics/2016-election/how-election-maps-lie/" target="_blank" rel="noopener">Election maps are telling you big lies about small things</a></li>
+<li>Cartonerd, <a href="http://cartonerd.blogspot.de/2016/11/the-nyt-election-map.html?m=1" target="_blank" rel="noopener">The NYT election map</a></li>
+<li>vis4.net, <a href="http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/" target="_blank" rel="noopener">Why we didn’t use a cartogram in the Brexit map</a></li>
+<li>Benjamin Hennig, <a href="http://geographical.co.uk/places/mapping/item/1805-cartogram-special-brexit" target="_blank" rel="noopener">Cartogram Special – Brexit</a></li>
+<li>Tom Pearson (Financial Times), <a href="https://www.ft.com/content/3bfc0aac-4ccd-11e6-88c5-db83e98a590a" target="_blank" rel="noopener">Communicating with data — How the FT explained Brexit</a>: &ldquo;From early sketch to final dashboard, FT data visualisation experts explain the process&rdquo;</li>
+</ol>
+
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2019-05-05T00:00:00.000Z">
+    <span>Last updated on</span>
+    May 5, 2019</time>
+      
+      
+  
+    
+    
+    
+      
+      
+    
+<div class="pt-1 no-prose w-full">
+  <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+  <div class="flex flex-col md:flex-row flex-nowrap justify-between gap-5 pt-2">
+    <div class="">
+      
+        <a class="group flex no-underline" href="/courses/resources/books/">
+          <span
+            class="mt-[-0.3rem] me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline rtl:hidden">&larr;</span></span>
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Useful books</span>
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                May 5, 2019
+              
+            </span>
+          </span>
+        </a>
+      
+    </div>
+    <div class="">
+      
+        <a class="group flex text-right no-underline" href="/courses/resources/websites/">
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Useful websites</span
+            >
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                May 5, 2019
+              
+            </span>
+          </span>
+          <span
+            class="mt-[-0.3rem] ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline">&rarr;</span></span>
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+      
+
+
+
+    </main>
+  </article>
+</div>
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2024 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

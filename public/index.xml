@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UO R Bootcamp 2024</title>
+    <link>http://localhost:4321/</link>
+      <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <description>UO R Bootcamp 2024</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:4321/media/icon_hu16222407252349562370.png</url>
+      <title>UO R Bootcamp 2024</title>
+      <link>http://localhost:4321/</link>
+    </image>
+    
+    <item>
+      <title>00 - Welcome</title>
+      <link>http://localhost:4321/post/00-welcome/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/00-welcome/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/00-welcome/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Welcome, everyone! We’re glad you’re here.&lt;/p&gt;
+&lt;hr&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>01 - Basics of R, RStudio, &amp; R Markdown</title>
+      <link>http://localhost:4321/post/01-r-basics/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/01-r-basics/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/01-r-basics/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Learning R can feel intimidating, and getting started is often the hardest part. Learning a few basics can go a long way and empower you to take the next step. And, even if you’ve been using R for a while, you can almost always learn something new and useful when going back over the fundamentals.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;
+ (chapter from 
+)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A 
+ to RStudio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ from R-Ladies Sydney&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>02 - Data Types &amp; Structures</title>
+      <link>http://localhost:4321/post/02-data-types/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/02-data-types/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/02-data-types/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Data comes in many different shapes and sizes, which means we need a way to represent different kinds of data in R in order to distinguish them. Today, we’re going to cover the different fundamental types of data in R and give you a feel for different ways that data can be structured and indexed.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;R for Data Science 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ by Jenny Bryan&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>03 - Functions, Packages, &amp; Debugging</title>
+      <link>http://localhost:4321/post/03-functions/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/03-functions/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/03-functions/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Functions are the “verbs” of R—they allow you to actually do interesting things with your data. We will cover the basics of how to use functions in R, how to get access to different functions by downloading packages, some general principles for what to do when you run into problems.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;
+ by Kieran Healy&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+, keynote talk by Jenny Bryan at rstudio::conf(2020)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deep dive into 
+ by Jim Hester&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>04 - Piping</title>
+      <link>http://localhost:4321/post/04-pipes/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/04-pipes/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/04-pipes/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Before we get started importing, wrangling, tidying, and visualizing data, we should talk about a powerful tool for chaining functions together: pipes.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;R for Data Science 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ from tidyverse.org&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>05 - Introduction to the Tidyverse</title>
+      <link>http://localhost:4321/post/05-intro-tidyverse/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/05-intro-tidyverse/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/05-intro-tidyverse/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;So far we have been using functions in base R. Now we’re going to take a first look at the tidyverse—a widely used framework for doing the full spectrum of data analysis, from importing to cleaning, visualizing, and modelling data.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Overview of tidyverse 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ from tidyverse.org&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ (a short article)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>06 - Importing Data &amp; Project-Oriented Workflows</title>
+      <link>http://localhost:4321/post/06-importing-workflows/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/06-importing-workflows/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/06-importing-workflows/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;The first step of any data analysis workflow is to get data into R. This isn’t always as straightforward as you might think, but, fortunately, there are some core functions that make this easy and efficient. Since we are starting at the beginning, we will also discuss the idea of a project-oriented workflow, which is a way to keep an organized and consistent process whenever you work with data in R that will also make your work reproducible and shareable. And the decisions you make right at the start of a data analysis project—even before importing your data—will have a lot of down-stream consequences.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;R for Data Science 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Why Jenny Bryan will come 
+ if you use &lt;code&gt;setwd()&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ by Jenny Richmond&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>07 - Data Wrangling with {dplyr}</title>
+      <link>http://localhost:4321/post/07-dplyr/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/07-dplyr/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/07-dplyr/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;When you are given data to analyze, it will almost always be in a format that makes it hard to create visualizations, perform modelling, and generate tables. In other words, most of the time, it will need to be wrangled into the correct format. The dplyr package has a very powerful set of functions for doing just this. Today we will be covering the core dplyr “verbs” that allow you to transform your data with optimal specificity and efficiency.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;R for Data Science chapter on 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ by Ted Laderas&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flipbooks on 
+ and 
+ by Gina Reynolds&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>08 - Data Tidying with {tidyr}</title>
+      <link>http://localhost:4321/post/08-tidyr/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/08-tidyr/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/08-tidyr/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;The concept of tidy data is, as the name suggests, of primary importance in the tidyverse. This lesson will introduce you to the criteria of tidy data, why it’s important, and how to reshape your raw data into a tidy format using &lt;code&gt;pivot_wider()&lt;/code&gt; and &lt;code&gt;pivot_longer()&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;R for Data Science chapter on 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tutorial on 
+ from R-Ladies
+Sydney&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>09 - Data Visualization with {ggplot2}</title>
+      <link>http://localhost:4321/post/09-ggplot2/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/09-ggplot2/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/09-ggplot2/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Data visualization is at the very core of science. In order to understand and glean insights from our data, we need different ways of representing it visually. R has an incredible capacity for creating all sorts of plots, charts, and tables, and today we will only scratch the surface. We will discuss the fundamentals of the powerful ggplot2 package and the “grammar of graphics” that underlies it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;R for Data Science chapter on 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modern Dive chapter on 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cookbook for R chapter on 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ by Gina Reynolds—shows how to create plots line-by-line&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>10 - R Tips &amp; Tricks</title>
+      <link>http://localhost:4321/post/10-tips/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/10-tips/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/post/10-tips/index_files/fitvids/fitvids.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;For this final topic, we will cover some tips and tricks that will help you become an R power user. This includes customizing how R Studio looks, introducing obscure (but helpful) functions, and some shameless self-promotion on the part of Cameron.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;div class=&#34;book&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;The 
+ package.&lt;/li&gt;
+&lt;li&gt;The 
+ package.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>People</title>
+      <link>http://localhost:4321/people/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/people/</guid>
+      <description>&lt;h2 id=&#34;ian-shryock&#34;&gt;Ian Shryock&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./ian.jpg&#34; alt=&#34;image info&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Ian is a fifth-year doctoral student in the clinical and personality areas. His research focuses on understanding transdiagnostic emotional processes as they unfold in daily life. He is also interested in improving the measurement of psychological attributes in research and clinical practice. Accordingly, he uses a combination of mixed-effects models, distributional regression, and item response theory in his work.&lt;/p&gt;
+&lt;h2 id=&#34;dominik-grätz&#34;&gt;Dominik Grätz&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./dom.jpg&#34; alt=&#34;image info&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+Dominik is a fifth-year PhD student in Ulrich Mayr&amp;rsquo;s lab at the University of Oregon. He is interested in cognitive control, specifically in how the cognitive system selects information from different sources. He uses R primarily to clean, analyze, and visualize data, but also to create Shiny applications or to edit images.&lt;/p&gt;
+&lt;h2 id=&#34;denicia-espinosa-aragon&#34;&gt;Denicia Espinosa Aragon&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./den.jpg&#34; alt=&#34;image info&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Denicia is a fourth-year doctoral student in Psychology at the University of Oregon. Her research focuses on future self perception, neuroeconomics, underrepresented population perspectives. More specifically, she is interested in how to improve how individuals connect with their future self to make for better current actions.&lt;/p&gt;
+&lt;h2 id=&#34;ben-chaloupka&#34;&gt;Ben Chaloupka&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./ben.jpg&#34; alt=&#34;image info&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Ben is entering the final year of his PhD program at UO. He is a member of Dasa Zeithamova&amp;rsquo;s Brain and Memory Lab studying the cognitive neuroscience of memory. Outside of the lab, Ben spends most of his time rock climbing, mountaineering, and playing disc golf. He loves R and RStudio/Posit, and uses them for data cleaning, analysis, and visualization for his dissertation research, as well as for fun, such as analyzing his climbing data (yes, he logs all of his outdoor climbs).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prework</title>
+      <link>http://localhost:4321/prework/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/prework/</guid>
+      <description>&lt;p&gt;Hello! Welcome to the 7th Annual UO R Bootcamp. There are a few things we&amp;rsquo;d like you to do before we get started to make things run as smoothly as possible.&lt;/p&gt;
+&lt;p&gt;If possible, please try to complete this checklist &lt;em&gt;before&lt;/em&gt; the first UO R Bootcamp session. Thank you!&lt;/p&gt;
+&lt;hr&gt;
+&lt;br&gt; 
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Join the 
+. The slack channel will help us help you troubleshoot any issues you have with your code during the camp and to answer any questions you have. It is also the best place to ask questions outside of the scheduled bootcamp hours. This is the department&amp;rsquo;s multipurpose slack workspace, and we&amp;rsquo;ll be using the channel &lt;code&gt;#rbootcamp-2024&lt;/code&gt;. You should have received an email invitation to join the &lt;code&gt;UO Psychology&lt;/code&gt; workspace. If you haven&amp;rsquo;t received an invitation, send Ian an email at 
+.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download and install both 
+ and 
+. 
+ is free and, for the purposes of the bootcamp, you will only need the free version of 
+. If you have any trouble downloading or opening 
+ or 
+, please let one of the UO R Bootcamp team members know, and we will do our best to help you solve the issue.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the 
+ for the UO R Bootcamp. We will be working through the materials and exercises together during the bootcamp.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Looking forward to seeing you all soon. Hopefully we&amp;rsquo;ll have you loving R in no time!&lt;/p&gt;
+&lt;p&gt;-The UO R Bootcamp Team&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>http://localhost:4321/resources/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/resources/</guid>
+      <description>&lt;p&gt;Below is a curated list of resources we&amp;rsquo;ve found to be particularly useful and accessible. If you come across other great resources that you think you should be on this list, please 
+!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;books&#34;&gt;Books&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;thorough and accessible, includes exercises and community-contributed 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;great for complete beginners, more focused on stats and modelling&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;for getting into the habit of using best practices early on&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;a collection of pretty much any R-related book that&amp;rsquo;s out there (categorized by topic and searchable)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;websites&#34;&gt;Websites&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;RStudio Education&amp;rsquo;s 
+ and 
+&amp;mdash;a veritable treasure trove!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;worth printing ones you commonly use&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;links to 
+, 
+, and a great 
+ to stay up to date&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;a searchable site for all sorts of learning resources&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;interactive-tutorials&#34;&gt;Interactive tutorials&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;a free online course about the basics of the tidyverse&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;these, along with other tutorials, can also be run in the 
+ in the RStudio IDE&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;more stats focused, with incredible artwork and adorable tiny giraffes&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;online-communities&#34;&gt;Online communities&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;super friendly and welcoming to R users at all levels&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;#rstats&lt;/code&gt; Twitter&amp;mdash;also very friendly and inclusive (despite being Twitter). Good advice on this 
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;a weekly community-based data viz challenge on Twitter. Great for hands-on, self-directed practice!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&amp;mdash;great for asking for help from knowledgable experts&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;university-of-oregon&#34;&gt;University of Oregon&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;5-course 
+ offered by UO College of Education. See course websites 
+ and 
+ below. Cannot recommend highly enough!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UO Psych Data Analysis Sequence (PSY611, PSY612, PSY613), led by 
+, 
+, and 
+. See course websites 
+&amp;mdash;you will learn a TON.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+ offers free 
+, as well as free 
+. Every Friday at noon, they also host &lt;code&gt;Coffee + Data &amp;amp;&amp;amp; Code&lt;/code&gt; in the DREAM Lab, providing an opportunity to learn from your peers and share your latest coding challenges and victories.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Each other! As grad students, one of the best resources you have access to is your peers. You can read more of 
+&amp;rsquo;s thoughts about this 
+. When in doubt, ask for help&amp;mdash;and pay it forward if/whenever you can.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /resources/EDS_hu7889143400800732601.webp 400w,
+               /resources/EDS_hu8953455436178857598.webp 760w,
+               /resources/EDS_hu17114238473907279290.webp 1200w&#34;
+               src=&#34;http://localhost:4321/resources/EDS_hu7889143400800732601.webp&#34;
+               width=&#34;590&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

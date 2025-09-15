@@ -1,0 +1,272 @@
+---
+title: "Piping"
+author: 
+date: 
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "assets/css/custom.css"]
+    seal: false
+    lib_dir: libs
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(countdown)
+library(tidyverse)
+
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
+
+# your turn counter
+yt_counter <- 0
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_light(base_color = "#154733",
+                header_font_google = google_font("Averia Serif Libre"),
+                text_font_google = google_font("Averia Serif Libre"),
+                code_font_google = google_font("Source Code Pro"),
+                link_color = "#4D5859",
+                code_inline_color = "#154733",
+                title_slide_text_color = "#FEE123",
+                white_color = "white",
+                text_font_size = "1.2rem",
+                extra_css = list(".title-slide" = list("color" =  "white", "font-size" = "40px")))
+
+```
+
+class: title-slide, center, middle
+
+.top-left[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/uo-logo2.png")
+```
+]
+
+.top-right[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/psy-logo.png")
+```
+]
+
+# Piping
+
+UO R Bootcamp 2024
+
+
+---
+background-image: url(images/hex/magrittr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pipe operator
+
+--
+
+One very useful function is the **pipe**:
+
+### .center[`%>%`]
+
+--
+
+The pipe is part of the `{magrittr}` package, which is loaded as part of the `{tidyverse}` package (discussed in the next slide deck).
+
+--
+
+Pipes are a way to write code in a way that is easier to read and understand. They allow you to string a series of functions together into a pipeline.
+
+--
+
+Strictly speaking, a pipe passes an object on the **left-hand side** as the first argument of whatever function is on the **right-hand side**. 
+
+--
+
+In general form, this means that...
+
+`x %>% f(y)` is the same as `f(x, y)`
+
+---
+
+background-image: url(images/hex/magrittr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pipe operator
+
+Let's see an example...
+
+
+```{r}
+coffee_consumed <- c(20, 16, 16, 12, 0, 16, 30, 60)
+```
+
+Let's say we wanted to take the mean of the `coffee_consumed` vector  and then we wanted to round the resulting value.
+
+--
+***
+
+We could do the following:
+
+```{r}
+coffee_consumed_avg <- mean(coffee_consumed)
+
+round(coffee_consumed_avg)
+```
+
+--
+
+This is inefficient.
+
+---
+
+background-image: url(images/hex/magrittr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pipe operator
+
+
+```{r}
+coffee_consumed <- c(20, 16, 16, 12, 0, 16, 30, 60)
+```
+
+Let's say we wanted to take the mean of the `coffee_consumed` vector (as we did in the previous slide deck) and then we wanted to round the resulting value.
+
+--
+
+We could, instead, do the following:
+
+```{r}
+round(mean(coffee_consumed))
+```
+--
+However, this is a bit hard to read.
+
+---
+background-image: url(images/hex/magrittr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pipe operator
+
+```{r}
+coffee_consumed <- c(20, 16, 16, 12, 0, 16, 30, 60)
+```
+
+Let's say we wanted to take the mean of the `coffee_consumed` vector (as we did in the previous slide deck) and then we wanted to round the resulting value.
+
+***
+
+In this case, we could use pipes to chain the functions together:
+
+```{r}
+coffee_consumed %>%
+  mean() %>%
+  round()
+```
+
+---
+background-image: url(images/hex/magrittr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pipe operator
+
+```{r}
+coffee_consumed %>%
+  mean() %>%
+  round()
+```
+
+--
+***
+
+You can, essentially, think of the pipe as representing the phrase "and then..."
+
+--
+
+Verbally, we might describe the code we just wrote as "Start with the `coffee_consumed` data, **and then** calculate the mean, **and then** round the mean.
+
+---
+background-image: url(images/hex/magrittr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pipe operator
+
+Note that you aren't limited to just two pipes. You can use many (MANY!) pipes to carry out some pretty complex operations.
+
+--
+
+For example:
+
+```{r}
+horror_movies_consumed <- c(JAN = 0, FEB =  1, MAR = NA, APR = 1, 
+                            MAY = 3, JUN =  0, JUL =  2, AUG = 3, 
+                            SEP = 1, OCT = 22, NOV =  1, DEC = NA)
+
+horror_movies_consumed %>%
+  na.omit() %>%
+  mean() %>%
+  round() %>%
+  cat("is the average number of horror movies consumed\nbetween January and December.")
+```
+
+--
+***
+
+.smaller-font[Tip: You can enter a pipe with the shortcut `CTRL+Shift+M` for PC or `CMD+Shift+M` for Mac.]
+
+---
+class: yourturn
+# Your Turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 2, seconds = 30, color_border ="#FEE123")
+```
+
+The code below calculates the standard deviation of the US population between 1790 and 1970 and then rounds the resulting value.
+
+```{r eval=FALSE}
+round(sd(uspop, na.rm = TRUE))
+```
+
+1. Run the code chunk provided to calculate the rounded standard deviation of the US population between 1790 and 1970.
+
+1. Re-write the code above using the pipe operator (`%>%`). Check that the answer you get matches the original code you ran above. 
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r}
+round(sd(uspop, na.rm = TRUE))
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+```{r}
+uspop %>% 
+  sd(na.rm = TRUE) %>%
+  round()
+```
+
+]
+]
+
+---
+class: yourturn, center, middle
+# Q & A
+
+```{r echo=FALSE}
+countdown(minutes = 3, color_border ="#FEE123")
+```
+
+

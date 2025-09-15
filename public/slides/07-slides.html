@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Wrangling with {dplyr}</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, center, middle
+
+.top-left[
+&lt;img src="images/uo-logo2.png" width="100%" /&gt;
+]
+
+.top-right[
+&lt;img src="images/psy-logo.png" width="100%" /&gt;
+]
+
+# Data Wrangling with {dplyr}
+
+UO R Bootcamp 2024
+
+---
+background-image: url(images/hex/tidyverse.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Tidyverse 
+
+There are a few key ideas to be aware of about how the tidyverse works in general before we dive into `{dplyr}`
+
+--
+
+1. Packages are designed to be like **grammars** for their task. You can string these grammatical elements together to form more complex statements, just like with language.
+
+--
+
+1. The first argument of (basically) every function is `data`. This is very handy, especially when it comes to piping.
+
+--
+
+1. Variable names are usually not quoted (read more [here](https://tidyselect.r-lib.org/reference/language.html)).
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Star Wars
+
+
+
+
+``` r
+starwars
+```
+
+```
+## # A tibble: 87 × 6
+##    name               height  mass hair_color    eye_color species
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;  
+##  1 Luke Skywalker        172    77 blond         blue      Human  
+##  2 C-3PO                 167    75 &lt;NA&gt;          yellow    Droid  
+##  3 R2-D2                  96    32 &lt;NA&gt;          red       Droid  
+##  4 Darth Vader           202   136 none          yellow    Human  
+##  5 Leia Organa           150    49 brown         brown     Human  
+##  6 Owen Lars             178   120 brown, grey   blue      Human  
+##  7 Beru Whitesun Lars    165    75 brown         blue      Human  
+##  8 R5-D4                  97    32 &lt;NA&gt;          red       Droid  
+##  9 Biggs Darklighter     183    84 black         brown     Human  
+## 10 Obi-Wan Kenobi        182    77 auburn, white blue-gray Human  
+## # ℹ 77 more rows
+```
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# {dplyr}
+
+`{dplyr}` is a grammar of data manipulation, providing a consistent set of core verbs that help you solve the most common data manipulation challenges
+
+--
+
+***
+
+**Manipulating observations**
+
++ `filter()` picks cases based on their values.
+
++ `arrange()` changes the ordering of the rows.
+
+---
+
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# {dplyr}
+
+`{dplyr}` is a grammar of data manipulation, providing a consistent set of core verbs that help you solve the most common data manipulation challenges
+
+***
+
+**Manipulating variables**
+
++ `select()` picks variables based on their names.
+
++ `mutate()` adds new variables that are functions of existing variables.
+
+---
+
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# {dplyr}
+
+`{dplyr}` is a grammar of data manipulation, providing a consistent set of core verbs that help you solve the most common data manipulation challenges
+
+***
+
+**Summarizing data**
+
++ `summarise()` reduces multiple values down to single summary statistics.
+
+---
+class: inverse, center, middle
+
+# Manipulating observations &lt;br&gt; (rows)
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+### Subset observations (rows) with `filter()`
+
+&lt;img src="images/dplyr/filter.png" width="400" /&gt;
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+&lt;img src="images/dplyr_filter.jpg" width="9099" /&gt;
+
+.footnote[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Operator &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Description &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Usage &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;lt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; less than &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x &amp;lt; y &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;lt;= &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; less than or equal to &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x &amp;lt;= y &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; greater than &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x &amp;gt; y &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;gt;= &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; greater than or equal to &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x &amp;gt;= y &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; == &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; exactly equal to &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x == y &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; != &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; not equal to &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x != y &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;amp; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; and &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x == a &amp;amp; y == b &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; or &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x == a | y == b &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; %in% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; group membership &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; x %in% y &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; is.na &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; is missing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; is.na(x) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; !is.na &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; is not missing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; !is.na(x) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.footnote[Source: [Alison Hill](https://share-blogdown.netlify.app/slides/02-slides.html#15)]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+
+``` r
+filter(.data, ...)
+```
+
+`.data` is a data frame or tibble
+
+`...` includes expressions that return a logical value and are defined in terms of the variables in .data. If multiple expressions are included, they are combined with the &amp; operator. Only rows for which all conditions evaluate to TRUE are kept.
+]
+
+.panel[.panel-name[Example 1]
+
+
+``` r
+starwars %&gt;% 
+  filter(species == "Human" &amp; eye_color != "blue")
+```
+
+```
+## # A tibble: 23 × 6
+##    name              height  mass hair_color    eye_color species
+##    &lt;chr&gt;              &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;  
+##  1 Darth Vader          202 136   none          yellow    Human  
+##  2 Leia Organa          150  49   brown         brown     Human  
+##  3 Biggs Darklighter    183  84   black         brown     Human  
+##  4 Obi-Wan Kenobi       182  77   auburn, white blue-gray Human  
+##  5 Han Solo             180  80   brown         brown     Human  
+##  6 Wedge Antilles       170  77   brown         hazel     Human  
+##  7 Palpatine            170  75   grey          yellow    Human  
+##  8 Boba Fett            183  78.2 black         brown     Human  
+##  9 Lando Calrissian     177  79   black         brown     Human  
+## 10 Arvel Crynyd          NA  NA   brown         brown     Human  
+## # ℹ 13 more rows
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+
+``` r
+starwars %&gt;% 
+  filter(species %in% c("Wookiee", "Ewok"))
+```
+
+```
+## # A tibble: 3 × 6
+##   name                  height  mass hair_color eye_color species
+##   &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;  
+## 1 Chewbacca                228   112 brown      blue      Wookiee
+## 2 Wicket Systri Warrick     88    20 brown      brown     Ewok   
+## 3 Tarfful                  234   136 brown      blue      Wookiee
+```
+]
+
+.panel[.panel-name[Example 3]
+
+
+``` r
+starwars %&gt;% 
+  filter(!is.na(hair_color))
+```
+
+```
+## # A tibble: 82 × 6
+##    name               height  mass hair_color    eye_color species
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;  
+##  1 Luke Skywalker        172    77 blond         blue      Human  
+##  2 Darth Vader           202   136 none          yellow    Human  
+##  3 Leia Organa           150    49 brown         brown     Human  
+##  4 Owen Lars             178   120 brown, grey   blue      Human  
+##  5 Beru Whitesun Lars    165    75 brown         blue      Human  
+##  6 Biggs Darklighter     183    84 black         brown     Human  
+##  7 Obi-Wan Kenobi        182    77 auburn, white blue-gray Human  
+##  8 Anakin Skywalker      188    84 blond         blue      Human  
+##  9 Wilhuff Tarkin        180    NA auburn, grey  blue      Human  
+## 10 Chewbacca             228   112 brown         blue      Wookiee
+## # ℹ 72 more rows
+```
+]
+
+.panel[.panel-name[Example 4]
+
+
+``` r
+starwars %&gt;% 
+  filter(height &lt;= 100)
+```
+
+```
+## # A tibble: 7 × 6
+##   name                  height  mass hair_color eye_color species       
+##   &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;         
+## 1 R2-D2                     96    32 &lt;NA&gt;       red       Droid         
+## 2 R5-D4                     97    32 &lt;NA&gt;       red       Droid         
+## 3 Yoda                      66    17 white      brown     Yoda's species
+## 4 Wicket Systri Warrick     88    20 brown      brown     Ewok          
+## 5 Ratts Tyerel              79    15 none       unknown   Aleena        
+## 6 Dud Bolt                  94    45 none       yellow    Vulptereen    
+## 7 R4-P17                    96    NA none       red, blue Droid
+```
+]
+
+]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `arrange()`
+
+### Arrange rows by column values with `arrange()`
+
+&lt;img src="images/dplyr/arrange.png" width="400" /&gt;
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `arrange()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+
+``` r
+arrange(.data, ...)
+```
+
+`.data` is a data frame or tibble
+
+`...` are the variables to sort by. Use `desc()` to sort a variable in descending order
+]
+
+.panel[.panel-name[Example 1]
+
+
+``` r
+starwars %&gt;% 
+  arrange(mass)
+```
+
+```
+## # A tibble: 87 × 6
+##    name                  height  mass hair_color eye_color species       
+##    &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;         
+##  1 Ratts Tyerel              79    15 none       unknown   Aleena        
+##  2 Yoda                      66    17 white      brown     Yoda's species
+##  3 Wicket Systri Warrick     88    20 brown      brown     Ewok          
+##  4 R2-D2                     96    32 &lt;NA&gt;       red       Droid         
+##  5 R5-D4                     97    32 &lt;NA&gt;       red       Droid         
+##  6 Sebulba                  112    40 none       orange    Dug           
+##  7 Padmé Amidala            185    45 brown      brown     Human         
+##  8 Dud Bolt                  94    45 none       yellow    Vulptereen    
+##  9 Wat Tambor               193    48 none       unknown   Skakoan       
+## 10 Sly Moore                178    48 none       white     &lt;NA&gt;          
+## # ℹ 77 more rows
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+
+``` r
+starwars %&gt;% 
+  arrange(desc(mass))
+```
+
+```
+## # A tibble: 87 × 6
+##    name                  height  mass hair_color  eye_color     species   
+##    &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;     
+##  1 Jabba Desilijic Tiure    175  1358 &lt;NA&gt;        orange        Hutt      
+##  2 Grievous                 216   159 none        green, yellow Kaleesh   
+##  3 IG-88                    200   140 none        red           Droid     
+##  4 Darth Vader              202   136 none        yellow        Human     
+##  5 Tarfful                  234   136 brown       blue          Wookiee   
+##  6 Owen Lars                178   120 brown, grey blue          Human     
+##  7 Bossk                    190   113 none        red           Trandoshan
+##  8 Chewbacca                228   112 brown       blue          Wookiee   
+##  9 Jek Tono Porkins         180   110 brown       blue          &lt;NA&gt;      
+## 10 Dexter Jettster          198   102 none        yellow        Besalisk  
+## # ℹ 77 more rows
+```
+]
+]
+
+---
+class: yourturn
+
+# Your turn 1
+
+<div class="countdown" id="timer_f2273f27" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+1. Convert the data frame `mtcars` to a tibble and assign the resulting object to `data`. *Note.* The data frame `mtcars` is automatically loaded in R; you don't have to install it separately.
+
+1. Filter `data` for cars that have 4 `cyl`. Arrange the resulting observations by descending order of `mpg`.
+
+1. Filter `data` for cars that have `disp`s greater than or equal to 350, `hp`s greater than or equal to 200, and `qsec`s less than or equal to 17. 
+
+1. Filter `data` for cars that have `carb`s equal to 4 or `cyl`s equal to 4. Assign the result to an object called `data_filtered`.
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+data &lt;- tibble(mtcars)
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+
+``` r
+data %&gt;% 
+  filter(cyl == 4) %&gt;% 
+  arrange(desc(mpg))
+```
+
+```
+## # A tibble: 11 × 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1
+##  2  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1
+##  3  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2
+##  4  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2
+##  5  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1
+##  6  26       4 120.     91  4.43  2.14  16.7     0     1     5     2
+##  7  24.4     4 147.     62  3.69  3.19  20       1     0     4     2
+##  8  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1
+##  9  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2
+## 10  21.5     4 120.     97  3.7   2.46  20.0     1     0     3     1
+## 11  21.4     4 121     109  4.11  2.78  18.6     1     1     4     2
+```
+
+]
+
+.panel[.panel-name[Q3]
+
+
+``` r
+data %&gt;% 
+  filter(disp &gt;= 350, hp &gt;= 200, qsec &lt;= 17)
+```
+
+```
+## # A tibble: 3 × 11
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  14.3     8   360   245  3.21  3.57  15.8     0     0     3     4
+## 2  13.3     8   350   245  3.73  3.84  15.4     0     0     3     4
+## 3  15.8     8   351   264  4.22  3.17  14.5     0     1     5     4
+```
+
+
+``` r
+data %&gt;% 
+  filter(disp &gt;= 350 &amp; hp &gt;= 200 &amp; qsec &lt;= 17)
+```
+
+```
+## # A tibble: 3 × 11
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  14.3     8   360   245  3.21  3.57  15.8     0     0     3     4
+## 2  13.3     8   350   245  3.73  3.84  15.4     0     0     3     4
+## 3  15.8     8   351   264  4.22  3.17  14.5     0     1     5     4
+```
+
+]
+
+.panel[.panel-name[Q4]
+
+
+``` r
+data_filtered &lt;- data %&gt;% 
+  filter(carb == 4 | cyl == 4)
+
+data_filtered
+```
+
+```
+## # A tibble: 21 × 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  5  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  6  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+##  7  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+##  8  17.8     6  168.   123  3.92  3.44  18.9     1     0     4     4
+##  9  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4
+## 10  10.4     8  460    215  3     5.42  17.8     0     0     3     4
+## # ℹ 11 more rows
+```
+
+]
+]
+
+---
+class: inverse, center, middle
+
+# Manipulating variables &lt;br&gt; (columns)
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `select()`
+
+### Select columns with `select()`
+
+&lt;img src="images/dplyr/select.png" width="400" /&gt;
+
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `select()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+
+``` r
+select(.data, ...)
+```
+
+`.data` is a data frame or tibble
+
+`...` is one or more unquoted expressions separated by commas. Variable names can be used as if they were positions in the data frame, so expressions like `x:y` can be used to select a range of variables.
+]
+
+
+.panel[.panel-name[Example 1]
+
+
+``` r
+starwars %&gt;%
+  select(name, mass)
+```
+
+```
+## # A tibble: 87 × 2
+##    name                mass
+##    &lt;chr&gt;              &lt;dbl&gt;
+##  1 Luke Skywalker        77
+##  2 C-3PO                 75
+##  3 R2-D2                 32
+##  4 Darth Vader          136
+##  5 Leia Organa           49
+##  6 Owen Lars            120
+##  7 Beru Whitesun Lars    75
+##  8 R5-D4                 32
+##  9 Biggs Darklighter     84
+## 10 Obi-Wan Kenobi        77
+## # ℹ 77 more rows
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+
+``` r
+starwars %&gt;%
+  select(height:hair_color)
+```
+
+```
+## # A tibble: 87 × 3
+##    height  mass hair_color   
+##     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;        
+##  1    172    77 blond        
+##  2    167    75 &lt;NA&gt;         
+##  3     96    32 &lt;NA&gt;         
+##  4    202   136 none         
+##  5    150    49 brown        
+##  6    178   120 brown, grey  
+##  7    165    75 brown        
+##  8     97    32 &lt;NA&gt;         
+##  9    183    84 black        
+## 10    182    77 auburn, white
+## # ℹ 77 more rows
+```
+
+]
+
+]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Selection helpers
+
+Selection helpers work in concert with `select()` to make it easier to select specific groups of variables.
+
+--
+
+***
+
+Here are some commonly used ones:
+
+`everything()`: Matches all variables.
+
+`last_col()`: Select last variable.
+
+`starts_with()`: Starts with a prefix.
+
+`ends_with()`: Ends with a suffix.
+
+`contains()`: Contains a literal string.
+
+
+.footnote[🔗 https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html#overview-of-selection-features]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Selection helpers
+
+Selection helpers work in concert with `select()` to make it easier to select specific groups of variables.
+
+
+.panelset[
+
+.panel[.panel-name[Example 1]
+
+
+``` r
+starwars %&gt;%
+  select(starts_with("h"))
+```
+
+```
+## # A tibble: 87 × 2
+##    height hair_color   
+##     &lt;int&gt; &lt;chr&gt;        
+##  1    172 blond        
+##  2    167 &lt;NA&gt;         
+##  3     96 &lt;NA&gt;         
+##  4    202 none         
+##  5    150 brown        
+##  6    178 brown, grey  
+##  7    165 brown        
+##  8     97 &lt;NA&gt;         
+##  9    183 black        
+## 10    182 auburn, white
+## # ℹ 77 more rows
+```
+]
+
+.panel[.panel-name[Example 2]
+
+
+``` r
+starwars %&gt;%
+  select(ends_with("color"))
+```
+
+```
+## # A tibble: 87 × 2
+##    hair_color    eye_color
+##    &lt;chr&gt;         &lt;chr&gt;    
+##  1 blond         blue     
+##  2 &lt;NA&gt;          yellow   
+##  3 &lt;NA&gt;          red      
+##  4 none          yellow   
+##  5 brown         brown    
+##  6 brown, grey   blue     
+##  7 brown         blue     
+##  8 &lt;NA&gt;          red      
+##  9 black         brown    
+## 10 auburn, white blue-gray
+## # ℹ 77 more rows
+```
+]
+
+.panel[.panel-name[Example 3]
+
+
+``` r
+starwars %&gt;%
+  select(contains("_"))
+```
+
+```
+## # A tibble: 87 × 2
+##    hair_color    eye_color
+##    &lt;chr&gt;         &lt;chr&gt;    
+##  1 blond         blue     
+##  2 &lt;NA&gt;          yellow   
+##  3 &lt;NA&gt;          red      
+##  4 none          yellow   
+##  5 brown         brown    
+##  6 brown, grey   blue     
+##  7 brown         blue     
+##  8 &lt;NA&gt;          red      
+##  9 black         brown    
+## 10 auburn, white blue-gray
+## # ℹ 77 more rows
+```
+]
+
+]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `mutate()`
+
+### Create (or overwrite) variables with `mutate()`
+
+&lt;img src="images/dplyr/mutate.png" width="400" /&gt;
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `mutate()`
+
+.center[
+&lt;img src="images/dplyr_mutate.png" width="75%" /&gt;
+]
+
+.footnote[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `mutate()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+
+``` r
+mutate(.data, ...)
+```
+
+`.data` is a data frame or tibble
+
+`...` are name-value pairs. The name gives the name of the column in the output.
+
+]
+
+.panel[.panel-name[Example 1]
+
+
+``` r
+starwars %&gt;%
+  mutate(height_in = height * .39)
+```
+
+```
+## # A tibble: 87 × 7
+##    name               height  mass hair_color    eye_color species height_in
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;
+##  1 Luke Skywalker        172    77 blond         blue      Human        67.1
+##  2 C-3PO                 167    75 &lt;NA&gt;          yellow    Droid        65.1
+##  3 R2-D2                  96    32 &lt;NA&gt;          red       Droid        37.4
+##  4 Darth Vader           202   136 none          yellow    Human        78.8
+##  5 Leia Organa           150    49 brown         brown     Human        58.5
+##  6 Owen Lars             178   120 brown, grey   blue      Human        69.4
+##  7 Beru Whitesun Lars    165    75 brown         blue      Human        64.4
+##  8 R5-D4                  97    32 &lt;NA&gt;          red       Droid        37.8
+##  9 Biggs Darklighter     183    84 black         brown     Human        71.4
+## 10 Obi-Wan Kenobi        182    77 auburn, white blue-gray Human        71.0
+## # ℹ 77 more rows
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+
+``` r
+starwars %&gt;%
+  mutate(mass_lb = mass * 2.2)
+```
+
+```
+## # A tibble: 87 × 7
+##    name               height  mass hair_color    eye_color species mass_lb
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;
+##  1 Luke Skywalker        172    77 blond         blue      Human     169. 
+##  2 C-3PO                 167    75 &lt;NA&gt;          yellow    Droid     165  
+##  3 R2-D2                  96    32 &lt;NA&gt;          red       Droid      70.4
+##  4 Darth Vader           202   136 none          yellow    Human     299. 
+##  5 Leia Organa           150    49 brown         brown     Human     108. 
+##  6 Owen Lars             178   120 brown, grey   blue      Human     264  
+##  7 Beru Whitesun Lars    165    75 brown         blue      Human     165  
+##  8 R5-D4                  97    32 &lt;NA&gt;          red       Droid      70.4
+##  9 Biggs Darklighter     183    84 black         brown     Human     185. 
+## 10 Obi-Wan Kenobi        182    77 auburn, white blue-gray Human     169. 
+## # ℹ 77 more rows
+```
+]
+
+.panel[.panel-name[Example 3]
+
+
+``` r
+starwars %&gt;%
+  mutate(species = tolower(species))
+```
+
+```
+## # A tibble: 87 × 6
+##    name               height  mass hair_color    eye_color species
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;  
+##  1 Luke Skywalker        172    77 blond         blue      human  
+##  2 C-3PO                 167    75 &lt;NA&gt;          yellow    droid  
+##  3 R2-D2                  96    32 &lt;NA&gt;          red       droid  
+##  4 Darth Vader           202   136 none          yellow    human  
+##  5 Leia Organa           150    49 brown         brown     human  
+##  6 Owen Lars             178   120 brown, grey   blue      human  
+##  7 Beru Whitesun Lars    165    75 brown         blue      human  
+##  8 R5-D4                  97    32 &lt;NA&gt;          red       droid  
+##  9 Biggs Darklighter     183    84 black         brown     human  
+## 10 Obi-Wan Kenobi        182    77 auburn, white blue-gray human  
+## # ℹ 77 more rows
+```
+]
+
+]
+
+---
+class: yourturn
+
+# Your turn 2
+
+<div class="countdown" id="timer_c11bfc3c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+1. In `data`, select only the variables `mpg` and `hp`. 
+
+1. As we did with indexing in base R, you can use the minus sign (`-`) to "de-select" columns. Keep everything in `data` except `vs`.
+
+1. Use `mutate()` to convert `cyl` from type "double" to type "factor". *Hint:* You might want to look up the function `as.factor()`.
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+data %&gt;%
+  select(mpg, hp)
+```
+
+```
+## # A tibble: 32 × 2
+##      mpg    hp
+##    &lt;dbl&gt; &lt;dbl&gt;
+##  1  21     110
+##  2  21     110
+##  3  22.8    93
+##  4  21.4   110
+##  5  18.7   175
+##  6  18.1   105
+##  7  14.3   245
+##  8  24.4    62
+##  9  22.8    95
+## 10  19.2   123
+## # ℹ 22 more rows
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+
+``` r
+data %&gt;%
+  select(-vs)
+```
+
+```
+## # A tibble: 32 × 10
+##      mpg   cyl  disp    hp  drat    wt  qsec    am  gear  carb
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     0     4     4
+## # ℹ 22 more rows
+```
+
+]
+
+.panel[.panel-name[Q3]
+
+
+``` r
+data %&gt;% 
+  mutate(cyl = as.factor(cyl))
+```
+
+```
+## # A tibble: 32 × 11
+##      mpg cyl    disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21   6      160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21   6      160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8 4      108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4 6      258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7 8      360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1 6      225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3 8      360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4 4      147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8 4      141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2 6      168.   123  3.92  3.44  18.3     1     0     4     4
+## # ℹ 22 more rows
+```
+
+]
+]
+
+---
+class: inverse, center, middle
+
+# Summarizing data
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `summarize()`
+
+`summarize()` reduces your raw data frame into a smaller summary data frame that only contains the variables resulting from the **summary functions** that you specify within `summarize()`
+
+&lt;img src="images/dplyr/summarize.png" width="40%" /&gt;
+
+---
+
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `summarize()`
+***
+
+Summary functions take vectors as inputs and return single values as outputs.
+
+&lt;img src="images/dplyr/summary_function.png" width="533" /&gt;
+
+Common examples are `mean()`, `sd()`, `max()`, `min()`, `sum()`, etc...
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `summarize()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+
+``` r
+summarize(.data, ...)
+```
+
+`.data` is a data frame or tibble.
+
+`...` are name-value pairs of summary functions. The names will be the names of the variable in the resulting object.
+
+]
+
+.panel[.panel-name[Example]
+
+
+``` r
+starwars %&gt;% 
+  summarize(mean_height = mean(height, na.rm = TRUE),
+            max_mass    = max(mass, na.rm = TRUE))
+```
+
+```
+## # A tibble: 1 × 2
+##   mean_height max_mass
+##         &lt;dbl&gt;    &lt;dbl&gt;
+## 1        175.     1358
+```
+
+]
+
+]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `group_by()`
+
+`group_by()` creates groups based on one or more variables in the data, and this affects any downstream operations.
+
+&lt;img src="images/dplyr/group_by.png" width="50%" /&gt;
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `group_by()`
+
+What happens if we combine `group_by()` and `summarize()`? 
+
+&lt;img src="images/dplyr/group_by_summarize.png" width="75%" /&gt;
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `summarize()`
+
+Let's see a couple examples of how we can combine `group_by()` and `summarize()`
+
+.panelset[
+
+.panel[.panel-name[Example 1]
+
+
+``` r
+starwars %&gt;%
+  filter(species  %in% c("Human", "Droid", "Gungan")) %&gt;%
+  group_by(species) %&gt;% 
+  summarize(mean_mass = mean(mass, na.rm = TRUE),
+            sd_mass   =   sd(mass, na.rm = TRUE))
+```
+
+```
+## # A tibble: 3 × 3
+##   species mean_mass sd_mass
+##   &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Droid        69.8    51.0
+## 2 Gungan       74      11.3
+## 3 Human        81.3    19.3
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+
+``` r
+starwars %&gt;% 
+  filter(species  %in% c("Human", "Droid", "Gungan")) %&gt;%
+  group_by(species, eye_color) %&gt;% 
+  summarize(mean_mass = mean(mass, na.rm = TRUE),
+            sd_mass   =   sd(mass, na.rm = TRUE))
+```
+
+```
+## # A tibble: 12 × 4
+## # Groups:   species [3]
+##    species eye_color mean_mass sd_mass
+##    &lt;chr&gt;   &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Droid   black         NaN      NA  
+##  2 Droid   red            68      62.4
+##  3 Droid   red, blue     NaN      NA  
+##  4 Droid   yellow         75      NA  
+##  5 Gungan  orange         74      11.3
+##  6 Human   blue           87.3    16.8
+##  7 Human   blue-gray      77      NA  
+##  8 Human   brown          73.7    14.3
+##  9 Human   dark          NaN      NA  
+## 10 Human   hazel          77      NA  
+## 11 Human   unknown       NaN      NA  
+## 12 Human   yellow        106.     43.1
+```
+
+]
+
+
+]
+
+---
+class: yourturn
+
+# Your turn 3
+
+<div class="countdown" id="timer_81588553" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+1. From `data`, get the mean `hp` for each of the different `cyl` values.
+
+1. Now get the mean `hp` for each unique combination of `cyl` and `gear` and arrange the resulting rows by descending order of `hp`. Which combination of `cyl` and `gear` had the greatest average `hp`?
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+data %&gt;% 
+  group_by(cyl) %&gt;% 
+  summarize(mean_hp = mean(hp))
+```
+
+```
+## # A tibble: 3 × 2
+##     cyl mean_hp
+##   &lt;dbl&gt;   &lt;dbl&gt;
+## 1     4    82.6
+## 2     6   122. 
+## 3     8   209.
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+
+``` r
+data %&gt;% 
+  group_by(cyl, gear) %&gt;% 
+  summarize(mean_hp = mean(hp)) %&gt;% 
+  arrange(desc(mean_hp))
+```
+
+```
+## # A tibble: 8 × 3
+## # Groups:   cyl [3]
+##     cyl  gear mean_hp
+##   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+## 1     8     5    300.
+## 2     8     3    194.
+## 3     6     5    175 
+## 4     6     4    116.
+## 5     6     3    108.
+## 6     4     5    102 
+## 7     4     3     97 
+## 8     4     4     76
+```
+
+]
+
+]
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Deeper dive
+
+What if we want to apply `{dplyr}` verbs across multiple columns and rows **simultaneously**?
+
+&lt;iframe src="https://dplyr-wisely.netlify.app/" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+.footnote[🔗 [dplyr-wisely.netlify.app](https://dplyr-wisely.netlify.app/)]
+
+---
+class: yourturn, center, middle
+
+# Q &amp; A
+
+<div class="countdown" id="timer_ec5e6207" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

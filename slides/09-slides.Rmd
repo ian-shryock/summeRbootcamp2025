@@ -1,0 +1,930 @@
+---
+title: "Data Visualization with {ggplot2}"
+author: 
+date: 
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "assets/css/custom.css"]
+    seal: false
+    lib_dir: libs
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(countdown)
+library(tidyverse)
+
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
+
+# your turn counter
+yt_counter <- 0
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_light(base_color = "#154733",
+                header_font_google = google_font("Averia Serif Libre"),
+                text_font_google = google_font("Averia Serif Libre"),
+                code_font_google = google_font("Source Code Pro"),
+                link_color = "#4D5859",
+                code_inline_color = "#154733",
+                title_slide_text_color = "#FEE123",
+                white_color = "white",
+                text_font_size = "1.2rem",
+                extra_css = list(".title-slide" = list("color" =  "white", "font-size" = "40px")))
+
+```
+
+class: title-slide, center, middle
+
+.top-left[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/uo-logo2.png")
+```
+]
+
+.top-right[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/psy-logo.png")
+```
+]
+
+
+# Data Visualization with {ggplot2}
+
+UO R Bootcamp 2024
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# ggplot
+
+`{ggplot2}` is the tidyverse package for **data visualization** that can make beautiful, customizable, publication-ready plots 
+
+--
+
+It follows the **"grammar of graphics"**, creating graphics one layer at a time (like a painting)
+
+---
+background-image: url(images/hex/palmerpenguins.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Palmer penguins
+
+We're going to use the **Palmer Penguins** dataset as an example throughout our discussion of `{ggplot}`.
+
+.center[
+```{r echo=FALSE, out.width="60%"}
+knitr::include_graphics("images/penguins.png")
+```
+]
+
+--
+
+The dataset **penguins** comes from the `{palmerpenugins}` package, which you can download with `install.packages("palmerpenguins")` and load with `library(palmerpenguins)`. 
+
+---
+
+background-image: url(images/hex/palmerpenguins.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Palmer penguins
+
+```{r warning=FALSE, message=FALSE}
+library(palmerpenguins)
+penguins
+```
+
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# {ggplot2}
+
+There are 3 components to making any plot.
+
+1. The data set, including variables you want visually represent
+
+--
+
+2. Geoms or geometric shapes (e.g., bars, points, lines)
+
+--
+
+3. Aesthetic mappings (e.g., color, shape, transparency, location)
+
+--
+
+.center[
+```{r echo=FALSE, out.width="40%"}
+knitr::include_graphics("images/ggplot_summary.png")
+```
+
+]
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Data set
+
+When creating a plot in `{ggplot2}`, the first thing you have to do is call the `ggplot()` function and tell it what data you want to graph.
+
+--
+
+The function `ggplot()` takes `data` as its first argument. 
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r plot-1, eval=FALSE}
+ggplot(data = penguins)
+```
+
+]
+
+.panel[.panel-name[Plot]
+
+```{r plot-1-out, ref.label="plot-1", echo=FALSE, fig.dim=c(4.8, 4.5)}
+```
+
+]
+]
+
+---
+
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Geoms
+
+**Geoms** are geometric objects like points, bars, histograms, boxplots
+
+--
+
+In order to paint a geom on our blank canvas, we need to tell `ggplot()` which geom we want to map
+
+--
+
+Some popular geoms are `geom_histogram()` for histograms, `geom_bar()` for bar charts, `geom_point()` for points (e.g., for scatter plots), and`geom_boxplot()` for boxplots
+
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Aesthetic mapping
+
+Each `geom()` function in `ggplot` takes a **mapping** argument. 
+
+--
+
+**Aesthetic mapping** allows us to assign aesthetic properties to the geom, e.g., location, color, size, transparency (different geoms have different options)
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Geoms and aesthetic mapping
+
+We're going to call `ggplot()` again, and this time add the `geom_histogram()` **layer**, telling `ggplot()` to map the variable `flipper_length_mm` on the x-axis
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-hist-basic, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_histogram(mapping = aes(x = flipper_length_mm)) 
+```
+]
+
+.panel[.panel-name[Plot]
+
+```{r penguins-hist-basic-out, ref.label="penguins-hist-basic", echo=FALSE, fig.dim=c(4.8, 4.5), warning=FALSE, message=FALSE}
+```
+
+]
+]
+---
+
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms 
+
+If we want to add a static property to a `geom()`, we need to do so outside of the `mapping` parameter. For example, we could change the number of bins...
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-hist-bins, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_histogram(mapping = aes(x = flipper_length_mm),
+                 bins    = 10)
+```
+
+]
+
+.panel[.panel-name[Plot]
+
+
+```{r penguins-hist-bins-out, ref.label="penguins-hist-bins", echo=FALSE, fig.dim=c(4.8, 4.5), warning=FALSE, message=FALSE}
+```
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms
+
+...or make them a different color. We can change the color of 2D objects with the `fill` aesthetic
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-hist-fill, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_histogram(mapping = aes(x = flipper_length_mm), 
+                 fill    = "turquoise")
+```
+
+]
+
+.panel[.panel-name[Plot]
+
+```{r penguins-hist-fill-out, ref.label="penguins-hist-fill", echo=FALSE, fig.dim=c(4.8, 4.5), warning=FALSE, message=FALSE}
+```
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms
+
+Now we'll use a different `geom`---we'll add a layer of points to our plot using `geom_point()`
+
+--
+
+```{r penguins-point-error, error=TRUE, message=FALSE, warning=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(mapping = aes(x = flipper_length_mm))
+```
+
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms
+
+.smaller-font[We get an error, telling us that `geom_point()` requires the y-aesthetic. This makes sense---we need an x- and y-axis to define where points belong on a scatter plot. Let's add `bill_length_mm` as the y-axis]
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-point-fixed, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(mapping = aes(x = flipper_length_mm,
+                           y = bill_length_mm))
+```
+]
+
+.panel[.panel-name[Plot]
+
+```{r penguins-point-fixed-out, ref.label="penguins-point-fixed", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms
+
+Let's find out if the relationship between `flipper_length_mm` and `bill_length_mm` relates to the species of penguin. We'll map `species` to the `color` aesthetic (similar to `fill`, but for 1D objects).
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-point-color, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(
+    mapping = aes(x     = flipper_length_mm,
+                  y     = bill_length_mm,
+                  color = species))
+```
+]
+
+.panel[.panel-name[Plot]
+
+```{r penguins-point-color-out, ref.label="penguins-point-color", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms 
+
+Notice that we included `color` **inside** our aesthetic mapping call (`mapping = aes()`) here, but not when we filled our histogram with the color turquoise earlier.
+
+--
+
+This is the difference between mapping an aesthetic to **data** and just setting an aesthetic to some **value** (e.g., "turquoise").
+
+--
+
+This is a fairly common mistake, so let's take a look at an example
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms
+
+What happens if we tell `ggplot` to make our points turquoise but accidentally include that **inside** the `aes()` call?
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-point-turq, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(mapping = aes(x     = flipper_length_mm, 
+                           y     = bill_length_mm,
+                           color = "turquoise"))
+```
+
+]
+
+.panel[.panel-name[Plot]
+
+.pull-left[
+
+```{r penguins-point-turq-out, ref.label="penguins-point-turq", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+
+.pull-right[
+This is not what we want! `ggplot` is treating the value "turquoise" as if it were part of our data, which it isn't.
+]
+
+]
+]
+
+---
+class: yourturn
+# Your Turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 5, seconds = 00)
+```
+
+1. Create a scatter plot to visualize the relationship between `flipper_length_mm` and `bill_length_mm`. 
+
+1. Build on your plot above by adding an aesthetic to visualize the effect of `species`. Choose any aesthetic you’d like or play around with a few. What do they do? How might you use more than one aesthetic? *Note:* Options for aesthetics include `color`, `shape`, `size`, and `alpha`.
+
+---
+class: solution
+
+# Solution
+
+## Q1
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-yt-q1, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(aes(x = flipper_length_mm, 
+                 y = bill_length_mm))
+```
+]
+
+.panel[.panel-name[Plot]
+
+```{r penguins-yt-q1-out, ref.label="penguins-yt-q1", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+
+]
+]
+
+---
+class: solution
+# Solution
+## Q2 (answers will vary...)
+
+.panelset[
+.panel[.panel-name[Code]
+
+
+```{r penguins-yt-q2, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(aes(x     = flipper_length_mm, 
+                 y     = bill_length_mm,
+                 color = species, 
+                 shape = species),
+             alpha = 0.5,
+             size  = 3)
+```
+]
+
+.panel[.panel-name[Plot]
+
+```{r penguins-yt-q2-out, ref.label="penguins-yt-q2", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms
+
+We could also make separate graphs for each `species` using `facet_wrap()`. We do this by passing a one-sided formula to `facet_wrap()`.
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r penguins-point-facet, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(aes(x = flipper_length_mm, 
+                 y = bill_length_mm)) + 
+  facet_wrap(~species)
+```
+]
+
+.panel[.panel-name[Plot]
+
+```{r penguins-point-facet-out, ref.label="penguins-point-facet", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Mapping with geoms
+
+Another thing we often want to do is to add a line over our scatterplot to describe the linear relationship between variables. We can do this by adding a `geom_smooth()` layer to our plot.
+
+--
+
+.panelset[
+.panel[.panel-name[Code 1]
+
+
+```{r penguins-smooth, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(aes(x     = flipper_length_mm, 
+                 y     = bill_length_mm,
+                 color = species)) + 
+  geom_smooth(aes(x    = flipper_length_mm, 
+                  y    = bill_length_mm),
+              color = "black")
+```
+
+
+]
+
+.panel[.panel-name[Plot 1]
+
+.pull-left[
+```{r penguins-smooth-out, ref.label="penguins-smooth", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+
+.pull-right[
+Note that "loess" is the default function for `geom_smooth()`. 
+
+Learn more on that [here](http://www.statisticshowto.com/lowess-smoothing/).
+]
+
+]
+
+.panelset[
+.panel[.panel-name[Code 2]
+
+.smaller-font[You can change that by setting the `method` argument in `geom_smooth()`. Let's change it to our old friend linear regression or "lm".]
+
+```{r point-smooth-lm, eval=FALSE}
+penguins %>% 
+  ggplot() + 
+  geom_point(aes(x     = flipper_length_mm, 
+                 y     = bill_length_mm,
+                 color = species)) + 
+  geom_smooth(aes(x    = flipper_length_mm, 
+                  y    = bill_length_mm),
+              color  = "black",
+              method = "lm")
+```
+
+]
+
+.panel[.panel-name[Plot 2]
+
+
+```{r point-smooth-lm-out, ref.label="point-smooth-lm", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+
+]
+]
+
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Global aesthetic mapping
+
+
+Our code so far has been getting rather inefficient. We're specifying the x and y axis for each `geom_*` call.
+
+--
+
+Instead, we can use **global** aesthetic mappings, which are specified in the `ggplot()` call. 
+
+--
+
+Global mappings are inherited by each layer unless they're overwritten. 
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Global aesthetic mapping
+
+Let's re-make our previous plot using global aesthetic mapping.
+
+--
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{r point-smooth-global, eval=FALSE}
+penguins %>% 
+  ggplot(aes(x = flipper_length_mm, 
+             y = bill_length_mm))+ 
+  geom_point(aes(color = species)) + 
+  geom_smooth(color = "black",
+              method = "lm")
+```
+]
+
+.panel[.panel-name[Plot]
+
+
+```{r point-smooth-global-out, ref.label="point-smooth-global", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+
+.panel[.panel-name[Explanation]
+
+So...what do we put in global aesthetic mapping and what do we put in the aesthetic mapping of specific geoms? 
+
+You want to put anything in the global mapping that you want *every layer to inherit* (or at least the majority of them). 
+
+In the code above, I defined the `x` and `y` aesthetics globally because I want those the same in every `geom`.
+
+However, I *don't* define the `color` aesthetic globally, because `color` is geom-specific in this case.
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Global aesthetic mapping 
+
+Let's take a look at the previous example again, but this time with `color` in the global aesthetic...
+
+--
+
+.panelset[
+.panel[.panel-name[Code 1]
+
+```{r smooth-color-global, eval=FALSE}
+penguins %>% 
+  ggplot(aes(x     = flipper_length_mm, 
+             y     = bill_length_mm,
+             color = species))+ 
+  geom_point() +  # inherit global
+  geom_smooth(method = "lm") #inherit global
+```
+]
+
+.panel[.panel-name[Plot 1]
+
+.pull-left[
+```{r smooth-color-global-out, ref.label="smooth-color-global", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+
+
+.pull-right[
+As you can see, global aesthetic mapping gets inherited by every layer. We can override this by providing a different aesthetic mapping in individual `geom()` calls...
+]
+]
+
+.panel[.panel-name[Code 2]
+
+```{r smooth-color-global-override, eval=FALSE}
+penguins %>% 
+  ggplot(aes(x     = flipper_length_mm, 
+             y     = bill_length_mm,
+             color = species))+ 
+  geom_point() +  #inherit global 
+  geom_smooth(method = "lm",
+              color  = "black") #override global `color`
+```
+]
+
+.panel[.panel-name[Plot 2]
+
+
+```{r smooth-color-global-override-out, ref.label="smooth-color-global-override", echo=FALSE, fig.dim=c(4.8, 4.5), warning = FALSE, message = FALSE}
+```
+]
+]
+
+---
+class: yourturn
+# Your Turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 6)
+```
+
+1. Take a look at the `diamonds` data set that is loaded as part of the `{ggplot2}` package. Use `glimpse()`, `str()`, `head()`, or any other data viewing function we've previously discussed.  
+
+1. Fill in the blanks in the code to re-create the plot below. *Note*: This plot uses a geom we haven't seen yet called `geom_bar()`, which I've filled in for you. 
+
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("images/ggplot2_yourturn_figure.png")
+```
+
+
+---
+class: solution
+# Solution
+
+.panelset[
+
+.panel[.panel-name[Q1]
+
+```{r}
+glimpse(diamonds)
+```
+]
+
+.panel[.panel-name[Q2]
+
+.pull-left[
+```{r eval=FALSE}
+diamonds %>%
+  ggplot(aes(x = cut, y = price, fill = color)) +
+    geom_bar(position = "dodge", stat = "summary", fun = "mean") +
+    facet_wrap(~clarity) +
+    labs(title = "Diamond Price by Cut, Color, and Clarity",
+         x     = "Cut", 
+         y     = "Price",
+         fill  = "Color") 
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+diamonds %>%
+  ggplot(aes(x = cut, y = price, fill = color)) +
+    geom_bar(position = "dodge", stat = "summary", fun = "mean") +
+    facet_wrap(~clarity) +
+    labs(title = "Diamond Price by Cut, Color, and Clarity",
+         x     = "Cut", 
+         y     = "Price",
+         fill  = "Color") 
+```
+]
+]
+]
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Labels and themes
+
+You can do a TON more customization of your plots than what we've covered so far. The possibilities with `{ggplot2}` really are endless!
+
+--
+
+For example, you can change your axis labels, change the theme of the plot, etc...
+
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Eric Ekholm](https://github.com/ekholme/tidytuesday#most-recent-finished-contribution)]
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_1.png")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Eric Ekholm](https://github.com/ekholme/tidytuesday#most-recent-finished-contribution)]
+
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_2.jpg")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Georgios Karamanis](https://github.com/gkaramanis/tidytuesday#highlights-click-on-image-to-go-to-code-)]
+
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_3.png")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Georgios Karamanis](https://github.com/gkaramanis/tidytuesday#highlights-click-on-image-to-go-to-code-)]
+
+```{r echo=FALSE, out.width="40%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_4.png")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Jake Kaupp](https://github.com/jkaupp/tidytuesdays)]
+
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_5.jpg")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Georgios Karamanis](https://github.com/gkaramanis/tidytuesday#highlights-click-on-image-to-go-to-code-)]
+
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_6.jpg")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Torsten Sprenger](https://github.com/spren9er/tidytuesday)]
+
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_7.jpeg")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Ariane Aumaitre](https://twitter.com/ariamsita?s=20&t=e0M_tAtBxKKKdjlWpykazw)]
+
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_8.jpeg")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Cara Thompson](https://github.com/cararthompson/tidytuesdays)]
+
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/ggplot_ex_9.jpeg")
+```
+
+---
+background-image: url(images/hex/ggplot2.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Examples `r emo::ji("exploding_head")`
+
+.footnote[Image from [Cameron S. Kay](https://twitter.com/cameronskay/status/1552003928295817217/photo/1) `r emo::ji("upside_down_face")`]
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/ggplot_ex_10.jpeg")
+```
+
+---
+class: yourturn, center, middle
+# Q & A
+
+```{r echo=FALSE}
+countdown(minutes = 5)
+```
+
+---
+class: yourturn, center, middle
+# Break! 
+
+```{r echo=FALSE}
+countdown(minutes = 15)
+```
+
+
+

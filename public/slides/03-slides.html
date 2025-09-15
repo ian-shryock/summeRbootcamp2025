@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Functions, Packages, &amp; Debugging</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, center, middle
+
+.top-left[
+&lt;img src="images/uo-logo2.png" width="100%" /&gt;
+]
+
+.top-right[
+&lt;img src="images/psy-logo.png" width="100%" /&gt;
+]
+
+
+# Functions, Packages, &amp; Debugging
+
+UO R Bootcamp 2024
+
+
+---
+# Functions
+
+Data (and objects more generally) are one of the building blocks of R. The other is **functions**. 
+
+--
+
+We've already used a handful of functions, including `seq()`, arithmetic functions (`+`, `*`, etc.), `c()`, `list()`, `data.frame()`, `str()`, etc.
+
+--
+***
+
+Functions take input (the *arguments*), perform some operation, and then return some object(s) as output.
+
+---
+# Functions
+
+Let's take another look at the help documentation for `seq()`.
+ 
+
+``` r
+?seq
+```
+
+--
+***
+
+You can see it has the arguments `from`, `to`, `by`, `length.out`, and `along.with`.
+
+--
+
+You might also notice that each of the arguments have a value after the `=` in the documentation. 
+
+--
+
+These values are the **defaults**; they are what the arguments will be set to if you don't specify them. 
+
+---
+# Functions
+
+Since all of the arguments have defaults, we don't have to specify any to run `seq()` as we saw earlier.
+
+
+``` r
+seq()
+```
+
+```
+## [1] 1
+```
+
+
+
+---
+# Functions
+
+&lt;img src="images/help_page_annotated.png" width="65%" /&gt;
+
+.footnote[Image from [Kieran Healy](https://socviz.co/appendix.html#a-little-more-about-r)]
+
+---
+# Functions
+
+Let's take a look at a new function, `mean()`.
+
+
+``` r
+?mean
+```
+
+
+---
+
+
+# Functions
+
+What happens if we run `mean()` without any arguments?
+
+
+``` r
+mean()
+```
+
+```
+## Error in mean.default(): argument "x" is missing, with no default
+```
+
+--
+***
+
+We get an error telling us that the argument `"x"` is missing and has no default. 
+
+--
+
+Whenever you see this error, it means you are missing a required argument. 
+
+--
+
+If we look at the help documentation, you can see `x` is the data that you want to calculate the mean for. 
+
+---
+# Functions
+
+Let's create some data.
+
+
+``` r
+coffee_consumed &lt;- c(20, 16, 16, 12, 0, 16, 30, 60)
+```
+
+--
+
+Now let's take the mean of `coffee_consumed`.
+
+
+``` r
+mean(x = coffee_consumed)
+```
+
+```
+## [1] 21.25
+```
+
+--
+***
+
+Note that `mean()` has two more optional arguments listed: 
+
++ `trim`, which returns a trimmed mean
+
++ `na.rm`, which takes a logical value indicating if `NA`s should be removed before calculating the mean (`FALSE` by default). 
+
+---
+# Functions
+
+What happens if we don't remove `NA`s before calculating the mean? Let's check it out...
+
+--
+
+
+``` r
+coffee_consumed_na &lt;- c(20, 16, 16, 12, 0, NA, 16, 30, 60)
+```
+
+--
+
+
+``` r
+mean(x = coffee_consumed_na)
+```
+
+```
+## [1] NA
+```
+
+--
+***
+
+It returns `NA`. `NA`s are contagious! A single `NA` in a vector will cause many functions to return `NA` (unless the function removes them by default). 
+
+--
+
+This sort of makes sense---the mean of `vec_na` in its entirety is unknown, since we don't know what the `NA` value is. That's why you have to remove `NA`s before running calculations by setting `na.rm = TRUE`
+
+---
+
+# Functions
+
+
+``` r
+mean(x = coffee_consumed_na, na.rm = TRUE)
+```
+
+```
+## [1] 21.25
+```
+
+---
+class: yourturn
+# Your turn 1
+
+<div class="countdown" id="timer_f66c82b6" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+</div>
+
+1. Look up the help documentation for the function `sd()`.
+
+2. Calculate the standard deviation of `vec_na`. Be sure to remove missing values first. 
+
+
+``` r
+vec_na &lt;- c(1, 2, 3, 4, 5, 6, NA, 2, 4)
+```
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+?sd
+```
+]
+.panel[.panel-name[Q2]
+
+
+``` r
+sd(x = vec_na, na.rm = TRUE)
+```
+
+```
+## [1] 1.685018
+```
+
+]
+]
+
+---
+# Functions
+
+You can get the length of many objects with `length()`
+
+
+``` r
+length(x = vec_na)
+```
+
+```
+## [1] 9
+```
+
+---
+
+# Functions
+
+
+`nrow()` and `ncol()` can be used to get the number of rows or columns in a matrix or data frame. Let's look at the data frame `df` below
+
+
+```
+##   a b c d
+## 1 1 3 5 7
+## 2 2 4 6 8
+```
+
+.panelset[
+.panel[.panel-name[nrow]
+
+
+``` r
+nrow(x = df)
+```
+
+```
+## [1] 2
+```
+]
+
+.panel[.panel-name[ncol]
+
+
+``` r
+ncol(x = df)
+```
+
+```
+## [1] 4
+```
+]
+
+.panel[.panel-name[length]
+
+The length of a data frame is the same as the number of columns. 
+
+
+``` r
+length(x = df)
+```
+
+```
+## [1] 4
+```
+
+]
+]
+
+---
+# Functions
+
+Take another look at the help documentation for `sd()`. 
+
+Notice that there are two arguments and they are in order, `x` followed by `na.rm = FALSE`. 
+
+--
+***
+
+You can set arguments explicitly by *name*.
+
+
+``` r
+sd(x = vec_na, na.rm = TRUE)
+```
+
+```
+## [1] 1.685018
+```
+
+--
+***
+
+You can also set them *positionally* and drop the argument names.
+
+
+``` r
+sd(vec_na, TRUE)
+```
+
+```
+## [1] 1.685018
+```
+
+---
+# Functions
+
+When using arguments positionally (without their names), **make sure the arguments are in the right order.** 
+
+--
+
+Otherwise you can end up with weird errors or warnings. 
+
+
+``` r
+sd(TRUE, vec_na)
+```
+
+```
+## Error in if (na.rm) "na.or.complete" else "everything": the condition has length &gt; 1
+```
+
+--
+***
+
+If you explicitly name the arguments, you *can* put them in a different order, but this isn't recommended...
+
+
+``` r
+sd(na.rm = TRUE, x = vec_na)
+```
+
+```
+## [1] 1.685018
+```
+
+---
+# Packages
+
+So far, we've been working with functions that are already installed and loaded when we open R.
+
+--
+
+However, many of the functions we want to use are not part of the base R install. They come in **packages** that other R users create and share.
+
+--
+
+Most packages can be accessed from [**CRAN**](https://cran.r-project.org/)---the Comprehensive R Archive Network. 
+
+---
+# Packages
+
+The most common way to get a package is to download it from CRAN using `install.packages("package_name")`---notice the quotes.
+
+--
+***
+
+For example, one package we're going to use later today is `{rio}`, which has useful functions for importing and exporting data. 
+
+If we wanted to install the `{rio}` package, we would write:
+
+
+``` r
+install.packages("rio")
+```
+
+--
+
+However, in order to access the functions from `{rio}`, we still need to *load* them...
+
+---
+# Packages 
+
+Installing a package puts a copy of it into our personal library that R has access to. In general, we only need to install a package once.
+
+--
+***
+
+However, whenever we want to to use a package, we need to load the package in our working session in RStudio. 
+
+We load packages with the `library()` function---we do this once *per session*.
+
+---
+
+# Packages 
+Loading a package basically makes the contents of that package searchable by R. 
+
+In other words, after loading a package, R is able to find the functions included in that package. 
+
+You can see what functions are available in your workspace by running the `search()` function.
+
+---
+class: split-two
+
+# Packages 
+
+--
+
+.column[.content[.center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`install.packages()`
+&lt;br&gt;&lt;br&gt;
+&lt;img src="images/books_closed.png" width="75%" /&gt;
+
+]]]
+
+--
+
+.column[.content[.center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`library()`
+&lt;br&gt;&lt;br&gt;
+&lt;img src="images/books_open.png" width="75%" /&gt;
+
+]]]
+
+---
+class: split-two
+
+# Packages 
+
+--
+
+.column[.content[.center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`install.packages()`
+&lt;br&gt;&lt;br&gt;
+&lt;img src="images/toolbox.png" width="75%" /&gt;
+
+]]]
+
+--
+
+.column[.content[.center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`library()`
+&lt;br&gt;&lt;br&gt;
+&lt;img src="images/tools.png" width="75%" /&gt;
+
+]]]
+
+---
+class: yourturn
+# Your turn 2
+
+<div class="countdown" id="timer_28add5b5" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+</div>
+
+1. In your RStudio console, look up the help documentation for `import()` by typing `?import`. What do you see?
+
+2. Run `search()` in the console. Is the `{rio}` package included in this list?
+ 
+3. Load the `{rio}` package using the `library()` function. 
+
+4. Now look again at the help documentation for `import()`. What do you see this time?
+
+5. Run `search()` again. What is different this time?
+
+---
+class: solution
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+&lt;img src="images/package_yt_1.png" width="1955" /&gt;
+]
+
+.panel[.panel-name[Q2]
+
+&lt;img src="images/package_yt_2.png" width="1771" /&gt;
+]
+
+.panel[.panel-name[Q3]
+
+&lt;img src="images/package_yt_3.png" width="60%" /&gt;
+]
+
+.panel[.panel-name[Q4]
+
+&lt;img src="images/package_yt_4_1.png" width="60%" /&gt;
+
+
+&lt;img src="images/package_yt_4_2.png" width="60%" /&gt;
+
+]
+
+.panel[.panel-name[Q5]
+
+&lt;img src="images/package_yt_5.png" width="1885" /&gt;
+]
+]
+
+---
+# Packages
+
+Another package we're going to use a lot going forward is `{tidyverse}`. 
+
+`{tidyverse}` is actually a "meta-package", meaning it contains many individual packages that are bundled together. 
+
+--
+***
+
+When we load `{tidyverse}` we get quite a bit of info. 
+
+&lt;br&gt;
+&lt;img src="images/tidyverse_package_load.png" width="2509" /&gt;
+
+---
+# Packages
+
+Conflicts occur when the same name is used for different things. 
+
+--
+
+For example, the `{dplyr}` package and the `{stats}` package (preloaded) both have a function called `filter()`. 
+
+--
+
+When we call `filter()`, R will only call one of those functions and it might not be the one we want. 
+
+--
+***
+
+Which one will R choose? R has an order in which it searches...
+
+--
+
+It starts with the Global Environment, then searches packages in the order that they were loaded, searching more recently loaded packages first.
+
+---
+
+# Packages
+
+You can tell R explicitly that you want a function from a particular package using the notation `package::function_name`. When in doubt, it's better to use the double colon operator to be specific about which function you want.
+
+---
+class: yourturn
+# Your turn 3
+
+<div class="countdown" id="timer_b0103cd5" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+</div>
+
+1. Look up for the help documentation for `filter()` from the `{stats}` package.
+
+1. Now look up the help documentation for `filter()` from the `{dplyr}` package.
+
+---
+class: solution
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+?stats::filter
+```
+]
+
+.panel[.panel-name[Q2]
+
+
+``` r
+?dplyr::filter
+```
+]
+]
+
+---
+# Debugging
+
+Let's quickly talk about error messages.
+
+--
+
+You will run into them constantly, even when using functions you've used many times before---and especially when using functions/packages that are new to you.
+
+&lt;img src="images/error.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+
+.footnote[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+# Debugging
+
+We're not going to go into details of debugging, because that could (and should) be a whole course on its own. 
+
+But there are a few general things to be aware of...
+
+---
+
+# Debugging
+
+.pull-left[
++ Google is your best friend---it is *very* likely someone else has had your exact same problem/question before
+
++ Some helpful forums are [StackOverflow](https://stackoverflow.com/), [RStudio Community](https://community.rstudio.com/), [CrossValidated](https://stats.stackexchange.com/).
+
++ When asking for help, it's best to provide as much context as possible. Generally, you'll also want to provide a [reproducible example](https://www.tidyverse.org/help/)
+]
+
+.pull-right[
+
+&lt;img src="images/debugging.jpg" width="2731" /&gt;
+]
+
+.footnote[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+class: yourturn, center, middle
+# Q &amp; A
+
+<div class="countdown" id="timer_b714eea3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: yourturn, center, middle
+# Break!
+
+<div class="countdown" id="timer_d49a922c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

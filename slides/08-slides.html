@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Tidying with {tidyr}</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+class: title-slide, center, middle
+
+.top-left[
+&lt;img src="images/uo-logo2.png" width="100%" /&gt;
+]
+
+.top-right[
+&lt;img src="images/psy-logo.png" width="100%" /&gt;
+]
+
+# Data Reshaping with {tidyr}
+
+UO R Bootcamp 2024
+
+---
+# What is "tidy" data? 
+
+There are three interrelated rules which make a dataset tidy:
+
+--
+
+1. Each variable must have its own column.
+
+1. Each observation must have its own row.
+
+1. Each value must have its own cell.
+
+--
+
+&lt;img src="images/tidy_data.png" width="2560" /&gt;
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+&lt;img src="images/tidy_data_2.png" width="2560" /&gt;
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+&lt;img src="images/tidy_data_3.png" width="2560" /&gt;
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+&lt;img src="images/tidy_data_4.png" width="1955" /&gt;
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+&lt;img src="images/tidy_data_5.png" width="2311" /&gt;
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+class: inverse, center, middle
+
+# Pivoting
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pivoting
+
+Most of the data you encounter in the real world will, unfortunately, not be in tidy format. 
+
+--
+
+This means you will need to reshape your data into a format that is tidy.
+
+---
+
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pivoting
+
+
+This is where the `{tidyr}` package comes in. It contains two crucial functions that you can use to reshape your data:
+
+--
+
+
+.pull-left[
+`pivot_longer()` "lengthens" data, increasing the number of rows and decreasing the number of columns. 
+]
+
+.pull-right[
+`pivot_wider()` "widens" data, increasing the number of columns and decreasing the number of rows. 
+]
+
+***
+***Note:*** The old versions of these functions were called `gather()` and `spread()`.
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pivoting
+
+
+![](images/tidyr-longer-wider-modified.gif)&lt;!-- --&gt;
+
+.footnote[Source: [Mara Averick](https://twitter.com/dataandme/status/1175913657907253254?s=20) and [Garrick Aden-Buie](https://github.com/gadenbuie/tidyexplain)]
+
+---
+# Example data 
+
+Our example data is the total student enrollment for the University of Oregon, Oregon State University, and Portland State University between 2020 and 2021. 
+
+--
+***
+
+.pull-left[
+
+We need to reshape this data to a longer format
+
+
+
+
+``` r
+enrollment
+```
+
+```
+## # A tibble: 3 × 3
+##   university `2020` `2021`
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;
+## 1 UO          21800  22298
+## 2 OSU         33359  34108
+## 3 PSU         26012  23181
+```
+
+]
+
+--
+
+.pull-right[
+
++ The column names `2020` and `2021` are not variables in our data, instead they represent values of the year variable
+
++ The values in the `2020` and `2021` columns represent values of the `enrollment` variable
+
++ Each row represents two observations, not one
+]
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_longer()`
+
+
+``` r
+enrollment
+```
+
+```
+## # A tibble: 3 × 3
+##   university `2020` `2021`
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;
+## 1 UO          21800  22298
+## 2 OSU         33359  34108
+## 3 PSU         26012  23181
+```
+
+--
+
+
+.smaller-font[We need 3 pieces of information to reshape (pivot) this data into a tidy format
+
+
++ The set of columns in `enrollment` whose names are actually values, not variables. In this example, those are the columns `2020` and `2021`.
+
+
++ The name of the variable to move the column names to. Here it is `year`.
+
++ The name of the variable to move the column values to. Here it’s `enrollment`.
+]
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_longer()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+
+``` r
+pivot_longer(data, cols, names_to, values_to)
+```
+
+`data` is a data frame to pivot.
+
+`cols` are the columns to pivot into longer format.
+
+`names_to` is a string specifying the name of the column to create from the data stored in the column names of `data`.
+
+`values_to` is a string specifying the name of the column to create from the data stored in the cell values.
+
+]
+
+.panel[.panel-name[Example]
+
+
+``` r
+enrollment %&gt;% 
+  pivot_longer(cols = c(`2020`, `2021`),
+               names_to = "year", 
+               values_to = "enrollment")
+```
+
+
+.pull-left[
+**Output: A longer data frame**
+
+
+```
+## # A tibble: 6 × 3
+##   university year  enrollment
+##   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+## 1 UO         2020       21800
+## 2 UO         2021       22298
+## 3 OSU        2020       33359
+## 4 OSU        2021       34108
+## 5 PSU        2020       26012
+## 6 PSU        2021       23181
+```
+]
+
+
+.pull-right[
+.smaller-font[
+**Notes**
+
++ We had to put the variable names `2020` and `2021` in backticks because column names are normally not allowed to start with numbers
+
++ `year` and `enrollment` do not exist in `enrollment` so we put their names in quotes.]
+]
+
+]
+
+]
+
+---
+class: split-60
+
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_wider()`
+
+Below is a different data set (`enrollment2`) that needs to be reshaped to a wider format. 
+
+A single observation is a `university` in a `year`, but each observation is spread across two rows.
+
+***
+
+
+.column[
+&lt;br&gt;
+.content[.center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; 
+
+
+
+``` r
+enrollment2
+```
+
+```
+## # A tibble: 12 × 4
+##    university  year type       count
+##    &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
+##  1 UO          2020 enrollment 21800
+##  2 UO          2020 faculty     1926
+##  3 UO          2021 enrollment 22298
+##  4 UO          2021 faculty     1949
+##  5 OSU         2020 enrollment 33359
+##  6 OSU         2020 faculty     4730
+##  7 OSU         2021 enrollment 34108
+##  8 OSU         2021 faculty     4798
+##  9 PSU         2020 enrollment 26012
+## 10 PSU         2020 faculty     1694
+## 11 PSU         2021 enrollment 23181
+## 12 PSU         2021 faculty     1690
+```
+]]]
+
+--
+
+.column[
+&lt;br&gt;&lt;br&gt;
+.content[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+To tidy this up, we need two pieces of information:
+
++ The column to take variable names from (`type`)
+
++ The column to take values from (`count`)
+]]
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_wider()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+
+``` r
+pivot_wider(data, names_from, values_from)
+```
+
+`data` is a data frame to pivot.
+
+`names_from` is the column (or columns) to get the name(s) of the output column(s) from.
+
+`values_from` is the column (or columns) to get the cell values from.
+
+]
+
+.panel[.panel-name[Example]
+
+
+``` r
+enrollment2 %&gt;%
+    pivot_wider(names_from = type, 
+                values_from = count)
+```
+
+```
+## # A tibble: 6 × 4
+##   university  year enrollment faculty
+##   &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;
+## 1 UO          2020      21800    1926
+## 2 UO          2021      22298    1949
+## 3 OSU         2020      33359    4730
+## 4 OSU         2021      34108    4798
+## 5 PSU         2020      26012    1694
+## 6 PSU         2021      23181    1690
+```
+
+]
+
+]
+
+
+---
+class: yourturn
+
+# Your turn 1
+
+<div class="countdown" id="timer_b2cc60de" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+1. Use `pivot_longer()` to tidy `table4a` (included as part of the `tidyr` package).
+
+1. Use `pivot_wider()` to tidy `table2` (included as part of the `tidyr` package).
+
+---
+class: solution
+
+# Solution
+
+
+
+.panelset[
+.panel[.panel-name[Q1]
+
+
+``` r
+table4a %&gt;%
+  pivot_longer(cols      = c(`1999`, `2000`),
+               names_to  = "year", 
+               values_to = "cases")
+```
+
+```
+## # A tibble: 6 × 3
+##   country     year   cases
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+## 1 Afghanistan 1999     745
+## 2 Afghanistan 2000    2666
+## 3 Brazil      1999   37737
+## 4 Brazil      2000   80488
+## 5 China       1999  212258
+## 6 China       2000  213766
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+
+
+``` r
+table2 %&gt;%
+  pivot_wider(names_from  = type,
+              values_from = count)
+```
+
+```
+## # A tibble: 6 × 4
+##   country      year  cases population
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+## 1 Afghanistan  1999    745   19987071
+## 2 Afghanistan  2000   2666   20595360
+## 3 Brazil       1999  37737  172006362
+## 4 Brazil       2000  80488  174504898
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583
+```
+]
+
+]
+
+---
+class: yourturn, center, middle
+# Q &amp; A
+
+<div class="countdown" id="timer_ecf6b8ec" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: yourturn, center, middle
+# Break! 
+
+<div class="countdown" id="timer_175f9e0f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

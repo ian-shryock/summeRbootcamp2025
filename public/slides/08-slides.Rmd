@@ -1,0 +1,448 @@
+---
+title: "Data Tidying with {tidyr}"
+author: 
+date: 
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "assets/css/custom.css"]
+    seal: false
+    lib_dir: libs
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(countdown)
+library(tidyverse)
+
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
+
+# your turn counter
+yt_counter <- 0
+```
+
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_light(base_color = "#154733",
+                header_font_google = google_font("Averia Serif Libre"),
+                text_font_google = google_font("Averia Serif Libre"),
+                code_font_google = google_font("Source Code Pro"),
+                link_color = "#4D5859",
+                code_inline_color = "#154733",
+                title_slide_text_color = "#FEE123",
+                white_color = "white",
+                text_font_size = "1.2rem",
+                extra_css = list(".title-slide" = list("color" =  "white", "font-size" = "40px")))
+
+```
+
+class: title-slide, center, middle
+
+.top-left[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/uo-logo2.png")
+```
+]
+
+.top-right[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/psy-logo.png")
+```
+]
+
+# Data Reshaping with {tidyr}
+
+UO R Bootcamp 2024
+
+---
+# What is "tidy" data? 
+
+There are three interrelated rules which make a dataset tidy:
+
+--
+
+1. Each variable must have its own column.
+
+1. Each observation must have its own row.
+
+1. Each value must have its own cell.
+
+--
+
+```{r echo=FALSE}
+knitr::include_graphics("images/tidy_data.png")
+```
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+```{r echo=FALSE}
+knitr::include_graphics("images/tidy_data_2.png")
+```
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+```{r echo=FALSE}
+knitr::include_graphics("images/tidy_data_3.png")
+```
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+```{r echo=FALSE}
+knitr::include_graphics("images/tidy_data_4.png")
+```
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+# What is "tidy" data? 
+
+```{r echo=FALSE}
+knitr::include_graphics("images/tidy_data_5.png")
+```
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)]
+
+---
+class: inverse, center, middle
+
+# Pivoting
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pivoting
+
+Most of the data you encounter in the real world will, unfortunately, not be in tidy format. 
+
+--
+
+This means you will need to reshape your data into a format that is tidy.
+
+---
+
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pivoting
+
+
+This is where the `{tidyr}` package comes in. It contains two crucial functions that you can use to reshape your data:
+
+--
+
+
+.pull-left[
+`pivot_longer()` "lengthens" data, increasing the number of rows and decreasing the number of columns. 
+]
+
+.pull-right[
+`pivot_wider()` "widens" data, increasing the number of columns and decreasing the number of rows. 
+]
+
+***
+***Note:*** The old versions of these functions were called `gather()` and `spread()`.
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Pivoting
+
+
+```{r echo=FALSE}
+knitr::include_graphics("images/tidyr-longer-wider-modified.gif")
+```
+
+.footnote[Source: [Mara Averick](https://twitter.com/dataandme/status/1175913657907253254?s=20) and [Garrick Aden-Buie](https://github.com/gadenbuie/tidyexplain)]
+
+---
+# Example data 
+
+Our example data is the total student enrollment for the University of Oregon, Oregon State University, and Portland State University between 2020 and 2021. 
+
+--
+***
+
+.pull-left[
+
+We need to reshape this data to a longer format
+
+```{r, eval = TRUE, echo = FALSE}
+enrollment <- tibble(university =  c("UO", "OSU", "PSU"),
+                     `2020`     =  c(21800, 33359, 26012),
+                     `2021`     =  c(22298, 34108, 23181))
+                     
+```
+
+```{r}
+enrollment
+```
+
+]
+
+--
+
+.pull-right[
+
++ The column names `2020` and `2021` are not variables in our data, instead they represent values of the year variable
+
++ The values in the `2020` and `2021` columns represent values of the `enrollment` variable
+
++ Each row represents two observations, not one
+]
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_longer()`
+
+```{r}
+enrollment
+```
+
+--
+
+
+.smaller-font[We need 3 pieces of information to reshape (pivot) this data into a tidy format
+
+
++ The set of columns in `enrollment` whose names are actually values, not variables. In this example, those are the columns `2020` and `2021`.
+
+
++ The name of the variable to move the column names to. Here it is `year`.
+
++ The name of the variable to move the column values to. Here it’s `enrollment`.
+]
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_longer()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+```{r eval = FALSE}
+pivot_longer(data, cols, names_to, values_to)
+```
+
+`data` is a data frame to pivot.
+
+`cols` are the columns to pivot into longer format.
+
+`names_to` is a string specifying the name of the column to create from the data stored in the column names of `data`.
+
+`values_to` is a string specifying the name of the column to create from the data stored in the cell values.
+
+]
+
+.panel[.panel-name[Example]
+
+```{r pivot-longer-example, eval=FALSE}
+enrollment %>% 
+  pivot_longer(cols = c(`2020`, `2021`),
+               names_to = "year", 
+               values_to = "enrollment")
+```
+
+
+.pull-left[
+**Output: A longer data frame**
+
+```{r ref.label="pivot-longer-example", echo=FALSE}
+```
+]
+
+
+.pull-right[
+.smaller-font[
+**Notes**
+
++ We had to put the variable names `2020` and `2021` in backticks because column names are normally not allowed to start with numbers
+
++ `year` and `enrollment` do not exist in `enrollment` so we put their names in quotes.]
+]
+
+]
+
+]
+
+---
+class: split-60
+
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_wider()`
+
+Below is a different data set (`enrollment2`) that needs to be reshaped to a wider format. 
+
+A single observation is a `university` in a `year`, but each observation is spread across two rows.
+
+***
+
+
+.column[
+<br>
+.content[.center[
+<br><br><br><br><br><br><br><br><br><br> 
+```{r, eval = TRUE, echo = FALSE}
+enrollment2 <- tibble(university = c(rep("UO",      4),
+                                     rep("OSU",   4),
+                                     rep("PSU", 4)),
+                      year       = c(rep(c(rep(2020, 2),
+                                           rep(2021, 2)), 3)),
+                      type       = c(rep(c("enrollment",
+                                           "faculty"), 6)),
+                      count      = c(21800,
+                                     1926,
+                                     22298,
+                                     1949,
+                                     33359,
+                                     4730,
+                                     34108,
+                                     4798,
+                                     26012,
+                                     1694,
+                                     23181,
+                                     1690))
+```
+
+```{r}
+enrollment2
+```
+]]]
+
+--
+
+.column[
+<br><br>
+.content[
+<br><br><br><br><br><br><br><br><br><br>
+To tidy this up, we need two pieces of information:
+
++ The column to take variable names from (`type`)
+
++ The column to take values from (`count`)
+]]
+
+---
+background-image: url(images/hex/tidyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `pivot_wider()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+```{r eval = FALSE}
+pivot_wider(data, names_from, values_from)
+```
+
+`data` is a data frame to pivot.
+
+`names_from` is the column (or columns) to get the name(s) of the output column(s) from.
+
+`values_from` is the column (or columns) to get the cell values from.
+
+]
+
+.panel[.panel-name[Example]
+
+```{r pivot-wider-example}
+enrollment2 %>%
+    pivot_wider(names_from = type, 
+                values_from = count)
+```
+
+]
+
+]
+
+
+---
+class: yourturn
+
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 4)
+```
+
+1. Use `pivot_longer()` to tidy `table4a` (included as part of the `tidyr` package).
+
+1. Use `pivot_wider()` to tidy `table2` (included as part of the `tidyr` package).
+
+---
+class: solution
+
+# Solution
+
+```{r echo=FALSE, message=FALSE}
+ps_data <- rio::import(here::here("static/slides/data/pragmatic_scales_data.csv")) %>% 
+  as_tibble()
+```
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r}
+table4a %>%
+  pivot_longer(cols      = c(`1999`, `2000`),
+               names_to  = "year", 
+               values_to = "cases")
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+
+```{r}
+table2 %>%
+  pivot_wider(names_from  = type,
+              values_from = count)
+```
+]
+
+]
+
+---
+class: yourturn, center, middle
+# Q & A
+
+```{r echo=FALSE}
+countdown(minutes = 5)
+```
+
+---
+class: yourturn, center, middle
+# Break! 
+
+```{r echo=FALSE}
+countdown(minutes = 5)
+```
+
+

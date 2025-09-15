@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Overview | UO R Bootcamp 2024</title>
+    <link>http://localhost:4321/courses/resources/</link>
+      <atom:link href="http://localhost:4321/courses/resources/index.xml" rel="self" type="application/rss+xml" />
+    <description>Overview</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:4321/media/icon_hu16222407252349562370.png</url>
+      <title>Overview</title>
+      <link>http://localhost:4321/courses/resources/</link>
+    </image>
+    
+    <item>
+      <title>Useful books</title>
+      <link>http://localhost:4321/courses/resources/books/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>http://localhost:4321/courses/resources/books/</guid>
+      <description>&lt;br&gt;
+&lt;h2 id=&#34;visualization&#34;&gt;Visualization&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;William Cleveland, 
+&lt;/li&gt;
+&lt;li&gt;Colin Ware, 
+&lt;/li&gt;
+&lt;li&gt;Stephen Kosslyn, 
+&lt;/li&gt;
+&lt;li&gt;Tamara Munzer, 
+&lt;/li&gt;
+&lt;li&gt;Nathan Yau
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Stephen Few, 
+&lt;/li&gt;
+&lt;li&gt;Alberto Cairo
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Katy Börner, 
+&lt;/li&gt;
+&lt;li&gt;Joel Katz, 
+&lt;/li&gt;
+&lt;li&gt;Claus Wilke, 
+&lt;/li&gt;
+&lt;li&gt;Manuel Lima
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Edward Tufte
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;related-topics&#34;&gt;Related Topics&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Maureen Stone, 
+&lt;/li&gt;
+&lt;li&gt;Rudolf Arnheim, 
+&lt;/li&gt;
+&lt;li&gt;Scott McCloud, 
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Useful readings</title>
+      <link>http://localhost:4321/courses/resources/readings/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>http://localhost:4321/courses/resources/readings/</guid>
+      <description>&lt;br&gt;
+&lt;h2 id=&#34;papers&#34;&gt;Papers&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Brehmer M, Sedlmair M, Ingram S, Munzner T. 
+ Proc. Beyond Time &amp;amp; Errors: Novel Evaluation Methods For Information Visualization (BELIV) 2014. p. 1–8.&lt;/li&gt;
+&lt;li&gt;Borland D, Taylor MR. 
+ IEEE computer graphics and applications. 2007 Mar;27(2):14–7.&lt;/li&gt;
+&lt;li&gt;Christensen DL, Baio J, Van Naarden Braun K, Bilder D, Charles J, Constantino JN, et al. 
+ MMWR Surveillance summaries : Morbidity and mortality weekly report Surveillance summaries / CDC. 2016 Apr 1;65(3):1–23.&lt;/li&gt;
+&lt;li&gt;Cleveland WS, McGill R. 
+ Journal of the American Statistical Association. 1984;79(387):531–54.&lt;/li&gt;
+&lt;li&gt;Cleveland WS, Diaconis P, McGill R. 
+ Science; 1982;216(4550):1138–41.&lt;/li&gt;
+&lt;li&gt;Dörk M, Feng P, Collins C, Carpendale S. 
+ Proc. &amp;lsquo;CHI 2013.&lt;/li&gt;
+&lt;li&gt;Elliott, K. 
+; presented at OpenVis 2016.&lt;/li&gt;
+&lt;li&gt;Heer J, Bostock M. 
+ ACM CHI &amp;lsquo;10; 2010. p. 203–12.&lt;/li&gt;
+&lt;li&gt;Kosara R. 
+ in the Proceedings of the Sixth Workshop on Beyond Time and Errors on Novel Evaluation Methods for Visualization (BELIV &amp;lsquo;16) 2016. p. 162–8.&lt;/li&gt;
+&lt;li&gt;Krzywinski M, Altman N. 
+ Nat Meth. Nature Research; 2013 Oct;10(10):921–2.&lt;/li&gt;
+&lt;li&gt;Krzywinski M, Altman N. 
+ Nat Meth. 2014 Feb;11(2):119–20.&lt;/li&gt;
+&lt;li&gt;Shneiderman B. 
+ Information Seeking Support Systems. 2008;11:4.&lt;/li&gt;
+&lt;li&gt;Sedlmair M, Meyer M, Munzner T. 
+ IEEE Transactions on Visualization and Computer Graphics. 2012 Dec;18(12):2431–40.&lt;/li&gt;
+&lt;li&gt;Sedlmair M, Tatu A, Munzner T, Tory M. 
+ Computer Graphics Forum. 2012;31(3pt4):1335–44.&lt;/li&gt;
+&lt;li&gt;Sedlmair M, Munzner T, Tory M. 
+ IEEE Transactions on Visualization and Computer Graphics. 2013 Dec;19(12):2634–43.&lt;/li&gt;
+&lt;li&gt;Weissgerber TL, Milic NM, Winham SJ, Garovic VD. 
+ PLoS Biol. Public Library of Science; 2015 Apr;13(4):e1002128.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;blog-posts-etc&#34;&gt;Blog posts, etc.&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The Why Axis&amp;rsquo;s 
+, by Jon Schwabish&lt;/li&gt;
+&lt;li&gt;Notes on the 
+.&lt;/li&gt;
+&lt;li&gt;Jenny Cham&amp;rsquo;s delightful &amp;ldquo;sketchnotes&amp;rdquo; from a 
+ by the incomparable Tamara Munzner.&lt;/li&gt;
+&lt;li&gt;Randy Olson&amp;rsquo;s illustration of 
+.&lt;/li&gt;
+&lt;li&gt;Visual.ly&amp;rsquo;s 
+&lt;/li&gt;
+&lt;li&gt;&lt;a name=&#34;playfair&#34;&gt;&lt;/a&gt;I am very interested in William Playfair and the history of data visualization:
+&lt;ul&gt;
+&lt;li&gt;Atlas Obscura, 
+&lt;/li&gt;
+&lt;li&gt;Lauren Klein, 
+&lt;/li&gt;
+&lt;li&gt;Georgia Tech&amp;rsquo;s Digital Humanities Lab, 
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Neil Richards, 
+&lt;/li&gt;
+&lt;li&gt;Carl Zimmer (yes, &lt;em&gt;the&lt;/em&gt; Carl Zimmer) on genome graphs: 
+, with numerous examples of creative new ways to visualize genetic variation.&lt;/li&gt;
+&lt;li&gt;Ben Jones, 
+: an illustration of ten different ways to visualize the same table. What different stories pop out from the different visualizations?&lt;/li&gt;
+&lt;li&gt;Kristoffer Magnusson, 
+&lt;/li&gt;
+&lt;li&gt;Kyle Walker, 
+&lt;/li&gt;
+&lt;li&gt;Lazaro Gamio (Washington Post), 
+&lt;/li&gt;
+&lt;li&gt;Cartonerd, 
+&lt;/li&gt;
+&lt;li&gt;vis4.net, 
+&lt;/li&gt;
+&lt;li&gt;Benjamin Hennig, 
+&lt;/li&gt;
+&lt;li&gt;Tom Pearson (Financial Times), 
+: &amp;ldquo;From early sketch to final dashboard, FT data visualisation experts explain the process&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Useful websites</title>
+      <link>http://localhost:4321/courses/resources/websites/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>http://localhost:4321/courses/resources/websites/</guid>
+      <description>&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+ (crowdsourced data visualization help)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;blogs&#34;&gt;Blogs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+ (nifty d3 demos!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;references--examples&#34;&gt;References &amp;amp; Examples&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;R Graph Compendia/Catalogs:&lt;/li&gt;
+&lt;li&gt;
+, by Eric-Jan Wagenmakers and Quentin F. Gronau (&lt;em&gt;note: in &amp;ldquo;Base R&amp;rdquo;&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;
+, by Joanna Zhao and Jennifer Bryan (&lt;em&gt;note: in &lt;tt&gt;ggplot2&lt;/tt&gt;&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;A useful 
+ on using the 
+ Python library for visualizing distributions.&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;The Washington Post&amp;rsquo;s 
+ visualization is a lovely illustration of how &lt;em&gt;&lt;strong&gt;not&lt;/strong&gt;&lt;/em&gt; to appropriately use color saturation and hue to encode information, and &lt;strong&gt;also&lt;/strong&gt; has misleading axes (both in unit spacing and direction)!&lt;/li&gt;
+&lt;li&gt;The New York Times&amp;rsquo; interactive 
+ is a great use of interactivity as a data exploration tool.&lt;/li&gt;
+&lt;li&gt;Also from the NYT, 
+ makes excellent use of a graphs and charts to tell a very clear story. Also note their detailed description at the end of the article of how the data were collected!&lt;/li&gt;
+&lt;li&gt;The Washington Post&amp;rsquo;s 
+ is a nice example of small-multiples cartography along with color.&lt;/li&gt;
+&lt;li&gt;The New York Times&amp;rsquo; 
+ illustrates a good use of contrast and preattentive processing (plus is a very interesting story!).&lt;/li&gt;
+&lt;li&gt;From Our World In Data, a nice example of using color and saturation to highlight certain information, in a terrifying plot about 
+.&lt;/li&gt;
+&lt;li&gt;
+ are interesting.&lt;/li&gt;
+&lt;li&gt;
+ are a good alternative to a cartogram.&lt;/li&gt;
+&lt;li&gt;We do not recommend making bivariate chloropleth maps, but if you &lt;em&gt;must&lt;/em&gt;, 
+ on how to do it and what some of the considerations are.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;resources--tools&#34;&gt;Resources &amp;amp; Tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;Packages:
+&lt;ul&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+ (Python-to-Vega generation library)&lt;/li&gt;
+&lt;li&gt;
+, an implementation of &lt;tt&gt;matplotlib&lt;/tt&gt; on top of &lt;tt&gt;d3.js&lt;/tt&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1148 @@
+---
+title: "Data Types & Structures"
+author: 
+date: 
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "assets/css/custom.css"]
+    seal: false
+    lib_dir: libs
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(countdown)
+library(tidyverse)
+
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again"))
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin", "pocket"))
+
+# your turn counter
+yt_counter <- 0
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_light(base_color = "#154733",
+                header_font_google = google_font("Averia Serif Libre"),
+                text_font_google = google_font("Averia Serif Libre"),
+                code_font_google = google_font("Source Code Pro"),
+                link_color = "#4D5859",
+                code_inline_color = "#154733",
+                title_slide_text_color = "#FEE123",
+                white_color = "white",
+                text_font_size = "1.2rem",
+                extra_css = list(".title-slide" = list("color" =  "white", "font-size" = "40px")))
+
+```
+
+class: title-slide, center, middle
+
+.top-left[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/uo-logo2.png")
+```
+]
+
+.top-right[
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/psy-logo.png")
+```
+]
+
+
+# Data Types & Structures
+
+UO R Bootcamp 2024
+
+
+---
+# Types of data
+
+R has different types of data, and an object’s type affects how it interacts with functions and other objects. 
+
+--
+
+So far, we’ve just been working with numeric data, but there are several other types to be aware of...
+
+
+---
+
+# Types of data
+
+
+Type | Definition | Example
+-----|------------|--------
+Integer | whole numbers from -Inf to +Inf | `1L`, `-2L`
+Double | decimal numbers | `-7.0`, `0.2`
+Character | quoted strings of letters, numbers, and allowed symbols | `"1"`, `"one"`, `"o-n-e"`, `"o.n.e"`
+Logical | logical constants of true or false | `TRUE`, `FALSE`, `T`, `F`
+Factor | ordered, labelled variable | variable for year in college labelled `"Freshman"`, `"Sophomore"`, etc.
+
+---
+# Types of data 
+
+You can use `typeof()` to find out the type of a value or object.
+
+--
+
+```{r, eval = FALSE}
+typeof(TRUE)
+```
+
+--
+
+```{r, echo = FALSE}
+typeof(TRUE)
+```
+
+--
+
+```{r, eval = FALSE}
+typeof(1L)
+```
+
+--
+
+```{r, echo = FALSE}
+typeof(1L)
+```
+
+--
+
+```{r, eval = FALSE}
+typeof("one")
+```
+
+--
+
+```{r, echo = FALSE}
+typeof("one")
+```
+
+--
+
+```{r, eval = FALSE}
+typeof(1.5)
+```
+
+--
+
+```{r, echo = FALSE}
+typeof(1.5)
+```
+
+---
+# Types of data 
+
+You can use `typeof()` to find out the type of a value or object.
+
+```{r, eval = FALSE}
+typeof(1)
+```
+
+--
+
+```{r, echo = FALSE}
+typeof(1)
+```
+
+--
+
+```{r, eval = FALSE}
+typeof("10")
+```
+
+--
+
+```{r, echo = FALSE}
+typeof("10")
+```
+
+---
+# Types of data 
+
+There are a few special values that are also worth knowing about.
+
+Value | Definition
+-----|------------
+`NA`   | Missing value ("not available")
+`NaN ` | Not a Number (e.g. 0/0; log(-10))
+`Inf` | Positive infinity
+`-Inf` | Negative infinity
+`NULL` | An object that exists but is completely empty
+---
+class: inverse, center, middle
+# Data structures 
+
+---
+# Vectors 
+
+Often, we’re not working with individual values, but with a group of multiple related values---or a **vector** of values.
+
+--
+***
+
+We can create a vector of ordered numbers using the form <br> `starting_number` **:** `ending_number`. 
+
+--
+
+For example, we could make `x` a vector containing the numbers 1 through 5.
+
+```{r}
+x <- 1:5
+x
+```
+
+---
+
+# Vectors 
+
+
+Let's look at the Environment pane in RStudio.
+
+Since `x` is a vector, RStudio tells us what type of vector it is and its length in addition to its contents (which can be abbreviated if the object is larger).
+
+--
+
+```{r echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/vector.png")
+```
+---
+# Vectors
+
+We can create a vector of any numbers we want using `c()`, which is a **function**. You can think of `c()` as short for "combine" or "concatenate".
+
+--
+***
+
+You use `c()` by putting numbers separated by a comma within the parentheses.
+
+```{r}
+# combine values into a vector and assign to an object named 'x'
+x <- c(2, 8.5, 1, 9)
+
+# print x
+x
+```
+
+---
+
+# Vectors
+
+We can also create a vector of numbers using `seq()`. 
+
+`seq()` is a function that creates a sequence of numbers. 
+
+---
+# Vectors
+
+To learn how any R function works, you can access the help documentation by typing `?function_name`. 
+
+--
+***
+
+Let's take a look at how `seq()` works.
+
+```{r eval=FALSE}
+?seq
+```
+
+---
+# Vectors 
+
+What happens if we run `seq()` with no arguments?
+
+```{r}
+seq()
+```
+
+--
+***
+
+The `seq()` function has **arguments** with default values. 
+
+The first two arguments are `from` and `to`, which specify the starting and end values of the sequence. By *default* `from = 1` and `to = 1`.
+
+This means that typing `seq()` is equivalent to typing `seq(from = 1, to = 1)`, which generates a sequence with just one value: `1`.
+
+
+---
+# Vectors
+
+To make a sequence from 1 to 5 with this function, we have to set the arguments accordingly: 
+
+```{r}
+seq(from = 1, to = 5)
+```
+
+--
+***
+
+We can also set one or more of the other arguments...
+
+--
+
+The `by` argument allows us to change the increment of the sequence. For example, to get every *other* number between 1 and 5, we would set `by = 2`.
+
+```{r}
+seq(from = 1, to = 5, by = 2)
+```
+
+---
+# Vectors
+
+Vectors are just 1-dimensional sequences **of a single type of data**.
+
+--
+
+Note that vectors can also include strings or character values.
+
+--
+
+```{r}
+letters <- c("a", "b", "c", "d")
+letters
+```
+
+--
+
+```{r}
+logicals <- c(TRUE, TRUE, FALSE, TRUE)
+logicals
+```
+
+---
+# Vectors
+
+The general rule R uses is to set the vector to be the most "permissive" type necessary. 
+
+--
+
+For example, what happens if we combine the vectors `x` and `letters` together?
+
+--
+
+```{r}
+x
+
+letters
+
+mixed_vec <- c(x, letters)
+mixed_vec
+```
+
+
+
+---
+# Vectors
+
+Notice the quotes? R turned all of our numbers into strings, since strings are more "permissive" than numbers. 
+
+--
+
+This process is called **coercion**. R coerces a vector into whichever type will accommodate all of the values. 
+
+--
+
+We can coerce `mixed_vec` to be numeric using `as.numeric()`, but notice what happens to the character values `r emo::ji("eyes")`
+
+--
+
+```{r}
+mixed_vec
+
+as.numeric(mixed_vec)
+```
+
+---
+class: yourturn
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 2, color_border = "#FEE123")
+```
+
+1. Create an object called `x` that is assigned the number 8. 
+
+1. Create an object called `y` that is a sequence of numbers from 2 to 16, by 2. 
+
+1. Add `x` and `y`. What happens? 
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r}
+x <- 8
+```
+]
+
+.panel[.panel-name[Q2]
+```{r}
+y <- seq(from = 2, to = 16, by = 2)
+y
+```
+]
+
+.panel[.panel-name[Q3]
+```{r}
+x + y
+```
+
+***
+
+This is an example of *vector recycling*.
+
+When applying an operation to two vectors that requires them to be the same length, R automatically recycles, or repeats, the shorter one, until it is long enough to match the longer one.
+]
+]
+---
+class: yourturn
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 3, seconds = 30, color_border = "#FEE123")
+```
+
+1. Create an object called `a` that is just the letter "a" and an object `x` that is assigned the number 8. Add `a` to `x`. What happens?
+
+1. Create a vector called `b` that is just the number 8 in quotes. Add `b` to `x` (from above). What happens?
+
+1. Find some way to add `b` to `x`. (*Hint*: Don't forget about coercion.)
+
+---
+class: solution 
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r error=TRUE}
+a <- "a"
+x <- 8
+
+a + x 
+```
+]
+
+.panel[.panel-name[Q2]
+```{r error=TRUE}
+b <- "8"
+
+b + x
+```
+]
+
+.panel[.panel-name[Q3]
+```{r}
+as.numeric(b) + x
+```
+]
+]
+
+---
+# Indexing vectors
+
+We can extract elements out of vectors by **Indexing**.
+
+--
+
+There are a number of methods for indexing that are good to be familiar with.
+
+---
+# Indexing by position
+
+Vectors can be indexed numerically, starting with 1 (not 0). We can extract specific elements from a vector by putting the index of their position inside square brackets `[]`. 
+
+---
+# Indexing by position
+
+
+.panelset[
+
+.panel[.panel-name[Original]
+Let's take a new vector `z` as an example:
+
+```{r}
+z <- 6:10
+z
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+Let's get just the first element of `z`:
+
+```{r}
+z[1]
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+Get the first and third element by passing those indexes as a vector using `c()`.
+
+```{r}
+z[c(1, 3)]
+```
+]
+]
+
+---
+# Negative indexing
+
+
+
+We could also say which elements *not* to give us using the minus sign (`-`). 
+
+--
+
+.panelset[
+
+.panel[.panel-name[Original]
+
+```{r}
+z
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+Let's get rid of the first element:
+
+```{r}
+z[-1]
+```
+]
+
+.panel[.panel-name[Example 2]
+
+Get rid of the first and third elements
+
+```{r}
+z[-c(1, 3)]
+```
+]
+]
+
+---
+# Indexing by name
+
+Finally, if the elements in the vector have names, we can refer to them by name instead of by their numerical index. You can see the names of a vector using `names()`.
+
+```{r}
+names(z)
+```
+
+--
+***
+
+It looks like the elements in `z` have no names. We can change that by assigning them names using a vector of character values.
+
+```{r}
+names(z) <- c("Antoni", "Tan", "Karamo", "Bobby", "Jonathan")
+z
+```
+
+---
+# Indexing by name
+
+```{r}
+z
+```
+
+***
+
+Now we can use the names of the elements in `z` for subsetting, using quotes
+
+```{r}
+z["Antoni"]
+```
+
+---
+# Modifying vectors 
+
+You can use indexing to change elements within a vector. 
+
+For example, we could change the first element of `z` to missing, or `NA`.
+
+```{r}
+z[1] <- NA
+z
+```
+
+---
+class: yourturn
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 3, seconds = 30)
+```
+
+1. Create a vector called `named` that includes the numbers 1 to 5. Name the values "a", "b", "c", "d", and "e" (in order). 
+
+1. Print the first element using numerical indexing and the last element using name indexing.
+
+1. Change the  third element of `named` to the value 21 and then show your results.
+
+---
+class: solution
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r}
+named <- c(1, 2, 3, 4, 5)
+names(named) <- c("a", "b", "c", "d", "e")
+named
+```
+
+```{r}
+# this works too
+named <- c(a = 1, b = 2, c = 3, d = 4, e = 5)
+named 
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+```{r}
+named[1]
+
+named["e"]
+```
+
+]
+
+
+.panel[.panel-name[Q3]
+```{r}
+named[3] <- 21
+named
+```
+
+]
+]
+
+---
+# Lists
+
+Vectors are great for storing a single type of data, but what if we have a variety of different kinds of data we want to store together?
+
+--
+***
+
+For example, let's say I have some information about Kendrick Lamar that I want to store together in a single object:
+
+- his name ("Kendrick Lamar") -- a **character**
+- his height in feet (5.5) -- a **double**
+- whether or not he has won a Grammy (TRUE) -- a **logical**
+
+---
+
+# Lists
+
+A vector won't work -- every element is coerced to a character (notice the quotes).
+
+```{r}
+c("Kendrick Lamar", 5.5, TRUE)
+```
+
+--
+
+Instead, we can put them in a **list**. Lists are very flexible -- they can contain different types of data and preserve those types.
+
+---
+# Creating Lists
+
+We can create a list with the `list()` function
+
+--
+
+```{r}
+kendrick_lamar <- list("Kendrick Lamar", 5.5, TRUE)
+
+kendrick_lamar
+```
+
+---
+# Creating Lists 
+
+And, we can give each element of the list a name to make it easier to keep track of them.
+
+```{r}
+kendrick_lamar <- list(name         = "Kendrick Lamar",
+                       height       = 5.5,
+                       grammy       = TRUE)
+
+kendrick_lamar
+```
+
+--
+***
+
+Notice that `[[1]]`, `[[2]]`, and `[[3]]`, the element indices, have been replaced by the names `name`, `height` and `grammy` `r emo::ji("eyes")`
+
+---
+# Creating Lists
+
+You can also see the names of a list by running `names()` on it
+
+--
+
+```{r}
+names(kendrick_lamar)
+```
+
+--
+***
+
+Lists are even more flexible than we've seen so far. In addition to being of heterogeneous type, each element of a list can be of different lengths. 
+
+---
+# Creating Lists
+
+Let's add another element to the list about Kendrick that contains his favourite types of ice cream (he can't choose just one!)
+
+Notice use of `c()` to create the element `ice_cream`
+
+---
+# Creating Lists
+
+
+```{r}
+kendrick_lamar <- list(name         = "Kendrick Lamar",
+                       height       = 5.5,
+                       grammy       = TRUE,
+                       ice_cream    = c("mint chip", "strawberry"))
+
+kendrick_lamar
+```
+
+---
+# Indexing lists
+
+.panelset[
+.panel[.panel-name[Example 1]
+
+For example, if we wanted the `height` element, we could get it out using its position as the second element of the list:
+
+```{r}
+kendrick_lamar[2]
+```
+]
+
+.panel[.panel-name[Example 2]
+
+Now let's say we want to know Kendrick's height in *inches*. Let's see if we can get that by multiplying the `height` element by 12.
+
+```{r error=TRUE}
+kendrick_lamar[2] * 12
+```
+
+***
+R is telling us that we supplied a non-numeric argument, i.e. `kendrick_lamar[2]`. 
+
+This happened because single bracket indexing on a list returns a list -- but what we need is the *contents* of the list (in this case, just the number `5.5`).
+]
+
+.panel[.panel-name[Example 3]
+
+If we want the actual object stored at the first position instead of a list containing that object, we have to use double-bracket indexing `list[[i]]`:
+
+```{r}
+kendrick_lamar[[2]] 
+```
+
+***
+Notice it no longer has the `$height`. 
+
+In general, a `$label` is a hint that you're looking at a list (the container) and not just the object stored at that position (the contents). 
+
+]
+
+.panel[.panel-name[Example 4]
+Now let's see Kendrick's height in inches.
+
+```{r}
+kendrick_lamar[[2]] * 12
+```
+]
+]
+
+---
+# Indexing lists
+
+.panelset[
+.panel[.panel-name[Example 1]
+
+The same applies to name indexing. With lists, you can get a list containing the indexed object with single brackets `[]`.
+
+```{r}
+kendrick_lamar["height"]
+```
+]
+
+.panel[.panel-name[Example 2]
+
+And double brackets `[[]]` can be used to get the *contents*---the object stored with that name.
+
+```{r}
+kendrick_lamar[["height"]]
+```
+]
+
+.panel[.panel-name[Example 3]
+
+You can also use `list$name` to get the object stored with a particular name too. It is equivalent to double brackets, but you don't need quotes
+
+```{r}
+kendrick_lamar$height
+```
+]
+]
+
+---
+# Modifying lists
+
+Just like vectors, we can change or add elements to our list using indexing. 
+
+---
+
+# Modifying lists
+
+Let's save the inches transformation of the `height` element as `height_in`.
+
+
+```{r}
+kendrick_lamar$height_in <- kendrick_lamar$height * 12
+kendrick_lamar
+```
+
+
+---
+class: yourturn
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 4)
+```
+
+1. Create a list like mine that is made up of `name`, `height`, and `ice_cream`, but corresponds to information about you. Make sure you enter two types of icecream data (because who could choose?!). 
+
+1. Index your list to print only your name.
+
+---
+class: solution
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+```{r}
+sarah_dimakis <- list(name         = "Sarah Dimakis",
+                    height       = 6.30,
+                    ice_cream    = c("cookie dough", "banana"))
+sarah_dimakis
+```
+]
+
+.panel[.panel-name[Q2]
+
+```{r}
+sarah_dimakis$name
+
+sarah_dimakis[["name"]]
+```
+
+]
+]
+
+---
+# Indexing lists
+
+As we saw with the object `ice_cream` stored in the list `kendrick_lamar`, objects within lists can have different dimensions and length. 
+
+--
+
+What if we wanted just one element of an object in a list, such as just the second element of `ice_cream`? 
+
+--
+
+We can use indexing on the `ice_cream` vector stored within the `kendrick_lamar` list by chaining indexes.
+
+---
+# Indexing lists
+
+.panelset[
+.panel[.panel-name[Example 1]
+
+We could do that with numerical indexing...
+
+```{r}
+kendrick_lamar[[4]][2]
+```
+]
+
+.panel[.panel-name[Example 2]
+...or with name indexing
+
+```{r}
+kendrick_lamar[["ice_cream"]][2]
+```
+]
+
+.panel[.panel-name[Example 3]
+
+...or with dollar sign (`$`) indexing:
+
+```{r}
+kendrick_lamar$ice_cream[2]
+```
+]
+]
+
+---
+# Data frames
+
+A **data frame** is a common way of representing rectangular data---collections of values that are each associated with a variable (column) and an observation (row). In other words, it has 2 dimensions.
+
+--
+
+A data frame is technically a special kind of list---it can contain different kinds of data in different columns, but each column must contain the same type of data and be the same length. 
+
+---
+
+# Data frames
+
+We can create a data frame in a similar way to how we made a list.
+
+```{r}
+dunder_mifflin <- data.frame(id        = c(1, 2, 3),
+                             name      = c("Michael", "Jim", "Dwight"), 
+                             job_title = c("Regional Manager", "Salesperson", "Assistant to the Regional Manager"),
+                             age       = c(40, 27, 35))
+dunder_mifflin
+```
+
+---
+# Indexing data frames
+
+```{r}
+dunder_mifflin
+```
+
+
+---
+
+# Indexing data frames
+
+Indexing data frames is similar to how we index vectors, except we have two dimensions, which we use like so: `[row, column]`
+
+--
+
+.panelset[
+
+.panel[.panel-name[Original]
+```{r}
+dunder_mifflin
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+
+Let's get the first row and third column of `dunder_mifflin` using numerical indexing
+
+```{r}
+dunder_mifflin[1, 3]
+```
+
+]
+.panel[
+
+
+.panel-name[Example 2]
+
+You can also get an entire row or column by leaving an index blank. Let's get all rows for column 2:
+
+```{r}
+dunder_mifflin[, 2]
+```
+
+]
+
+.panel[.panel-name[Example 3]
+
+We can also index by the name of a column or row.
+
+```{r}
+dunder_mifflin[, "job_title"]
+```
+]
+]
+
+---
+# Indexing data frames
+
+As with lists, we can use the `$` operator in the form `dataframe$column_name` (similar to `list$object`). 
+
+.panelset[
+
+.panel[.panel-name[Original]
+```{r}
+dunder_mifflin
+```
+
+]
+.panel[.panel-name[Example 1]
+
+```{r}
+dunder_mifflin$id
+```
+]
+
+.panel[.panel-name[Example 2]
+
+```{r}
+dunder_mifflin$id[3] # get the third value in column 1
+```
+]
+]
+
+---
+# Modifying data frames 
+
+Just like lists and vectors, you can modify a data frame and add new elements or change existing elements by referencing indexes.
+
+--
+
+.panelset[
+
+.panel[.panel-name[Original]
+```{r}
+dunder_mifflin
+```
+
+]
+
+.panel[.panel-name[Example 1]
+
+We could create a column `new_id`, which is `id` plus 1000:
+
+```{r}
+dunder_mifflin$new_id <- dunder_mifflin$id + 1000
+dunder_mifflin
+```
+]
+
+.panel[.panel-name[Example 2]
+Or we could replace an element using indexing. Let's add 9 to everyone's age:
+
+```{r}
+dunder_mifflin$age <-  dunder_mifflin$age + 9
+dunder_mifflin
+```
+
+]
+]
+
+---
+# Inspecting data frames
+
+```{r}
+dunder_mifflin
+```
+
+***
+
+We can use the `str()` function to get the structure of the data. This tells us the type of each column.
+
+```{r}
+str(dunder_mifflin)
+```
+
+---
+class: yourturn
+
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 3)
+```
+
+1. Make a data frame, called `df_2`, that has 3 columns as shown below. After you create it, check the structure with `str()`.
+
+```{r echo = FALSE}
+data.frame(c1 = c(1, 2, 3),
+           c2 = c(2, 4, 6),
+           c3 = c("a", "b", "c"))
+```
+
+1. Add a fourth column, `c4`, which is the first and second columns multiplied together.
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r}
+df_2 <- data.frame(c1 = c(1, 2, 3),
+                   c2 = c(2, 4, 6),
+                   c3 = c("a", "b", "c"))
+
+str(df_2)
+```
+]
+
+.panel[.panel-name[Q2]
+
+```{r}
+df_2$c4 <- df_2$c1 * df_2$c2
+
+df_2
+```
+]
+]
+
+---
+# Recap
+
+We just learned about different types of data (numeric, character, logical, factor, etc.) and some different ways they can be structured---including vectors, lists and data frames. 
+
+--
+***
+
+Here's a quick table that summarizes data structures. 
+
+<br>
+
+| | Homogeneous data | Heterogeneous data |
+|------------|----------------| ------------------|
+| 1-Dimensional | Atomic Vector | List |
+| 2-Dimensional | Matrix `*` | Data frame |
+
+.smaller-font[\* *We didn't talk about matrices today, but if you take PSY611, you will learn more about them in the context of the General Linear Model*]
+
+---
+class: yourturn, center, middle
+# Q & A
+
+```{r echo=FALSE}
+countdown(minutes = 5)
+```
+
+

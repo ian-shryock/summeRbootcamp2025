@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R Tips &amp; Tricks</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/htmltools-fill/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: title-slide, center, middle
+
+.top-left[
+&lt;img src="images/uo-logo2.png" width="100%" /&gt;
+]
+
+.top-right[
+&lt;img src="images/psy-logo.png" width="100%" /&gt;
+]
+
+# R Tips &amp; Tricks
+
+UO R Bootcamp 2024
+
+---
+
+# Use a Ligature Font
+
+--
+
+One (superficial) way to improve your code is to use a **ligature font**.
+
+Ligatures are special characters composed of two (or more) characters.
+
+--
+
+.pull-left[
+**Without Ligatures**
+&lt;img src="images/rtips_ligature1.png" width="80%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+.pull-right[
+**With Ligatures**
+&lt;img src="images/rtips_ligature2.png" width="80%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+
+---
+
+# Use a Ligature Font
+
+To start using a ligature font, all you need to do is install the font on your [Mac](https://support.apple.com/en-us/HT201749) or [PC](https://support.microsoft.com/en-us/office/add-a-font-b7c5f17c-4426-4b53-967f-455339c564c1) and then choose the font in RStudio's preferences pane:
+
+&lt;img src="images/rtips_pref_fonts.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Use a Different Theme
+
+--
+
+Another superficial way to improve your code is to change RStudio's default theme. 
+
+--
+
+As with fonts, you can change the theme in RStudio's preferences pane.
+
+&lt;img src="images/rtips_pref_theme.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+--
+
+You can also [download](https://www.rstudio.com/blog/rstudio-ide-custom-theme-support/) and [create](https://tmtheme-editor.herokuapp.com/#!/editor/theme/Monokai) custom themes. 
+
+
+
+---
+
+# Enable Rainbow Parentheses 
+
+--
+
+**Rainbow Parentheses** colour matches opening parentheses with closing parentheses.
+
+--
+
+.pull-left[
+**Without Rainbow Parentheses**
+&lt;img src="images/rtips_paren.png" width="80%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+.pull-right[
+**With Rainbow Parentheses**
+&lt;img src="images/rtips_paren2.png" width="80%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+---
+
+# Enable Rainbow Parentheses 
+
+You can enable Rainbow Parentheses by clicking the checkbox beside Rainbow Parentheses in RStudio's preferences pane. 
+
+&lt;img src="images/rtips_pref_paren.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Enable Spell-Checking
+
+--
+
+**Real-time spell-checking** will check your spelling in... well... real time. 
+
+--
+
+.pull-left[
+**Without Real-Time Spell-Checking**
+&lt;img src="images/rtips_spellcheck1.png" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+.pull-right[
+**With Real-Time Spell-Checking**
+&lt;img src="images/rtips_spellcheck2.png" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+---
+
+# Enable Spell-Checking
+
+You can enable real-time spell-checking by clicking the checkbox beside real-time spell-checking in RStudio's preferences pane. 
+
+&lt;img src="images/rtips_pref_spellcheck.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Start-Up Messages
+
+--
+
+You can set R to provide a custom start-up message every time you start or restart R. 
+
+--
+
+For example, Cam (previous RBootcamp instructor) uses his package [{merlinmann}](https://github.com/camkay/merlinmann) to deliver a random piece of wisdom from Merlin Mann every time he starts or restart R:
+
+&lt;img src="images/rtips_startup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Start-Up Messages
+
+Other custom start-up message options include:
+
+- Mitch Hedberg jokes from the [{mitchhedberg}](https://github.com/mkearney/mitchhedberg) package.
+- Chuck Norris jokes from the [{norris}](https://github.com/chriscardillo/norris) package.
+- Dad jokes from the [{dadjokeapi}](https://github.com/jhollist/dadjokeapi) package.
+- The Office quotes from the [{dundermifflin}](https://cran.r-project.org/web/packages/dundermifflin/dundermifflin.pdf) package.
+- The Good Place quotes from the [{goodshirt}](https://github.com/adam-gruer/goodshirt) package.
+- General statistics, data visualization, and science quotes from the [{statquotes}](https://cran.r-project.org/web/packages/statquotes/statquotes.pdf) package.
+- Random facts about Carl Friedrich Gauss from the [{gaussfacts}](https://cran.r-project.org/web/packages/gaussfacts/) package.
+- Praise from the [{praise}](https://cran.r-project.org/web/packages/praise/praise.pdf) package.
+- Fortunes from the [{fortunes}](https://cran.r-project.org/web/packages/fortunes/fortunes.pdf) package.
+
+--
+
+---
+
+# Multicursor Selection
+
+--
+
+Holding down Option (&lt;key&gt;⌥&lt;/key&gt;) on Mac or Alt (&lt;key&gt;Alt&lt;/Key&gt;) on PC while clicking and dragging the cursor allows you to create a cursor across multiple lines:
+
+&lt;img src="images/rtips_multicursor1.gif" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Multicursor Selection
+
+Holding down Option and Command (&lt;key&gt;⌥&lt;/key&gt; + &lt;key&gt;⌘&lt;/key&gt;) on Mac or Alt and Control (&lt;key&gt;Alt&lt;/Key&gt; + &lt;key&gt;Ctrl&lt;/key&gt;) on PC while clicking at different locations in your script allows you to create multiple cursors with different horizontal locations.
+
+&lt;img src="images/rtips_multicursor2.gif" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Comment Chunks of Code
+
+--
+
+You can comment out multiple lines of code by highlighting them and then clicking Shift, Command, and C (&lt;key&gt;⇧&lt;/key&gt; + &lt;key&gt;⌘&lt;/key&gt; + &lt;key&gt;C&lt;/key&gt;) on Mac or Control, Shift, and C (&lt;key&gt;⇧&lt;/key&gt; + &lt;key&gt;Ctrl&lt;/key&gt; + &lt;key&gt;C&lt;/key&gt;) on PC.
+
+&lt;img src="images/rtips_comment.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Search Through Code History
+
+--
+
+You can search for previously evaluated lines of code by pressing the up arrow (&lt;key&gt;↑&lt;/key&gt;) on your keyboard. 
+
+&lt;img src="images/rtips_up_arrow.gif" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Search the Help System
+
+--
+
+The question mark (`?`) is very useful for looking up the help documentation for a given function (e.g., `?mean`) but, sometimes, the function you are looking for is in a package that is not loaded.
+
+In those cases, you can use two question marks (`??`) to search all of the help documentation.
+
+For example, typing`??if_else` in the console returns:
+
+&lt;img src="images/rtips_help2.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Assignment Pipe
+
+--
+
+We've talked about regular pipes (`%&gt;%`), but the `{magrittr}` package also has a number of alternative pipes available.footnote[*Note.* These are not loaded as part of the `{tidyverse}` package; you will need to load the `{magrittr}` package separately to use them.].
+
+--
+
+One useful alternative pipe is the **asignment pipe** (`%&lt;&gt;%`). The assignment pipe pipes an object forward---as a normal pipe does---but it assigns the result of the pipe to the original object.
+
+---
+
+# Assignment Pipe
+
+We've talked about regular pipes (`%&gt;%`), but the `{magrittr}` package also has a number of alternative pipes available.
+
+One useful alternative pipe is the **asignment pipe** (`%&lt;&gt;%`). The assignment pipe pipes an object forward---as a normal pipe does---but it assigns the result of the pipe to the original object.
+
+For example:
+
+.pull-left[
+
+``` r
+x &lt;- c(1, 2, 3, 4)
+
+x &lt;- x %&gt;%
+  mean() %&gt;%
+  round()
+
+x
+```
+
+```
+## [1] 2
+```
+]
+
+.pull-right[
+
+``` r
+x &lt;- c(1, 2, 3, 4)
+
+x %&lt;&gt;%
+  mean() %&gt;%
+  round()
+
+x
+```
+
+```
+## [1] 2
+```
+]
+
+---
+
+# Pipes Redux
+
+--
+
+Thus far, we've used pipes only in cases where we want to pass an object to the first argument in subsequent functions. However, sometimes, we will want to pass an object to the second, third, or fourth (etc.) argument.
+
+--
+
+Take, for example, the `gsub()` function in Base R. `gsub()` replaces some set of characters in a string with another set of characters:
+
+
+``` r
+the_best_star_trek &lt;- "Star Trek: The Next Generation"
+
+the_best_star_trek &lt;- gsub(pattern     = "The Next Generation", 
+                           replacement = "Voyager", 
+                           x           = the_best_star_trek)
+
+the_best_star_trek
+```
+
+```
+## [1] "Star Trek: Voyager"
+```
+
+--
+
+What if we wanted to pipe `the_best_star_trek` to the `gsub()` function?
+
+---
+
+# Pipes Redux
+
+We can use the dot placeholder (`.`). Essentially, the dot placeholder tells `{magrittr}` where to pipe the information. 
+
+For example:
+
+
+``` r
+the_best_star_trek &lt;- "Star Trek: The Next Generation"
+
+the_best_star_trek %&gt;%
+  gsub(pattern     = "The Next Generation", 
+       replacement = "Voyager", 
+       x           = .)
+```
+
+```
+## [1] "Star Trek: Voyager"
+```
+
+---
+
+# Time Your Code
+
+--
+
+There are multiple different ways to accomplish most tasks in R and, many times, you will want to choose the way that is the quickest. But how can you tell?
+
+You can use the `tic()` and `toc()` functions from the `{tictoc}` package to time your code:
+
+
+``` r
+# shell sort
+tic() # start timer
+x &lt;- sort(rnorm(1e6), method = "shell")
+toc() # end timer
+```
+
+```
+## 0.13 sec elapsed
+```
+
+``` r
+# radix sort
+tic() # start timer
+x &lt;- sort(rnorm(1e6), method = "radix")
+toc() # end timer
+```
+
+```
+## 0.057 sec elapsed
+```
+
+---
+
+# Time Your Code
+
+You can also use the `microbenchmark()` function from the `{microbenchmark}` package to time your code. The `microbenchmark()` function runs each snippet of code multiple times and averages together the resulting durations. This results in a better estimate of the time it took to run the code. 
+
+
+``` r
+# shell sort
+microbenchmark(x &lt;- sort(rnorm(1e6), method = "shell"),
+               times = 10L)
+```
+
+```
+## Warning in microbenchmark(x &lt;- sort(rnorm(1e+06), method = "shell"), times =
+## 10L): less accurate nanosecond times to avoid potential integer overflows
+```
+
+```
+## Unit: milliseconds
+##                                       expr      min       lq     mean   median
+##  x &lt;- sort(rnorm(1e+06), method = "shell") 116.0924 117.9368 122.2636 118.7171
+##        uq      max neval
+##  119.2355 157.7041    10
+```
+
+---
+
+# Time Your Code
+
+You can also use the `microbenchmark()` function from the `{microbenchmark}` package to time your code. The `microbenchmark()` function runs each snippet of code multiple times and averages together the resulting durations. This results in a better estimate of the time it took to run the code. 
+
+
+``` r
+# radix sort
+microbenchmark(x &lt;- sort(rnorm(1e6), method = "radix"),
+               times = 10L)
+```
+
+```
+## Unit: milliseconds
+##                                       expr      min       lq     mean   median
+##  x &lt;- sort(rnorm(1e+06), method = "radix") 51.20187 52.43974 62.50793 55.67406
+##        uq      max neval
+##  58.59753 97.39857    10
+```
+
+---
+
+# Notification Chimes
+
+--
+
+Sometimes code will take a long time to run, and you will start doing something else. It can be useful to be notified when the code finishes evaluating. You can use the `beep()` function from the `{beepr}` package to play a chime when your code has finished evaluating. 
+
+
+``` r
+x &lt;- sort(rnorm(5e7), method = "shell")
+beep(sound = 2)
+```
+
+---
+
+# TRUE/FALSE Are Just Numbers
+
+--
+
+Under the hood, `TRUE` and `FALSE` are really just numbers. Specifically, `TRUE` is 1 and `FALSE` is 0.
+
+--
+
+
+``` r
+duck_wins_21_22 &lt;- c(T, T, F, T, F, F, T, 
+                     T, F, F, T, F, T, T, 
+                     T, T, T, T, F, T, T, 
+                     T, T, F, T, F, F, T, 
+                     F, F, F, T, F, T, F)
+```
+
+--
+
+As such, you can count the number of `TRUE`s in a vector using `sum()`.
+
+--
+
+
+``` r
+sum(duck_wins_21_22)
+```
+
+```
+## [1] 20
+```
+
+---
+
+# TRUE/FALSE Are Just Numbers
+
+Under the hood, `TRUE` and `FALSE` are really just numbers. Specifically, `TRUE` is 1 and `FALSE` is 0.
+
+
+``` r
+duck_wins_21_22 &lt;- c(T, T, F, T, F, F, T, 
+                     T, F, F, T, F, T, T, 
+                     T, T, T, T, F, T, T, 
+                     T, T, F, T, F, F, T, 
+                     F, F, F, T, F, T, F)
+```
+
+You can also count the number of `FALSE`s using a combination of `!` and `sum()`.
+
+--
+
+
+``` r
+sum(!duck_wins_21_22)
+```
+
+```
+## [1] 15
+```
+
+---
+
+# TRUE/FALSE Are Just Numbers
+
+Under the hood, `TRUE` and `FALSE` are really just numbers. Specifically, `TRUE` is 1 and `FALSE` is 0.
+
+
+``` r
+duck_wins_21_22 &lt;- c(T, T, F, T, F, F, T, 
+                     T, F, F, T, F, T, T, 
+                     T, T, T, T, F, T, T, 
+                     T, T, F, T, F, F, T, 
+                     F, F, F, T, F, T, F)
+```
+
+You can also calculate the proportion of `TRUE`s in a vector with `mean()`.
+
+--
+
+
+``` r
+mean(duck_wins_21_22)
+```
+
+```
+## [1] 0.5714286
+```
+
+---
+
+# Parse Numbers
+
+--
+
+You can use the `parse_number()` function from the `{readr}` package to strip any non-numeric characters in a vector.
+
+
+``` r
+afc_richmond &lt;- c("24 Sam Obisanya",
+                  "Roy Kent 6",
+                  "Jamie 9 Tartt")
+
+parse_number(afc_richmond)
+```
+
+```
+## [1] 24  6  9
+```
+
+---
+
+# Create Interactive Charts
+
+--
+
+You can use the `ggplotly()` function from the `{plotly}` package to create interactive plots.
+
+
+``` r
+plot &lt;- ggplot(mtcars,  aes(x = mpg)) +
+  geom_histogram(fill = "#15758c", color = "white") +
+  labs(y = "Count") + 
+  theme_bw()
+
+ggplotly(plot)
+```
+
+<div class="plotly html-widget html-fill-item" id="htmlwidget-20b5e24ea14e67d9738f" style="width:720px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-20b5e24ea14e67d9738f">{"x":{"data":[{"orientation":"v","width":[0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758622062,0.81034482758620641,0.81034482758620641],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[10.534482758620689,11.344827586206897,12.155172413793103,12.96551724137931,13.775862068965516,14.586206896551722,15.396551724137929,16.206896551724135,17.017241379310342,17.827586206896548,18.637931034482754,19.448275862068964,20.258620689655171,21.068965517241381,21.879310344827587,22.689655172413794,23.5,24.310344827586206,25.120689655172413,25.931034482758619,26.741379310344826,27.551724137931032,28.362068965517238,29.172413793103445,29.982758620689651,30.793103448275858,31.603448275862064,32.41379310344827,33.224137931034484,34.03448275862069],"y":[2,0,0,1,0,2,5,1,1,2,1,3,0,4,1,2,0,1,0,1,0,1,0,0,0,2,0,1,0,1],"text":["count: 2<br />mpg: 10.53448","count: 0<br />mpg: 11.34483","count: 0<br />mpg: 12.15517","count: 1<br />mpg: 12.96552","count: 0<br />mpg: 13.77586","count: 2<br />mpg: 14.58621","count: 5<br />mpg: 15.39655","count: 1<br />mpg: 16.20690","count: 1<br />mpg: 17.01724","count: 2<br />mpg: 17.82759","count: 1<br />mpg: 18.63793","count: 3<br />mpg: 19.44828","count: 0<br />mpg: 20.25862","count: 4<br />mpg: 21.06897","count: 1<br />mpg: 21.87931","count: 2<br />mpg: 22.68966","count: 0<br />mpg: 23.50000","count: 1<br />mpg: 24.31034","count: 0<br />mpg: 25.12069","count: 1<br />mpg: 25.93103","count: 0<br />mpg: 26.74138","count: 1<br />mpg: 27.55172","count: 0<br />mpg: 28.36207","count: 0<br />mpg: 29.17241","count: 0<br />mpg: 29.98276","count: 2<br />mpg: 30.79310","count: 0<br />mpg: 31.60345","count: 1<br />mpg: 32.41379","count: 0<br />mpg: 33.22414","count: 1<br />mpg: 34.03448"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(21,117,140,1)","line":{"width":1.8897637795275593,"color":"rgba(255,255,255,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":34.264840182648406,"r":7.3059360730593621,"b":48.219178082191789,"l":31.415525114155255},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[8.913793103448274,35.655172413793103],"tickmode":"array","ticktext":["10","15","20","25","30","35"],"tickvals":[10,15,20,25,30,35],"categoryorder":"array","categoryarray":["10","15","20","25","30","35"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"mpg","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.25,5.25],"tickmode":"array","ticktext":["0","1","2","3","4","5"],"tickvals":[0,1,2,3,4,5],"categoryorder":"array","categoryarray":["0","1","2","3","4","5"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"a0543dfee975":{"x":{},"type":"bar"}},"cur_data":"a0543dfee975","visdat":{"a0543dfee975":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+---
+
+# Create Animated Plots
+
+--
+
+You can use the `{gganimate}` package to create animated plots.
+
+
+
+``` r
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+```
+
+
+&lt;img src="images/gganimate.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Other Resources
+
+--
+
+Check out the [resources](https://uorbootcamp2024.netlify.app/resources/) page on the [UO R Bootcamp](https://uorbootcamp2024.netlify.app/) website for additional readings, websites, tutorials, and classes!
+
+---
+class: yourturn, center, middle
+# Q &amp; A
+
+<div class="countdown" id="timer_c8475774" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
