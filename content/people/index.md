@@ -1,6 +1,6 @@
 ---
 title: People
-date: 2025-09-21
+date: 2025-09-14
 type: docs
 
 sections:
