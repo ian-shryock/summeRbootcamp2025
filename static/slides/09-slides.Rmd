@@ -53,7 +53,7 @@ knitr::include_graphics("images/psy-logo.png")
 
 # Data Visualization with {ggplot2}
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 
 ---
 background-image: url(images/hex/ggplot2.png)
@@ -786,7 +786,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Eric Ekholm](https://github.com/ekholme/tidytuesday#most-recent-finished-contribution)]
 ```{r echo=FALSE, out.width="60%", fig.align='center'}
@@ -798,7 +798,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Eric Ekholm](https://github.com/ekholme/tidytuesday#most-recent-finished-contribution)]
 
@@ -811,7 +811,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Georgios Karamanis](https://github.com/gkaramanis/tidytuesday#highlights-click-on-image-to-go-to-code-)]
 
@@ -824,7 +824,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Georgios Karamanis](https://github.com/gkaramanis/tidytuesday#highlights-click-on-image-to-go-to-code-)]
 
@@ -837,7 +837,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Jake Kaupp](https://github.com/jkaupp/tidytuesdays)]
 
@@ -850,7 +850,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Georgios Karamanis](https://github.com/gkaramanis/tidytuesday#highlights-click-on-image-to-go-to-code-)]
 
@@ -863,7 +863,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Torsten Sprenger](https://github.com/spren9er/tidytuesday)]
 
@@ -876,7 +876,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Ariane Aumaitre](https://twitter.com/ariamsita?s=20&t=e0M_tAtBxKKKdjlWpykazw)]
 
@@ -889,7 +889,7 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
 .footnote[Image from [Cara Thompson](https://github.com/cararthompson/tidytuesdays)]
 
@@ -902,9 +902,9 @@ background-image: url(images/hex/ggplot2.png)
 background-position: 90% 5%
 background-size: 10%
 
-# Examples `r emo::ji("exploding_head")`
+# Examples `r emoji::emoji("exploding_head")`
 
-.footnote[Image from [Cameron S. Kay](https://twitter.com/cameronskay/status/1552003928295817217/photo/1) `r emo::ji("upside_down_face")`]
+.footnote[Image from [Cameron S. Kay](https://twitter.com/cameronskay/status/1552003928295817217/photo/1) `r emoji::emoji("upside_down_face")`]
 
 ```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics("images/ggplot_ex_10.jpeg")

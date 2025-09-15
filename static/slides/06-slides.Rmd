@@ -53,7 +53,7 @@ knitr::include_graphics("images/psy-logo.png")
 
 # Importing Data & Project-Oriented Workflows
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 
 ---
 
@@ -132,7 +132,7 @@ knitr::include_graphics("images/hex/rio.png")
 
 `import()`
 
-`r emo::ji("check")`
+`r emoji::emoji("check")`
 ]
 ]
 
@@ -174,7 +174,7 @@ If you are working in a `.Rmd` document, R by default will set whatever folder o
 getwd()
 ```
 
-For example, I created these slides in a `.Rmd` document that lives in this folder on my computer `r emo::ji("point_up")`
+For example, I created these slides in a `.Rmd` document that lives in this folder on my computer `r emoji::emoji("point_up")`
 
 ---
 class: split-three
@@ -508,7 +508,82 @@ ncol(another_df)
 
 ]
 ]
- 
+
+
+---
+
+## The Art of File Naming
+
+Replace `paper_final_FINAL_REALLY.docx` with a consistent pattern:
+
+```
+YYYY-MM-DD_ProjectName_DocumentType.ext
+```
+
+**Examples**
+
+```
+2025-01-15_DissertationProposal.docx
+2025-02-03_SurveyData_Raw.csv
+2025-03-10_LitReview_Submitted.pdf
+```
+
+---
+
+## Why this helps
+
+- **Chronological ordering**: files sort by date automatically
+- **Clarity**: purpose is obvious from the name
+- **Searchability**: easier to filter/find by date or keywords
+- **Version control**: clean history even without Git/cloud
+  - Pro tip: Implement a method for backing up your data **before** it's lost
+
+---
+
+## Collaboration & versions
+
+- Add initials for the last editor when useful:  
+  `2025-04-18_InterviewAnalysis_JS.docx`
+- Prefer **cloud version history** (Drive/OneDrive) instead of making duplicates
+
+---
+
+## Structuring Research Projects
+
+Use a numbered, reproducible layout. Everything lives under the root **ProjectName**.
+
+```text
+ProjectName/
+├─ 01_Data/
+│  ├─ Raw/           # original, unmodified data
+│  ├─ Processed/     # cleaned and transformed data
+│  └─ Metadata/      # codebooks, data dictionaries
+├─ 02_Scripts/
+│  ├─ Data_Cleaning/ # code to process raw data
+│  ├─ Analysis/      # statistical analysis scripts
+│  └─ Visualization/ # code for figures and tables
+├─ 03_Output/
+│  ├─ Tables/        # generated results tables
+│  ├─ Figures/       # plots, diagrams, visualizations
+│  └─ Models/        # saved statistical models
+├─ 04_Documents/
+│  ├─ Drafts/        # working papers, draft manuscripts
+│  ├─ Final/         # submitted versions
+│  └─ Feedback/      # reviewer comments, notes
+└─ README.txt        # project overview, navigation guide
+```
+
+> Within each folder, apply the same **file naming** convention.
+
+---
+
+## Why this structure works
+
+- **Reproducibility**: trace from raw data → outputs
+- **Clarity**: inputs, code, and results are separated
+- **Collaboration**: teammates know where things live
+- **Publication**: easier to prep data/code for journals
+
 ---
 class: yourturn, center, middle
 # Q & A

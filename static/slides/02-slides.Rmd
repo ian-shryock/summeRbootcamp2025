@@ -53,7 +53,7 @@ knitr::include_graphics("images/psy-logo.png")
 
 # Data Types & Structures
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 
 
 ---
@@ -345,7 +345,7 @@ This process is called **coercion**. R coerces a vector into whichever type will
 
 --
 
-We can coerce `mixed_vec` to be numeric using `as.numeric()`, but notice what happens to the character values `r emo::ji("eyes")`
+We can coerce `mixed_vec` to be numeric using `as.numeric()`, but notice what happens to the character values `r emoji::emoji("eyes")`
 
 --
 
@@ -691,7 +691,7 @@ kendrick_lamar
 --
 ***
 
-Notice that `[[1]]`, `[[2]]`, and `[[3]]`, the element indices, have been replaced by the names `name`, `height` and `grammy` `r emo::ji("eyes")`
+Notice that `[[1]]`, `[[2]]`, and `[[3]]`, the element indices, have been replaced by the names `name`, `height` and `grammy` `r emoji::emoji("eyes")`
 
 ---
 # Creating Lists

@@ -4,7 +4,7 @@
   cursor: pointer;
   font-size: 3rem;
   line-height: 1;
-  border-color: #FEE123;
+  border-color: #ddd;
   border-width: 3px;
   border-style: solid;
   border-radius: 15px;
@@ -30,7 +30,7 @@
   padding: 0;
 }
 .countdown-digits {
-  color: #FEE123;
+  color: inherit;
 }
 .countdown.running {
   border-color: #2A9B59FF;

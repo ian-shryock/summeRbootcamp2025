@@ -52,7 +52,7 @@ knitr::include_graphics("images/psy-logo.png")
 
 # Data Wrangling with {dplyr}
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 
 ---
 background-image: url(images/hex/tidyverse.png)
@@ -463,7 +463,7 @@ Here are some commonly used ones:
 `contains()`: Contains a literal string.
 
 
-.footnote[`r emo::ji("link")` https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html#overview-of-selection-features]
+.footnote[`r emoji::emoji("link")` https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html#overview-of-selection-features]
 
 ---
 background-image: url(images/hex/dplyr.png)
@@ -815,7 +815,7 @@ What if we want to apply `{dplyr}` verbs across multiple columns and rows **simu
 knitr::include_url("https://dplyr-wisely.netlify.app/")
 ```
 
-.footnote[`r emo::ji("link")` [dplyr-wisely.netlify.app](https://dplyr-wisely.netlify.app/)]
+.footnote[`r emoji::emoji("link")` [dplyr-wisely.netlify.app](https://dplyr-wisely.netlify.app/)]
 
 ---
 class: yourturn, center, middle

@@ -61,7 +61,7 @@ knitr::include_graphics("images/psy-logo.png")
 
 # R Tips & Tricks
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 
 ---
 

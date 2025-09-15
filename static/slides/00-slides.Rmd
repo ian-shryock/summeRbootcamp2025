@@ -351,3 +351,23 @@ class: inverse, center, middle
 
 # Let's get started!
 
+---
+
+
+class: center
+
+# Can't an LLM do this for me? `r emoji::emoji('robot')`
+
+.pull-left[
+### Learning `r emoji::emoji('books')`
+]
+
+.pull-right[
+### Executing `r emoji::emoji('rocket')`
+]
+
+.pull-center[
+- What is an LLM doing for you right now?
+- What could you be missing out on by **using** it?
+- What could you be missing out on by **not using** it?
+]

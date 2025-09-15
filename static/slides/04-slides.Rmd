@@ -52,7 +52,7 @@ knitr::include_graphics("images/psy-logo.png")
 
 # Piping
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 
 
 ---

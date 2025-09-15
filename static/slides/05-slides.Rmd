@@ -53,7 +53,7 @@ knitr::include_graphics("images/psy-logo.png")
 
 # Introduction to the Tidyverse
 
-UO R Bootcamp 2024
+UO R Bootcamp 2025
 
 
 ---
