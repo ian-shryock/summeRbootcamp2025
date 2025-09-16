@@ -1,7 +1,7 @@
 ---
 title: 02 - Data Types & Structures
 author: ''
-date: 2024-09-21
+date: 2025-09-14
 weight: 3
 slug: []
 categories: []
